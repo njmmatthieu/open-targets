@@ -13,6 +13,7 @@ from open_targets.data.schema import (
     FieldDiseaseToPhenotypeEvidenceElementReferencesElement,
     FieldDiseaseToPhenotypePhenotype,
 )
+from open_targets.definition.helper import get_arrow_expression
 
 edge_evidence_has_reference: Final[AcquisitionDefinition[EdgeInfo]] = ExpressionEdgeAcquisitionDefinition(
     scan_operation=ExplodingScanOperation(

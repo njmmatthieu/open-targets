@@ -12,6 +12,7 @@ from open_targets.data.schema import (
     FieldIndicationIndications,
     FieldIndicationIndicationsElementDisease,
 )
+from open_targets.definition.helper import get_arrow_expression
 
 edge_drug_has_indication: Final[AcquisitionDefinition[EdgeInfo]] = ExpressionEdgeAcquisitionDefinition(
     scan_operation=ExplodingScanOperation(

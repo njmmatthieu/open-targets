@@ -12,6 +12,7 @@ from open_targets.data.schema import (
     FieldInteractionEvidenceTargetA,
     FieldInteractionEvidenceTargetB,
 )
+from open_targets.definition.helper import get_arrow_expression
 
 edge_target_target_has_evidence: Final[AcquisitionDefinition[EdgeInfo]] = ExpressionEdgeAcquisitionDefinition(
     scan_operation=RowScanOperation(dataset=DatasetInteractionEvidence),
