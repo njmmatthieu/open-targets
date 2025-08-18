@@ -3,6 +3,7 @@
 from typing import Final
 
 from open_targets.adapter.acquisition_definition import AcquisitionDefinition, ExpressionEdgeAcquisitionDefinition
+from open_targets.adapter.expression import NewUuidExpression
 from open_targets.adapter.output import EdgeInfo
 from open_targets.adapter.scan_operation import ExplodingScanOperation
 from open_targets.data.schema import (
@@ -18,13 +19,7 @@ edge_target_has_essentiality: Final[AcquisitionDefinition[EdgeInfo]] = Expressio
         dataset=DatasetTargetEssentiality,
         exploded_field=FieldTargetEssentialityGeneEssentialityElementDepMapEssentialityElementScreens,
     ),
-    primary_id=get_arrow_expression(
-        FieldTargetEssentialityId,
-        get_arrow_expression(
-            FieldTargetEssentialityId,
-            FieldTargetEssentialityGeneEssentialityElementDepMapEssentialityElementScreensElementDepmapId,
-        ),
-    ),
+    primary_id=NewUuidExpression(),
     source=FieldTargetEssentialityId,
     target=get_arrow_expression(
         FieldTargetEssentialityId,

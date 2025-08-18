@@ -3,7 +3,7 @@
 from typing import Final
 
 from open_targets.adapter.acquisition_definition import AcquisitionDefinition, ExpressionEdgeAcquisitionDefinition
-from open_targets.adapter.expression import BuildCurieExpression, FieldExpression, LiteralExpression
+from open_targets.adapter.expression import NewUuidExpression
 from open_targets.adapter.output import EdgeInfo
 from open_targets.adapter.scan_operation import ExplodingScanOperation
 from open_targets.data.schema import (
@@ -12,25 +12,15 @@ from open_targets.data.schema import (
     FieldPharmacogenomicsLiteratureElement,
     FieldPharmacogenomicsStudyId,
 )
-from open_targets.definition.helper import get_arrow_expression
 
 edge_pharmacogenomics_has_literature: Final[AcquisitionDefinition[EdgeInfo]] = ExpressionEdgeAcquisitionDefinition(
     scan_operation=ExplodingScanOperation(
         dataset=DatasetPharmacogenomics,
         exploded_field=FieldPharmacogenomicsLiterature,
     ),
-    primary_id=get_arrow_expression(
-        FieldPharmacogenomicsStudyId,
-        BuildCurieExpression(
-            prefix=LiteralExpression("pubmed"),
-            reference=FieldExpression(FieldPharmacogenomicsLiteratureElement),
-        ),
-    ),
+    primary_id=NewUuidExpression(),
     source=FieldPharmacogenomicsStudyId,
-    target=BuildCurieExpression(
-        prefix=LiteralExpression("pubmed"),
-        reference=FieldExpression(FieldPharmacogenomicsLiteratureElement),
-    ),
+    target=FieldPharmacogenomicsLiteratureElement,
     label="HAS_LITERATURE",
     properties=[],
 )

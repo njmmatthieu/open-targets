@@ -3,6 +3,7 @@
 from typing import Final
 
 from open_targets.adapter.acquisition_definition import AcquisitionDefinition, ExpressionEdgeAcquisitionDefinition
+from open_targets.adapter.expression import NewUuidExpression
 from open_targets.adapter.output import EdgeInfo
 from open_targets.adapter.scan_operation import ExplodingScanOperation
 from open_targets.data.schema import (
@@ -19,10 +20,7 @@ edge_mechanism_has_reference: Final[AcquisitionDefinition[EdgeInfo]] = Expressio
         dataset=DatasetMechanismOfAction,
         exploded_field=FieldMechanismOfActionReferences,
     ),
-    primary_id=get_arrow_expression(
-        get_arrow_expression(FieldMechanismOfActionChemblIdsElement, FieldMechanismOfActionMechanismOfAction),
-        FieldMechanismOfActionReferencesElementIdsElement,
-    ),
+    primary_id=NewUuidExpression(),
     source=get_arrow_expression(FieldMechanismOfActionChemblIdsElement, FieldMechanismOfActionMechanismOfAction),
     target=FieldMechanismOfActionReferencesElementIdsElement,
     label="HAS_REFERENCE",

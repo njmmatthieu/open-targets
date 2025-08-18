@@ -3,6 +3,7 @@
 from typing import Final
 
 from open_targets.adapter.acquisition_definition import AcquisitionDefinition, ExpressionEdgeAcquisitionDefinition
+from open_targets.adapter.expression import NewUuidExpression
 from open_targets.adapter.output import EdgeInfo
 from open_targets.adapter.scan_operation import ExplodingScanOperation
 from open_targets.data.schema import (
@@ -18,10 +19,7 @@ edge_molecule_has_mechanism: Final[AcquisitionDefinition[EdgeInfo]] = Expression
         dataset=DatasetMechanismOfAction,
         exploded_field=FieldMechanismOfActionChemblIds,
     ),
-    primary_id=get_arrow_expression(
-        FieldMechanismOfActionChemblIdsElement,
-        get_arrow_expression(FieldMechanismOfActionChemblIdsElement, FieldMechanismOfActionMechanismOfAction),
-    ),
+    primary_id=NewUuidExpression(),
     source=FieldMechanismOfActionChemblIdsElement,
     target=get_arrow_expression(FieldMechanismOfActionChemblIdsElement, FieldMechanismOfActionMechanismOfAction),
     label="HAS_MECHANISM",
