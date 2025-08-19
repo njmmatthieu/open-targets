@@ -13,6 +13,7 @@ python = "^3.10"
 bioregistry = "^0.12.13"
 biocypher = "^0.9.4"
 duckdb = "^1.2.2"
+xxhash = "^3.5.0"
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^8.3.5"
