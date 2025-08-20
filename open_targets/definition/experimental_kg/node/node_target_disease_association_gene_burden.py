@@ -1,0 +1,82 @@
+"""Acquisition definition that acquires nodes of Gene Burden evidence."""
+
+from typing import Final
+
+from open_targets.adapter.acquisition_definition import AcquisitionDefinition, ExpressionNodeAcquisitionDefinition
+from open_targets.adapter.output import NodeInfo
+from open_targets.adapter.scan_operation import RowScanOperation
+from open_targets.adapter.scan_operation_predicate import PushdownEqualityPredicate
+from open_targets.data.schema import (
+    DatasetEvidence,
+    FieldEvidenceAllelicRequirements,
+    FieldEvidenceAncestry,
+    FieldEvidenceAncestryId,
+    FieldEvidenceBeta,
+    FieldEvidenceBetaConfidenceIntervalLower,
+    FieldEvidenceBetaConfidenceIntervalUpper,
+    FieldEvidenceCohortId,
+    FieldEvidenceDatasourceId,
+    FieldEvidenceDirectionOnTrait,
+    FieldEvidenceDiseaseFromSource,
+    FieldEvidenceDiseaseFromSourceId,
+    FieldEvidenceId,
+    FieldEvidenceLiterature,
+    FieldEvidenceOddsRatio,
+    FieldEvidenceOddsRatioConfidenceIntervalLower,
+    FieldEvidenceOddsRatioConfidenceIntervalUpper,
+    FieldEvidenceProjectId,
+    FieldEvidencePValueExponent,
+    FieldEvidencePValueMantissa,
+    FieldEvidenceReleaseVersion,
+    FieldEvidenceResourceScore,
+    FieldEvidenceScore,
+    FieldEvidenceSex,
+    FieldEvidenceStatisticalMethod,
+    FieldEvidenceStatisticalMethodOverview,
+    FieldEvidenceStudyCases,
+    FieldEvidenceStudyCasesWithQualifyingVariants,
+    FieldEvidenceStudySampleSize,
+    FieldEvidenceUrls,
+    FieldEvidenceVariantEffect,
+)
+
+node_target_disease_association_gene_burden: Final[AcquisitionDefinition[NodeInfo]] = (
+    ExpressionNodeAcquisitionDefinition(
+        scan_operation=RowScanOperation(
+            dataset=DatasetEvidence,
+            predicate=PushdownEqualityPredicate(FieldEvidenceDatasourceId, "gene_burden"),
+        ),
+        primary_id=FieldEvidenceId,
+        label="TARGET_DISEASE_ASSOCIATION_EVIDENCED_BY_GENE_BURDEN",
+        properties=[
+            FieldEvidenceAllelicRequirements,
+            FieldEvidenceAncestry,
+            FieldEvidenceAncestryId,
+            FieldEvidenceBeta,
+            FieldEvidenceBetaConfidenceIntervalLower,
+            FieldEvidenceBetaConfidenceIntervalUpper,
+            FieldEvidenceCohortId,
+            FieldEvidenceDirectionOnTrait,
+            FieldEvidenceDiseaseFromSource,
+            FieldEvidenceDiseaseFromSourceId,
+            FieldEvidenceLiterature,
+            FieldEvidenceOddsRatio,
+            FieldEvidenceOddsRatioConfidenceIntervalLower,
+            FieldEvidenceOddsRatioConfidenceIntervalUpper,
+            FieldEvidencePValueExponent,
+            FieldEvidencePValueMantissa,
+            FieldEvidenceProjectId,
+            FieldEvidenceReleaseVersion,
+            FieldEvidenceResourceScore,
+            FieldEvidenceScore,
+            FieldEvidenceSex,
+            FieldEvidenceStatisticalMethod,
+            FieldEvidenceStatisticalMethodOverview,
+            FieldEvidenceStudyCases,
+            FieldEvidenceStudyCasesWithQualifyingVariants,
+            FieldEvidenceStudySampleSize,
+            FieldEvidenceUrls,
+            FieldEvidenceVariantEffect,
+        ],
+    )
+)

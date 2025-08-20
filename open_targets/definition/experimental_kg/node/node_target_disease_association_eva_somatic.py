@@ -1,0 +1,60 @@
+"""Acquisition definition that acquires nodes of EVA Somatic evidence."""
+
+from typing import Final
+
+from open_targets.adapter.acquisition_definition import AcquisitionDefinition, ExpressionNodeAcquisitionDefinition
+from open_targets.adapter.output import NodeInfo
+from open_targets.adapter.scan_operation import RowScanOperation
+from open_targets.adapter.scan_operation_predicate import PushdownEqualityPredicate
+from open_targets.data.schema import (
+    DatasetEvidence,
+    FieldEvidenceAlleleOrigins,
+    FieldEvidenceAllelicRequirements,
+    FieldEvidenceClinicalSignificances,
+    FieldEvidenceCohortPhenotypes,
+    FieldEvidenceConfidence,
+    FieldEvidenceDatasourceId,
+    FieldEvidenceDirectionOnTrait,
+    FieldEvidenceDiseaseFromSource,
+    FieldEvidenceDiseaseFromSourceId,
+    FieldEvidenceId,
+    FieldEvidenceLiterature,
+    FieldEvidenceReleaseDate,
+    FieldEvidenceScore,
+    FieldEvidenceStudyId,
+    FieldEvidenceVariantEffect,
+    FieldEvidenceVariantFunctionalConsequenceId,
+    FieldEvidenceVariantHgvsId,
+    FieldEvidenceVariantId,
+    FieldEvidenceVariantRsId,
+)
+
+node_target_disease_association_eva_somatic: Final[AcquisitionDefinition[NodeInfo]] = (
+    ExpressionNodeAcquisitionDefinition(
+        scan_operation=RowScanOperation(
+            dataset=DatasetEvidence,
+            predicate=PushdownEqualityPredicate(FieldEvidenceDatasourceId, "eva_somatic"),
+        ),
+        primary_id=FieldEvidenceId,
+        label="TARGET_DISEASE_ASSOCIATION_EVIDENCED_BY_EVA_SOMATIC",
+        properties=[
+            FieldEvidenceAlleleOrigins,
+            FieldEvidenceAllelicRequirements,
+            FieldEvidenceClinicalSignificances,
+            FieldEvidenceCohortPhenotypes,
+            FieldEvidenceConfidence,
+            FieldEvidenceDirectionOnTrait,
+            FieldEvidenceDiseaseFromSource,
+            FieldEvidenceDiseaseFromSourceId,
+            FieldEvidenceLiterature,
+            FieldEvidenceReleaseDate,
+            FieldEvidenceScore,
+            FieldEvidenceStudyId,
+            FieldEvidenceVariantEffect,
+            FieldEvidenceVariantFunctionalConsequenceId,
+            FieldEvidenceVariantHgvsId,
+            FieldEvidenceVariantId,
+            FieldEvidenceVariantRsId,
+        ],
+    )
+)

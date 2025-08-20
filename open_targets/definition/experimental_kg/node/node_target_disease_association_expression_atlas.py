@@ -1,0 +1,46 @@
+"""Acquisition definition that acquires nodes of Expression Atlas evidence."""
+
+from typing import Final
+
+from open_targets.adapter.acquisition_definition import AcquisitionDefinition, ExpressionNodeAcquisitionDefinition
+from open_targets.adapter.output import NodeInfo
+from open_targets.adapter.scan_operation import RowScanOperation
+from open_targets.adapter.scan_operation_predicate import PushdownEqualityPredicate
+from open_targets.data.schema import (
+    DatasetEvidence,
+    FieldEvidenceBiosamplesFromSource,
+    FieldEvidenceConfidence,
+    FieldEvidenceContrast,
+    FieldEvidenceDatasourceId,
+    FieldEvidenceId,
+    FieldEvidenceLiterature,
+    FieldEvidenceLog2FoldChangePercentileRank,
+    FieldEvidenceLog2FoldChangeValue,
+    FieldEvidenceResourceScore,
+    FieldEvidenceScore,
+    FieldEvidenceStudyId,
+    FieldEvidenceStudyOverview,
+)
+
+node_target_disease_association_expression_atlas: Final[AcquisitionDefinition[NodeInfo]] = (
+    ExpressionNodeAcquisitionDefinition(
+        scan_operation=RowScanOperation(
+            dataset=DatasetEvidence,
+            predicate=PushdownEqualityPredicate(FieldEvidenceDatasourceId, "expression_atlas"),
+        ),
+        primary_id=FieldEvidenceId,
+        label="TARGET_DISEASE_ASSOCIATION_EVIDENCED_BY_EXPRESSION_ATLAS",
+        properties=[
+            FieldEvidenceBiosamplesFromSource,
+            FieldEvidenceConfidence,
+            FieldEvidenceContrast,
+            FieldEvidenceLiterature,
+            FieldEvidenceLog2FoldChangePercentileRank,
+            FieldEvidenceLog2FoldChangeValue,
+            FieldEvidenceResourceScore,
+            FieldEvidenceScore,
+            FieldEvidenceStudyId,
+            FieldEvidenceStudyOverview,
+        ],
+    )
+)
