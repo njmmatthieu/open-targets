@@ -13,6 +13,7 @@ from open_targets.data.schema import (
     FieldEvidenceCrisprScreenLibrary,
     FieldEvidenceDatasourceId,
     FieldEvidenceDiseaseFromSource,
+    FieldEvidenceDiseaseFromSourceMappedId,
     FieldEvidenceGeneticBackground,
     FieldEvidenceId,
     FieldEvidenceLog2FoldChangeValue,
@@ -22,6 +23,7 @@ from open_targets.data.schema import (
     FieldEvidenceStatisticalTestTail,
     FieldEvidenceStudyId,
     FieldEvidenceStudyOverview,
+    FieldEvidenceTargetFromSourceId,
 )
 
 node_target_disease_association_crispr_screen: Final[AcquisitionDefinition[NodeInfo]] = (
@@ -31,12 +33,13 @@ node_target_disease_association_crispr_screen: Final[AcquisitionDefinition[NodeI
             predicate=PushdownEqualityPredicate(FieldEvidenceDatasourceId, "crispr_screen"),
         ),
         primary_id=FieldEvidenceId,
-        label="TARGET_DISEASE_ASSOCIATION_EVIDENCED_BY_CRISPR_SCREEN",
+        label="TARGET_DISEASE_ASSOCIATION_CRISPR_SCREEN",
         properties=[
             FieldEvidenceCellType,
             FieldEvidenceContrast,
             FieldEvidenceCrisprScreenLibrary,
             FieldEvidenceDiseaseFromSource,
+            FieldEvidenceDiseaseFromSourceMappedId,
             FieldEvidenceGeneticBackground,
             FieldEvidenceLog2FoldChangeValue,
             FieldEvidenceProjectId,
@@ -45,6 +48,7 @@ node_target_disease_association_crispr_screen: Final[AcquisitionDefinition[NodeI
             FieldEvidenceStatisticalTestTail,
             FieldEvidenceStudyId,
             FieldEvidenceStudyOverview,
+            FieldEvidenceTargetFromSourceId,
         ],
     )
 )

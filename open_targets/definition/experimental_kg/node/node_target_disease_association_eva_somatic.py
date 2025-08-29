@@ -1,4 +1,4 @@
-"""Acquisition definition that acquires nodes of EVA Somatic evidence."""
+"""Acquisition definition that acquires nodes of EVA evidence."""
 
 from typing import Final
 
@@ -17,11 +17,12 @@ from open_targets.data.schema import (
     FieldEvidenceDirectionOnTrait,
     FieldEvidenceDiseaseFromSource,
     FieldEvidenceDiseaseFromSourceId,
+    FieldEvidenceDiseaseFromSourceMappedId,
     FieldEvidenceId,
-    FieldEvidenceLiterature,
     FieldEvidenceReleaseDate,
     FieldEvidenceScore,
     FieldEvidenceStudyId,
+    FieldEvidenceTargetFromSourceId,
     FieldEvidenceVariantEffect,
     FieldEvidenceVariantFunctionalConsequenceId,
     FieldEvidenceVariantHgvsId,
@@ -36,7 +37,7 @@ node_target_disease_association_eva_somatic: Final[AcquisitionDefinition[NodeInf
             predicate=PushdownEqualityPredicate(FieldEvidenceDatasourceId, "eva_somatic"),
         ),
         primary_id=FieldEvidenceId,
-        label="TARGET_DISEASE_ASSOCIATION_EVIDENCED_BY_EVA_SOMATIC",
+        label="TARGET_DISEASE_ASSOCIATION_EVA_SOMATIC",
         properties=[
             FieldEvidenceAlleleOrigins,
             FieldEvidenceAllelicRequirements,
@@ -46,10 +47,11 @@ node_target_disease_association_eva_somatic: Final[AcquisitionDefinition[NodeInf
             FieldEvidenceDirectionOnTrait,
             FieldEvidenceDiseaseFromSource,
             FieldEvidenceDiseaseFromSourceId,
-            FieldEvidenceLiterature,
+            FieldEvidenceDiseaseFromSourceMappedId,
             FieldEvidenceReleaseDate,
             FieldEvidenceScore,
             FieldEvidenceStudyId,
+            FieldEvidenceTargetFromSourceId,
             FieldEvidenceVariantEffect,
             FieldEvidenceVariantFunctionalConsequenceId,
             FieldEvidenceVariantHgvsId,

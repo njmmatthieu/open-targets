@@ -5,24 +5,26 @@ from typing import Final
 from open_targets.adapter.acquisition_definition import AcquisitionDefinition, ExpressionEdgeAcquisitionDefinition
 from open_targets.adapter.expression import NewUuidExpression
 from open_targets.adapter.output import EdgeInfo
-from open_targets.adapter.scan_operation import ExplodingScanOperation
+from open_targets.adapter.scan_operation import RowScanOperation
+from open_targets.adapter.scan_operation_predicate import PushdownEqualityPredicate
 from open_targets.data.schema import (
     DatasetEvidence,
+    FieldEvidenceDatasourceId,
     FieldEvidenceId,
-    FieldEvidencePathways,
-    FieldEvidencePathwaysElementId,
+    FieldEvidenceReactionId,
 )
+from open_targets.definition.experimental_kg.constant import EdgeLabel
 
-edge_target_disease_association_has_pathway: Final[AcquisitionDefinition[EdgeInfo]] = (
+edge_target_disease_association_inferred_from_reaction: Final[AcquisitionDefinition[EdgeInfo]] = (
     ExpressionEdgeAcquisitionDefinition(
-        scan_operation=ExplodingScanOperation(
+        scan_operation=RowScanOperation(
             dataset=DatasetEvidence,
-            exploded_field=FieldEvidencePathways,
+            predicate=PushdownEqualityPredicate(FieldEvidenceDatasourceId, "reactome"),
         ),
         primary_id=NewUuidExpression(),
         source=FieldEvidenceId,
-        target=FieldEvidencePathwaysElementId,
-        label="TARGET_DISEASE_ASSOCIATION_EVIDENCED_BY_HAS_PATHWAY",
+        target=FieldEvidenceReactionId,
+        label=EdgeLabel.INFERRED_FROM,
         properties=[],
     )
 )

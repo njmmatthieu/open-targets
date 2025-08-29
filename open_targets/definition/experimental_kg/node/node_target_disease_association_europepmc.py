@@ -9,10 +9,11 @@ from open_targets.adapter.scan_operation_predicate import PushdownEqualityPredic
 from open_targets.data.schema import (
     DatasetEvidence,
     FieldEvidenceDatasourceId,
+    FieldEvidenceDiseaseFromSourceMappedId,
     FieldEvidenceId,
-    FieldEvidencePublicationYear,
     FieldEvidenceResourceScore,
     FieldEvidenceScore,
+    FieldEvidenceTargetFromSourceId,
 )
 
 node_target_disease_association_europepmc: Final[AcquisitionDefinition[NodeInfo]] = ExpressionNodeAcquisitionDefinition(
@@ -21,10 +22,11 @@ node_target_disease_association_europepmc: Final[AcquisitionDefinition[NodeInfo]
         predicate=PushdownEqualityPredicate(FieldEvidenceDatasourceId, "europepmc"),
     ),
     primary_id=FieldEvidenceId,
-    label="TARGET_DISEASE_ASSOCIATION_EVIDENCED_BY_EUROPEPMC",
+    label="TARGET_DISEASE_ASSOCIATION_EUROPEPMC",
     properties=[
-        FieldEvidencePublicationYear,
+        FieldEvidenceDiseaseFromSourceMappedId,
         FieldEvidenceResourceScore,
         FieldEvidenceScore,
+        FieldEvidenceTargetFromSourceId,
     ],
 )

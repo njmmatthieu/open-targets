@@ -12,8 +12,9 @@ from open_targets.data.schema import (
     FieldHpoParents,
     FieldHpoParentsElement,
 )
+from open_targets.definition.experimental_kg.constant import EdgeLabel
 
-edge_phenotype_is_a: Final[AcquisitionDefinition[EdgeInfo]] = ExpressionEdgeAcquisitionDefinition(
+edge_phenotype_is_a_phenotype: Final[AcquisitionDefinition[EdgeInfo]] = ExpressionEdgeAcquisitionDefinition(
     scan_operation=ExplodingScanOperation(
         dataset=DatasetHpo,
         exploded_field=FieldHpoParents,
@@ -21,6 +22,6 @@ edge_phenotype_is_a: Final[AcquisitionDefinition[EdgeInfo]] = ExpressionEdgeAcqu
     primary_id=NewUuidExpression(),
     source=FieldHpoId,
     target=FieldHpoParentsElement,
-    label="IS_A",
+    label=EdgeLabel.IS_A,
     properties=[],
 )

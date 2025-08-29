@@ -12,6 +12,7 @@ from open_targets.data.schema import (
     FieldEvidenceConfidence,
     FieldEvidenceContrast,
     FieldEvidenceDatasourceId,
+    FieldEvidenceDiseaseFromSourceMappedId,
     FieldEvidenceId,
     FieldEvidenceLiterature,
     FieldEvidenceLog2FoldChangePercentileRank,
@@ -20,6 +21,7 @@ from open_targets.data.schema import (
     FieldEvidenceScore,
     FieldEvidenceStudyId,
     FieldEvidenceStudyOverview,
+    FieldEvidenceTargetFromSourceId,
 )
 
 node_target_disease_association_expression_atlas: Final[AcquisitionDefinition[NodeInfo]] = (
@@ -29,18 +31,20 @@ node_target_disease_association_expression_atlas: Final[AcquisitionDefinition[No
             predicate=PushdownEqualityPredicate(FieldEvidenceDatasourceId, "expression_atlas"),
         ),
         primary_id=FieldEvidenceId,
-        label="TARGET_DISEASE_ASSOCIATION_EVIDENCED_BY_EXPRESSION_ATLAS",
+        label="TARGET_DISEASE_ASSOCIATION_EXPRESSION_ATLAS",
         properties=[
             FieldEvidenceBiosamplesFromSource,
             FieldEvidenceConfidence,
             FieldEvidenceContrast,
             FieldEvidenceLiterature,
+            FieldEvidenceDiseaseFromSourceMappedId,
             FieldEvidenceLog2FoldChangePercentileRank,
             FieldEvidenceLog2FoldChangeValue,
             FieldEvidenceResourceScore,
             FieldEvidenceScore,
             FieldEvidenceStudyId,
             FieldEvidenceStudyOverview,
+            FieldEvidenceTargetFromSourceId,
         ],
     )
 )

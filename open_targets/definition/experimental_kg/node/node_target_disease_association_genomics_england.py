@@ -14,11 +14,12 @@ from open_targets.data.schema import (
     FieldEvidenceDatasourceId,
     FieldEvidenceDiseaseFromSource,
     FieldEvidenceDiseaseFromSourceId,
+    FieldEvidenceDiseaseFromSourceMappedId,
     FieldEvidenceId,
-    FieldEvidenceLiterature,
     FieldEvidenceScore,
     FieldEvidenceStudyId,
     FieldEvidenceStudyOverview,
+    FieldEvidenceTargetFromSourceId,
 )
 
 node_target_disease_association_genomics_england: Final[AcquisitionDefinition[NodeInfo]] = (
@@ -28,17 +29,18 @@ node_target_disease_association_genomics_england: Final[AcquisitionDefinition[No
             predicate=PushdownEqualityPredicate(FieldEvidenceDatasourceId, "genomics_england"),
         ),
         primary_id=FieldEvidenceId,
-        label="TARGET_DISEASE_ASSOCIATION_EVIDENCED_BY_GENOMICS_ENGLAND",
+        label="TARGET_DISEASE_ASSOCIATION_GENOMICS_ENGLAND",
         properties=[
             FieldEvidenceAllelicRequirements,
             FieldEvidenceCohortPhenotypes,
             FieldEvidenceConfidence,
             FieldEvidenceDiseaseFromSource,
             FieldEvidenceDiseaseFromSourceId,
-            FieldEvidenceLiterature,
+            FieldEvidenceDiseaseFromSourceMappedId,
             FieldEvidenceScore,
             FieldEvidenceStudyId,
             FieldEvidenceStudyOverview,
+            FieldEvidenceTargetFromSourceId,
         ],
     )
 )

@@ -1,4 +1,4 @@
-"""Acquisition definition that acquires nodes of SysBio evidence."""
+"""Acquisition definition that acquires nodes of Cancer Biomarkers evidence."""
 
 from typing import Final
 
@@ -8,29 +8,37 @@ from open_targets.adapter.scan_operation import RowScanOperation
 from open_targets.adapter.scan_operation_predicate import PushdownEqualityPredicate
 from open_targets.data.schema import (
     DatasetEvidence,
+    FieldEvidenceBiomarkerName,
+    FieldEvidenceBiomarkers,
+    FieldEvidenceConfidence,
     FieldEvidenceDatasourceId,
     FieldEvidenceDiseaseFromSource,
+    FieldEvidenceDrugFromSource,
+    FieldEvidenceDrugId,
+    FieldEvidenceDrugResponse,
     FieldEvidenceId,
     FieldEvidenceLiterature,
-    FieldEvidencePathways,
-    FieldEvidenceResourceScore,
     FieldEvidenceScore,
-    FieldEvidenceStudyOverview,
+    FieldEvidenceUrls,
 )
 
-node_target_disease_association_sysbio: Final[AcquisitionDefinition[NodeInfo]] = ExpressionNodeAcquisitionDefinition(
+node_cancer_biomarker: Final[AcquisitionDefinition[NodeInfo]] = ExpressionNodeAcquisitionDefinition(
     scan_operation=RowScanOperation(
         dataset=DatasetEvidence,
-        predicate=PushdownEqualityPredicate(FieldEvidenceDatasourceId, "sysbio"),
+        predicate=PushdownEqualityPredicate(FieldEvidenceDatasourceId, "cancer_biomarkers"),
     ),
     primary_id=FieldEvidenceId,
-    label="TARGET_DISEASE_ASSOCIATION_EVIDENCED_BY_SYSBIO",
+    label="TARGET_DISEASE_ASSOCIATION_EVIDENCED_BY_CANCER_BIOMARKERS",
     properties=[
+        FieldEvidenceBiomarkerName,
+        FieldEvidenceBiomarkers,
+        FieldEvidenceConfidence,
         FieldEvidenceDiseaseFromSource,
+        FieldEvidenceDrugFromSource,
+        FieldEvidenceDrugId,
+        FieldEvidenceDrugResponse,
         FieldEvidenceLiterature,
-        FieldEvidencePathways,
-        FieldEvidenceResourceScore,
         FieldEvidenceScore,
-        FieldEvidenceStudyOverview,
+        FieldEvidenceUrls,
     ],
 )

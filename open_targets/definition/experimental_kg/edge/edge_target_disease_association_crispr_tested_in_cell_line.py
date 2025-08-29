@@ -6,23 +6,27 @@ from open_targets.adapter.acquisition_definition import AcquisitionDefinition, E
 from open_targets.adapter.expression import NewUuidExpression
 from open_targets.adapter.output import EdgeInfo
 from open_targets.adapter.scan_operation import ExplodingScanOperation
+from open_targets.adapter.scan_operation_predicate import PushdownEqualityPredicate
 from open_targets.data.schema import (
     DatasetEvidence,
+    FieldEvidenceDatasourceId,
     FieldEvidenceDiseaseCellLines,
     FieldEvidenceDiseaseCellLinesElementId,
     FieldEvidenceId,
 )
+from open_targets.definition.experimental_kg.constant import EdgeLabel
 
-edge_target_disease_association_from_cell_line: Final[AcquisitionDefinition[EdgeInfo]] = (
+edge_target_disease_association_crispr_tested_in_cell_line: Final[AcquisitionDefinition[EdgeInfo]] = (
     ExpressionEdgeAcquisitionDefinition(
         scan_operation=ExplodingScanOperation(
             dataset=DatasetEvidence,
             exploded_field=FieldEvidenceDiseaseCellLines,
+            predicate=PushdownEqualityPredicate(FieldEvidenceDatasourceId, "crispr"),
         ),
         primary_id=NewUuidExpression(),
         source=FieldEvidenceId,
         target=FieldEvidenceDiseaseCellLinesElementId,
-        label="TARGET_DISEASE_ASSOCIATION_EVIDENCED_BY_FROM_CELL_LINE",
+        label=EdgeLabel.TESTED_IN,
         properties=[],
     )
 )

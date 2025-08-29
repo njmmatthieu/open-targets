@@ -31,6 +31,9 @@ from open_targets.definition.experimental_kg.expression.target_classification_pr
 from open_targets.definition.experimental_kg.expression.target_database_cross_reference_value_expression import (
     target_database_cross_reference_value_expression,
 )
+from open_targets.definition.experimental_kg.expression.target_disease_association_literature_expression import (
+    target_disease_association_literature_expression,
+)
 from open_targets.definition.experimental_kg.expression.target_target_interaction_primary_id_expression import (
     target_target_interaction_primary_id_expression,
 )
@@ -45,5 +48,6 @@ __all__ = [
     "subcellular_location_primary_id_expression",
     "target_classification_primary_id_expression",
     "target_database_cross_reference_value_expression",
+    "target_disease_association_literature_expression",
     "target_target_interaction_primary_id_expression",
 ]

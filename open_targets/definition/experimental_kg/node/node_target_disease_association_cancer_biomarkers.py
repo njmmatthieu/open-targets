@@ -9,17 +9,12 @@ from open_targets.adapter.scan_operation_predicate import PushdownEqualityPredic
 from open_targets.data.schema import (
     DatasetEvidence,
     FieldEvidenceBiomarkerName,
-    FieldEvidenceBiomarkers,
     FieldEvidenceConfidence,
     FieldEvidenceDatasourceId,
-    FieldEvidenceDiseaseFromSource,
     FieldEvidenceDrugFromSource,
-    FieldEvidenceDrugId,
-    FieldEvidenceDrugResponse,
     FieldEvidenceId,
-    FieldEvidenceLiterature,
     FieldEvidenceScore,
-    FieldEvidenceUrls,
+    FieldEvidenceTargetFromSourceId,
 )
 
 node_target_disease_association_cancer_biomarkers: Final[AcquisitionDefinition[NodeInfo]] = (
@@ -29,18 +24,13 @@ node_target_disease_association_cancer_biomarkers: Final[AcquisitionDefinition[N
             predicate=PushdownEqualityPredicate(FieldEvidenceDatasourceId, "cancer_biomarkers"),
         ),
         primary_id=FieldEvidenceId,
-        label="TARGET_DISEASE_ASSOCIATION_EVIDENCED_BY_CANCER_BIOMARKERS",
+        label="TARGET_DISEASE_ASSOCIATION_CANCER_BIOMARKERS",
         properties=[
             FieldEvidenceBiomarkerName,
-            FieldEvidenceBiomarkers,
             FieldEvidenceConfidence,
-            FieldEvidenceDiseaseFromSource,
             FieldEvidenceDrugFromSource,
-            FieldEvidenceDrugId,
-            FieldEvidenceDrugResponse,
-            FieldEvidenceLiterature,
             FieldEvidenceScore,
-            FieldEvidenceUrls,
+            FieldEvidenceTargetFromSourceId,
         ],
     )
 )

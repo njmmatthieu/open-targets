@@ -12,9 +12,10 @@ from open_targets.data.schema import (
     FieldEvidenceDatasourceId,
     FieldEvidenceDiseaseFromSource,
     FieldEvidenceDiseaseFromSourceId,
+    FieldEvidenceDiseaseFromSourceMappedId,
     FieldEvidenceId,
-    FieldEvidenceLiterature,
     FieldEvidenceScore,
+    FieldEvidenceTargetFromSourceId,
     FieldEvidenceTargetModulation,
 )
 
@@ -25,13 +26,14 @@ node_target_disease_association_uniprot_literature: Final[AcquisitionDefinition[
             predicate=PushdownEqualityPredicate(FieldEvidenceDatasourceId, "uniprot_literature"),
         ),
         primary_id=FieldEvidenceId,
-        label="TARGET_DISEASE_ASSOCIATION_EVIDENCED_BY_UNIPROT_LITERATURE",
+        label="TARGET_DISEASE_ASSOCIATION_UNIPROT_LITERATURE",
         properties=[
             FieldEvidenceConfidence,
             FieldEvidenceDiseaseFromSource,
             FieldEvidenceDiseaseFromSourceId,
-            FieldEvidenceLiterature,
+            FieldEvidenceDiseaseFromSourceMappedId,
             FieldEvidenceScore,
+            FieldEvidenceTargetFromSourceId,
             FieldEvidenceTargetModulation,
         ],
     )

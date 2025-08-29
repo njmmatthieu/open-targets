@@ -7,21 +7,21 @@ from open_targets.adapter.expression import NewUuidExpression
 from open_targets.adapter.output import EdgeInfo
 from open_targets.adapter.scan_operation import RowScanOperation
 from open_targets.data.schema import (
-    DatasetInteractionEvidence,
-    FieldInteractionEvidencePubmedId,
+    DatasetEvidence,
+    FieldEvidenceId,
+    FieldEvidenceTargetId,
 )
 from open_targets.definition.experimental_kg.constant import EdgeLabel
-from open_targets.definition.experimental_kg.expression import (
-    target_target_interaction_primary_id_expression,
-)
 
-edge_target_target_interaction_supported_by: Final[AcquisitionDefinition[EdgeInfo]] = (
+edge_target_subject_of_target_disease_association: Final[AcquisitionDefinition[EdgeInfo]] = (
     ExpressionEdgeAcquisitionDefinition(
-        scan_operation=RowScanOperation(dataset=DatasetInteractionEvidence),
+        scan_operation=RowScanOperation(
+            dataset=DatasetEvidence,
+        ),
         primary_id=NewUuidExpression(),
-        source=target_target_interaction_primary_id_expression,
-        target=FieldInteractionEvidencePubmedId,
-        label=EdgeLabel.SUPPORTED_BY,
+        source=FieldEvidenceTargetId,
+        target=FieldEvidenceId,
+        label=EdgeLabel.SUBJECT_OF,
         properties=[],
     )
 )

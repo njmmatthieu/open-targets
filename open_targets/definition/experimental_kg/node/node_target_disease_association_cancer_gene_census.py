@@ -10,10 +10,12 @@ from open_targets.data.schema import (
     DatasetEvidence,
     FieldEvidenceDatasourceId,
     FieldEvidenceDirectionOnTrait,
+    FieldEvidenceDiseaseFromSourceMappedId,
     FieldEvidenceId,
     FieldEvidenceResourceScore,
     FieldEvidenceScore,
     FieldEvidenceStudyId,
+    FieldEvidenceTargetFromSourceId,
     FieldEvidenceVariantEffect,
 )
 
@@ -24,12 +26,14 @@ node_target_disease_association_cancer_gene_census: Final[AcquisitionDefinition[
             predicate=PushdownEqualityPredicate(FieldEvidenceDatasourceId, "cancer_gene_census"),
         ),
         primary_id=FieldEvidenceId,
-        label="TARGET_DISEASE_ASSOCIATION_EVIDENCED_BY_CANCER_GENE_CENSUS",
+        label="TARGET_DISEASE_ASSOCIATION_CANCER_GENE_CENSUS",
         properties=[
             FieldEvidenceDirectionOnTrait,
+            FieldEvidenceDiseaseFromSourceMappedId,
             FieldEvidenceResourceScore,
             FieldEvidenceScore,
             FieldEvidenceStudyId,
+            FieldEvidenceTargetFromSourceId,
             FieldEvidenceVariantEffect,
         ],
     )

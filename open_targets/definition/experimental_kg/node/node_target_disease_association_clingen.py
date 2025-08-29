@@ -13,9 +13,11 @@ from open_targets.data.schema import (
     FieldEvidenceDatasourceId,
     FieldEvidenceDiseaseFromSource,
     FieldEvidenceDiseaseFromSourceId,
+    FieldEvidenceDiseaseFromSourceMappedId,
     FieldEvidenceId,
     FieldEvidenceScore,
     FieldEvidenceStudyId,
+    FieldEvidenceTargetFromSourceId,
 )
 
 node_target_disease_association_clingen: Final[AcquisitionDefinition[NodeInfo]] = ExpressionNodeAcquisitionDefinition(
@@ -24,13 +26,15 @@ node_target_disease_association_clingen: Final[AcquisitionDefinition[NodeInfo]] 
         predicate=PushdownEqualityPredicate(FieldEvidenceDatasourceId, "clingen"),
     ),
     primary_id=FieldEvidenceId,
-    label="TARGET_DISEASE_ASSOCIATION_EVIDENCED_BY_CLINGEN",
+    label="TARGET_DISEASE_ASSOCIATION_CLINGEN",
     properties=[
         FieldEvidenceAllelicRequirements,
         FieldEvidenceConfidence,
         FieldEvidenceDiseaseFromSource,
         FieldEvidenceDiseaseFromSourceId,
+        FieldEvidenceDiseaseFromSourceMappedId,
         FieldEvidenceScore,
         FieldEvidenceStudyId,
+        FieldEvidenceTargetFromSourceId,
     ],
 )

@@ -10,10 +10,11 @@ from open_targets.data.schema import (
     DatasetEvidence,
     FieldEvidenceDatasourceId,
     FieldEvidenceDiseaseFromSource,
+    FieldEvidenceDiseaseFromSourceMappedId,
     FieldEvidenceId,
-    FieldEvidencePathways,
     FieldEvidenceResourceScore,
     FieldEvidenceScore,
+    FieldEvidenceTargetFromSourceId,
 )
 
 node_target_disease_association_progeny: Final[AcquisitionDefinition[NodeInfo]] = ExpressionNodeAcquisitionDefinition(
@@ -22,11 +23,12 @@ node_target_disease_association_progeny: Final[AcquisitionDefinition[NodeInfo]] 
         predicate=PushdownEqualityPredicate(FieldEvidenceDatasourceId, "progeny"),
     ),
     primary_id=FieldEvidenceId,
-    label="TARGET_DISEASE_ASSOCIATION_EVIDENCED_BY_PROGENY",
+    label="TARGET_DISEASE_ASSOCIATION_PROGENY",
     properties=[
         FieldEvidenceDiseaseFromSource,
-        FieldEvidencePathways,
+        FieldEvidenceDiseaseFromSourceMappedId,
         FieldEvidenceResourceScore,
         FieldEvidenceScore,
+        FieldEvidenceTargetFromSourceId,
     ],
 )

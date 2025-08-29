@@ -10,10 +10,12 @@ from open_targets.data.schema import (
     DatasetEvidence,
     FieldEvidenceDatasourceId,
     FieldEvidenceDiseaseFromSource,
+    FieldEvidenceDiseaseFromSourceMappedId,
     FieldEvidenceId,
     FieldEvidenceResourceScore,
     FieldEvidenceScore,
     FieldEvidenceTargetFromSource,
+    FieldEvidenceTargetFromSourceId,
 )
 
 node_target_disease_association_crispr: Final[AcquisitionDefinition[NodeInfo]] = ExpressionNodeAcquisitionDefinition(
@@ -22,11 +24,13 @@ node_target_disease_association_crispr: Final[AcquisitionDefinition[NodeInfo]] =
         predicate=PushdownEqualityPredicate(FieldEvidenceDatasourceId, "crispr"),
     ),
     primary_id=FieldEvidenceId,
-    label="TARGET_DISEASE_ASSOCIATION_EVIDENCED_BY_CRISPR",
+    label="TARGET_DISEASE_ASSOCIATION_CRISPR",
     properties=[
         FieldEvidenceDiseaseFromSource,
+        FieldEvidenceDiseaseFromSourceMappedId,
         FieldEvidenceResourceScore,
         FieldEvidenceScore,
         FieldEvidenceTargetFromSource,
+        FieldEvidenceTargetFromSourceId,
     ],
 )

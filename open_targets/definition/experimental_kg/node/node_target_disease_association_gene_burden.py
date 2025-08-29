@@ -19,8 +19,8 @@ from open_targets.data.schema import (
     FieldEvidenceDirectionOnTrait,
     FieldEvidenceDiseaseFromSource,
     FieldEvidenceDiseaseFromSourceId,
+    FieldEvidenceDiseaseFromSourceMappedId,
     FieldEvidenceId,
-    FieldEvidenceLiterature,
     FieldEvidenceOddsRatio,
     FieldEvidenceOddsRatioConfidenceIntervalLower,
     FieldEvidenceOddsRatioConfidenceIntervalUpper,
@@ -36,7 +36,7 @@ from open_targets.data.schema import (
     FieldEvidenceStudyCases,
     FieldEvidenceStudyCasesWithQualifyingVariants,
     FieldEvidenceStudySampleSize,
-    FieldEvidenceUrls,
+    FieldEvidenceTargetFromSourceId,
     FieldEvidenceVariantEffect,
 )
 
@@ -47,7 +47,7 @@ node_target_disease_association_gene_burden: Final[AcquisitionDefinition[NodeInf
             predicate=PushdownEqualityPredicate(FieldEvidenceDatasourceId, "gene_burden"),
         ),
         primary_id=FieldEvidenceId,
-        label="TARGET_DISEASE_ASSOCIATION_EVIDENCED_BY_GENE_BURDEN",
+        label="TARGET_DISEASE_ASSOCIATION_GENE_BURDEN",
         properties=[
             FieldEvidenceAllelicRequirements,
             FieldEvidenceAncestry,
@@ -59,7 +59,7 @@ node_target_disease_association_gene_burden: Final[AcquisitionDefinition[NodeInf
             FieldEvidenceDirectionOnTrait,
             FieldEvidenceDiseaseFromSource,
             FieldEvidenceDiseaseFromSourceId,
-            FieldEvidenceLiterature,
+            FieldEvidenceDiseaseFromSourceMappedId,
             FieldEvidenceOddsRatio,
             FieldEvidenceOddsRatioConfidenceIntervalLower,
             FieldEvidenceOddsRatioConfidenceIntervalUpper,
@@ -75,7 +75,7 @@ node_target_disease_association_gene_burden: Final[AcquisitionDefinition[NodeInf
             FieldEvidenceStudyCases,
             FieldEvidenceStudyCasesWithQualifyingVariants,
             FieldEvidenceStudySampleSize,
-            FieldEvidenceUrls,
+            FieldEvidenceTargetFromSourceId,
             FieldEvidenceVariantEffect,
         ],
     )

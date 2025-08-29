@@ -10,10 +10,11 @@ from open_targets.data.schema import (
     DatasetEvidence,
     FieldEvidenceDatasourceId,
     FieldEvidenceDiseaseFromSource,
+    FieldEvidenceDiseaseFromSourceMappedId,
     FieldEvidenceId,
-    FieldEvidencePathways,
     FieldEvidenceResourceScore,
     FieldEvidenceScore,
+    FieldEvidenceTargetFromSourceId,
 )
 
 node_target_disease_association_slapenrich: Final[AcquisitionDefinition[NodeInfo]] = (
@@ -23,12 +24,13 @@ node_target_disease_association_slapenrich: Final[AcquisitionDefinition[NodeInfo
             predicate=PushdownEqualityPredicate(FieldEvidenceDatasourceId, "slapenrich"),
         ),
         primary_id=FieldEvidenceId,
-        label="TARGET_DISEASE_ASSOCIATION_EVIDENCED_BY_SLAPENRICH",
+        label="TARGET_DISEASE_ASSOCIATION_SLAPENRICH",
         properties=[
             FieldEvidenceDiseaseFromSource,
-            FieldEvidencePathways,
+            FieldEvidenceDiseaseFromSourceMappedId,
             FieldEvidenceResourceScore,
             FieldEvidenceScore,
+            FieldEvidenceTargetFromSourceId,
         ],
     )
 )

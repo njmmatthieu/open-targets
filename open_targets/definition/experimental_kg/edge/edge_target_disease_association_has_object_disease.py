@@ -1,4 +1,4 @@
-"""Acquisition definition that acquires edges from evidence to biological models."""
+"""Acquisition definition that acquires edges between diseases and phenotypes."""
 
 from typing import Final
 
@@ -8,17 +8,20 @@ from open_targets.adapter.output import EdgeInfo
 from open_targets.adapter.scan_operation import RowScanOperation
 from open_targets.data.schema import (
     DatasetEvidence,
-    FieldEvidenceBiologicalModelId,
+    FieldEvidenceDiseaseId,
     FieldEvidenceId,
 )
+from open_targets.definition.experimental_kg.constant import EdgeLabel
 
-edge_target_disease_association_has_biological_model: Final[AcquisitionDefinition[EdgeInfo]] = (
+edge_target_disease_association_object_of_disease: Final[AcquisitionDefinition[EdgeInfo]] = (
     ExpressionEdgeAcquisitionDefinition(
-        scan_operation=RowScanOperation(dataset=DatasetEvidence),
+        scan_operation=RowScanOperation(
+            dataset=DatasetEvidence,
+        ),
         primary_id=NewUuidExpression(),
         source=FieldEvidenceId,
-        target=FieldEvidenceBiologicalModelId,
-        label="TARGET_DISEASE_ASSOCIATION_EVIDENCED_BY_HAS_BIOLOGICAL_MODEL",
+        target=FieldEvidenceDiseaseId,
+        label=EdgeLabel.HAS_OBJECT,
         properties=[],
     )
 )
