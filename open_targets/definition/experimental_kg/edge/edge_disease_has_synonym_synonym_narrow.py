@@ -14,7 +14,7 @@ from open_targets.data.schema import (
 )
 from open_targets.definition.experimental_kg.constant import EdgeLabel
 
-edge_disease_has_synonym_narrow: Final[AcquisitionDefinition[EdgeInfo]] = ExpressionEdgeAcquisitionDefinition(
+edge_disease_has_synonym_synonym_narrow: Final[AcquisitionDefinition[EdgeInfo]] = ExpressionEdgeAcquisitionDefinition(
     scan_operation=ExplodingScanOperation(
         dataset=DatasetDiseases,
         exploded_field=FieldDiseasesSynonymsHasNarrowSynonym,

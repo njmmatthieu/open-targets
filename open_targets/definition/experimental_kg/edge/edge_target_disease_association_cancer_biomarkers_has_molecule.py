@@ -16,7 +16,7 @@ from open_targets.data.schema import (
 )
 from open_targets.definition.experimental_kg.constant import EdgeLabel
 
-edge_target_disease_association_cancer_biomarkers_has_drug: Final[AcquisitionDefinition[EdgeInfo]] = (
+edge_target_disease_association_cancer_biomarkers_has_molecule: Final[AcquisitionDefinition[EdgeInfo]] = (
     ExpressionEdgeAcquisitionDefinition(
         scan_operation=ExplodingScanOperation(
             dataset=DatasetEvidence,

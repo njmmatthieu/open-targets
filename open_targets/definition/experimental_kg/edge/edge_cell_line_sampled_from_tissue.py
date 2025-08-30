@@ -25,6 +25,6 @@ edge_cell_line_sampled_from_tissue: Final[AcquisitionDefinition[EdgeInfo]] = Exp
     primary_id=NewUuidExpression(),
     source=FieldEvidenceDiseaseCellLinesElementId,
     target=FieldEvidenceDiseaseCellLinesElementTissueId,
-    label=EdgeLabel.LOCATED_IN,
+    label=EdgeLabel.SAMPLED_FROM,
     properties=[],
 )

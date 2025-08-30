@@ -11,6 +11,8 @@ from open_targets.data.schema import (
     FieldEvidenceBiomarkerName,
     FieldEvidenceConfidence,
     FieldEvidenceDatasourceId,
+    FieldEvidenceDiseaseFromSource,
+    FieldEvidenceDiseaseFromSourceMappedId,
     FieldEvidenceDrugFromSource,
     FieldEvidenceId,
     FieldEvidenceScore,
@@ -28,6 +30,8 @@ node_target_disease_association_cancer_biomarkers: Final[AcquisitionDefinition[N
         properties=[
             FieldEvidenceBiomarkerName,
             FieldEvidenceConfidence,
+            FieldEvidenceDiseaseFromSource,
+            FieldEvidenceDiseaseFromSourceMappedId,
             FieldEvidenceDrugFromSource,
             FieldEvidenceScore,
             FieldEvidenceTargetFromSourceId,

@@ -11,6 +11,7 @@ from open_targets.data.schema import (
     FieldEvidenceBiologicalModelId,
     FieldEvidenceId,
 )
+from open_targets.definition.experimental_kg.constant import EdgeLabel
 
 edge_target_disease_association_derived_from_mouse_model: Final[AcquisitionDefinition[EdgeInfo]] = (
     ExpressionEdgeAcquisitionDefinition(
@@ -18,7 +19,7 @@ edge_target_disease_association_derived_from_mouse_model: Final[AcquisitionDefin
         primary_id=NewUuidExpression(),
         source=FieldEvidenceId,
         target=FieldEvidenceBiologicalModelId,
-        label="TARGET_DISEASE_ASSOCIATION_EVIDENCED_BY_HAS_BIOLOGICAL_MODEL",
+        label=EdgeLabel.INFERRED_FROM,
         properties=[],
     )
 )
