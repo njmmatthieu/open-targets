@@ -11,7 +11,6 @@ from open_targets.data.schema import (
     FieldEvidenceCohortDescription,
     FieldEvidenceCohortId,
     FieldEvidenceCohortShortName,
-    FieldEvidenceDatasourceId,
     FieldEvidenceDirectionOnTrait,
     FieldEvidenceDiseaseFromSource,
     FieldEvidenceDiseaseFromSourceMappedId,
@@ -19,6 +18,7 @@ from open_targets.data.schema import (
     FieldEvidenceResourceScore,
     FieldEvidenceScore,
     FieldEvidenceSignificantDriverMethods,
+    FieldEvidenceSourceId,
     FieldEvidenceTargetFromSourceId,
     FieldEvidenceVariantEffect,
 )
@@ -26,7 +26,7 @@ from open_targets.data.schema import (
 node_target_disease_association_intogen: Final[AcquisitionDefinition[NodeInfo]] = ExpressionNodeAcquisitionDefinition(
     scan_operation=RowScanOperation(
         dataset=DatasetEvidence,
-        predicate=PushdownEqualityPredicate(FieldEvidenceDatasourceId, "intogen"),
+        predicate=PushdownEqualityPredicate(FieldEvidenceSourceId, "intogen"),
     ),
     primary_id=FieldEvidenceId,
     label="TARGET_DISEASE_ASSOCIATION_INTOGEN",

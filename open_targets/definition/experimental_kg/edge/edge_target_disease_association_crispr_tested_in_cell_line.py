@@ -9,10 +9,10 @@ from open_targets.adapter.scan_operation import ExplodingScanOperation
 from open_targets.adapter.scan_operation_predicate import PushdownEqualityPredicate
 from open_targets.data.schema import (
     DatasetEvidence,
-    FieldEvidenceDatasourceId,
     FieldEvidenceDiseaseCellLines,
     FieldEvidenceDiseaseCellLinesElementId,
     FieldEvidenceId,
+    FieldEvidenceSourceId,
 )
 from open_targets.definition.experimental_kg.constant import EdgeLabel
 
@@ -21,7 +21,7 @@ edge_target_disease_association_crispr_tested_in_cell_line: Final[AcquisitionDef
         scan_operation=ExplodingScanOperation(
             dataset=DatasetEvidence,
             exploded_field=FieldEvidenceDiseaseCellLines,
-            predicate=PushdownEqualityPredicate(FieldEvidenceDatasourceId, "crispr"),
+            predicate=PushdownEqualityPredicate(FieldEvidenceSourceId, "crispr"),
         ),
         primary_id=NewUuidExpression(),
         source=FieldEvidenceId,

@@ -9,12 +9,12 @@ from open_targets.adapter.scan_operation_predicate import PushdownEqualityPredic
 from open_targets.data.schema import (
     DatasetEvidence,
     FieldEvidenceConfidence,
-    FieldEvidenceDatasourceId,
     FieldEvidenceDiseaseFromSource,
     FieldEvidenceDiseaseFromSourceId,
     FieldEvidenceDiseaseFromSourceMappedId,
     FieldEvidenceId,
     FieldEvidenceScore,
+    FieldEvidenceSourceId,
     FieldEvidenceTargetFromSourceId,
     FieldEvidenceTargetModulation,
     FieldEvidenceVariantFunctionalConsequenceId,
@@ -26,7 +26,7 @@ node_target_disease_association_uniprot_variants: Final[AcquisitionDefinition[No
     ExpressionNodeAcquisitionDefinition(
         scan_operation=RowScanOperation(
             dataset=DatasetEvidence,
-            predicate=PushdownEqualityPredicate(FieldEvidenceDatasourceId, "uniprot_variants"),
+            predicate=PushdownEqualityPredicate(FieldEvidenceSourceId, "uniprot_variants"),
         ),
         primary_id=FieldEvidenceId,
         label="TARGET_DISEASE_ASSOCIATION_UNIPROT_VARIANTS",

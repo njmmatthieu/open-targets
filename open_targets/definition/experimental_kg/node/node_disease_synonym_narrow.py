@@ -2,7 +2,7 @@
 
 from typing import Final
 
-from open_targets.adapter.acquisition_definition import AcquisitionDefinition
+from open_targets.adapter.acquisition_definition import AcquisitionDefinition, ExpressionNodeAcquisitionDefinition
 from open_targets.adapter.output import NodeInfo
 from open_targets.adapter.scan_operation import ExplodingScanOperation
 from open_targets.data.schema import (
@@ -11,14 +11,16 @@ from open_targets.data.schema import (
     FieldDiseasesSynonymsHasNarrowSynonymElement,
 )
 from open_targets.definition.experimental_kg.constant import Namespace
-from open_targets.definition.helper import get_simple_value_node_definition
+from open_targets.definition.experimental_kg.expression import disease_synonym_narrow_primary_id_expression
 
-node_disease_synonym_narrow: Final[AcquisitionDefinition[NodeInfo]] = get_simple_value_node_definition(
+node_disease_synonym_narrow: Final[AcquisitionDefinition[NodeInfo]] = ExpressionNodeAcquisitionDefinition(
     scan_operation=ExplodingScanOperation(
         dataset=DatasetDiseases,
         exploded_field=FieldDiseasesSynonymsHasNarrowSynonym,
     ),
-    namespace=Namespace.SYNONYM,
-    value_expression=FieldDiseasesSynonymsHasNarrowSynonymElement,
-    label="NARROW_SYNONYM",
+    primary_id=disease_synonym_narrow_primary_id_expression,
+    label=Namespace.DISEASE_SYNONYM,
+    properties=[
+        ("value", FieldDiseasesSynonymsHasNarrowSynonymElement),
+    ],
 )

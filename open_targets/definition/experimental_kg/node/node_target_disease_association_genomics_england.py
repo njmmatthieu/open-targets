@@ -11,12 +11,12 @@ from open_targets.data.schema import (
     FieldEvidenceAllelicRequirements,
     FieldEvidenceCohortPhenotypes,
     FieldEvidenceConfidence,
-    FieldEvidenceDatasourceId,
     FieldEvidenceDiseaseFromSource,
     FieldEvidenceDiseaseFromSourceId,
     FieldEvidenceDiseaseFromSourceMappedId,
     FieldEvidenceId,
     FieldEvidenceScore,
+    FieldEvidenceSourceId,
     FieldEvidenceStudyId,
     FieldEvidenceStudyOverview,
     FieldEvidenceTargetFromSourceId,
@@ -26,7 +26,7 @@ node_target_disease_association_genomics_england: Final[AcquisitionDefinition[No
     ExpressionNodeAcquisitionDefinition(
         scan_operation=RowScanOperation(
             dataset=DatasetEvidence,
-            predicate=PushdownEqualityPredicate(FieldEvidenceDatasourceId, "genomics_england"),
+            predicate=PushdownEqualityPredicate(FieldEvidenceSourceId, "genomics_england"),
         ),
         primary_id=FieldEvidenceId,
         label="TARGET_DISEASE_ASSOCIATION_GENOMICS_ENGLAND",

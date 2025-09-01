@@ -10,13 +10,13 @@ from open_targets.data.schema import (
     DatasetEvidence,
     FieldEvidenceAllelicRequirements,
     FieldEvidenceConfidence,
-    FieldEvidenceDatasourceId,
     FieldEvidenceDirectionOnTrait,
     FieldEvidenceDiseaseFromSource,
     FieldEvidenceDiseaseFromSourceId,
     FieldEvidenceDiseaseFromSourceMappedId,
     FieldEvidenceId,
     FieldEvidenceScore,
+    FieldEvidenceSourceId,
     FieldEvidenceStudyId,
     FieldEvidenceTargetFromSourceId,
     FieldEvidenceVariantEffect,
@@ -27,7 +27,7 @@ node_target_disease_association_gene2phenotype: Final[AcquisitionDefinition[Node
     ExpressionNodeAcquisitionDefinition(
         scan_operation=RowScanOperation(
             dataset=DatasetEvidence,
-            predicate=PushdownEqualityPredicate(FieldEvidenceDatasourceId, "gene2phenotype"),
+            predicate=PushdownEqualityPredicate(FieldEvidenceSourceId, "gene2phenotype"),
         ),
         primary_id=FieldEvidenceId,
         label="TARGET_DISEASE_ASSOCIATION_GENE2PHENOTYPE",

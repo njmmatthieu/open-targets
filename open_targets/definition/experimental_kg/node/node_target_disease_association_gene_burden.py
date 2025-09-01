@@ -15,7 +15,6 @@ from open_targets.data.schema import (
     FieldEvidenceBetaConfidenceIntervalLower,
     FieldEvidenceBetaConfidenceIntervalUpper,
     FieldEvidenceCohortId,
-    FieldEvidenceDatasourceId,
     FieldEvidenceDirectionOnTrait,
     FieldEvidenceDiseaseFromSource,
     FieldEvidenceDiseaseFromSourceId,
@@ -31,6 +30,7 @@ from open_targets.data.schema import (
     FieldEvidenceResourceScore,
     FieldEvidenceScore,
     FieldEvidenceSex,
+    FieldEvidenceSourceId,
     FieldEvidenceStatisticalMethod,
     FieldEvidenceStatisticalMethodOverview,
     FieldEvidenceStudyCases,
@@ -44,7 +44,7 @@ node_target_disease_association_gene_burden: Final[AcquisitionDefinition[NodeInf
     ExpressionNodeAcquisitionDefinition(
         scan_operation=RowScanOperation(
             dataset=DatasetEvidence,
-            predicate=PushdownEqualityPredicate(FieldEvidenceDatasourceId, "gene_burden"),
+            predicate=PushdownEqualityPredicate(FieldEvidenceSourceId, "gene_burden"),
         ),
         primary_id=FieldEvidenceId,
         label="TARGET_DISEASE_ASSOCIATION_GENE_BURDEN",

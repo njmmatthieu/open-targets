@@ -8,7 +8,6 @@ from open_targets.adapter.scan_operation import RowScanOperation
 from open_targets.adapter.scan_operation_predicate import PushdownEqualityPredicate
 from open_targets.data.schema import (
     DatasetEvidence,
-    FieldEvidenceDatasourceId,
     FieldEvidenceDirectionOnTrait,
     FieldEvidenceDiseaseFromSource,
     FieldEvidenceDiseaseFromSourceId,
@@ -16,6 +15,7 @@ from open_targets.data.schema import (
     FieldEvidenceId,
     FieldEvidenceResourceScore,
     FieldEvidenceScore,
+    FieldEvidenceSourceId,
     FieldEvidenceTargetFromSourceId,
     FieldEvidenceTargetInModel,
     FieldEvidenceTargetInModelEnsemblId,
@@ -26,7 +26,7 @@ from open_targets.data.schema import (
 node_target_disease_association_impc: Final[AcquisitionDefinition[NodeInfo]] = ExpressionNodeAcquisitionDefinition(
     scan_operation=RowScanOperation(
         dataset=DatasetEvidence,
-        predicate=PushdownEqualityPredicate(FieldEvidenceDatasourceId, "impc"),
+        predicate=PushdownEqualityPredicate(FieldEvidenceSourceId, "impc"),
     ),
     primary_id=FieldEvidenceId,
     label="TARGET_DISEASE_ASSOCIATION_IMPC",

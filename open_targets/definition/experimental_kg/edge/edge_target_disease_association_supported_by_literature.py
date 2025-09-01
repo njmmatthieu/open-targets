@@ -10,8 +10,8 @@ from open_targets.adapter.scan_operation_predicate import PushdownEqualityPredic
 from open_targets.data.schema import (
     DatasetEvidence,
     FieldEvidenceBiomarkersGeneExpression,
-    FieldEvidenceDatasourceId,
     FieldEvidenceId,
+    FieldEvidenceSourceId,
 )
 from open_targets.definition.experimental_kg.constant import EdgeLabel
 from open_targets.definition.experimental_kg.expression import target_disease_association_literature_expression
@@ -21,7 +21,7 @@ edge_target_disease_association_supported_by_literature: Final[AcquisitionDefini
         scan_operation=ExplodingScanOperation(
             dataset=DatasetEvidence,
             exploded_field=FieldEvidenceBiomarkersGeneExpression,
-            predicate=PushdownEqualityPredicate(FieldEvidenceDatasourceId, "cancer_biomarkers"),
+            predicate=PushdownEqualityPredicate(FieldEvidenceSourceId, "cancer_biomarkers"),
         ),
         primary_id=NewUuidExpression(),
         source=FieldEvidenceId,

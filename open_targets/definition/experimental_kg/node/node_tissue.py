@@ -8,17 +8,17 @@ from open_targets.adapter.scan_operation import ExplodingScanOperation
 from open_targets.adapter.scan_operation_predicate import PushdownEqualityPredicate
 from open_targets.data.schema import (
     DatasetEvidence,
-    FieldEvidenceDatasourceId,
     FieldEvidenceDiseaseCellLines,
     FieldEvidenceDiseaseCellLinesElementTissue,
     FieldEvidenceDiseaseCellLinesElementTissueId,
+    FieldEvidenceSourceId,
 )
 
 node_tissue: Final[AcquisitionDefinition[NodeInfo]] = ExpressionNodeAcquisitionDefinition(
     scan_operation=ExplodingScanOperation(
         dataset=DatasetEvidence,
         exploded_field=FieldEvidenceDiseaseCellLines,
-        predicate=PushdownEqualityPredicate(FieldEvidenceDatasourceId, "crispr"),
+        predicate=PushdownEqualityPredicate(FieldEvidenceSourceId, "crispr"),
     ),
     primary_id=FieldEvidenceDiseaseCellLinesElementTissueId,
     label="TISSUE",

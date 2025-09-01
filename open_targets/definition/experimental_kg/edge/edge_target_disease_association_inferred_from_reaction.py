@@ -9,9 +9,9 @@ from open_targets.adapter.scan_operation import RowScanOperation
 from open_targets.adapter.scan_operation_predicate import PushdownEqualityPredicate
 from open_targets.data.schema import (
     DatasetEvidence,
-    FieldEvidenceDatasourceId,
     FieldEvidenceId,
     FieldEvidenceReactionId,
+    FieldEvidenceSourceId,
 )
 from open_targets.definition.experimental_kg.constant import EdgeLabel
 
@@ -19,7 +19,7 @@ edge_target_disease_association_inferred_from_reaction: Final[AcquisitionDefinit
     ExpressionEdgeAcquisitionDefinition(
         scan_operation=RowScanOperation(
             dataset=DatasetEvidence,
-            predicate=PushdownEqualityPredicate(FieldEvidenceDatasourceId, "reactome"),
+            predicate=PushdownEqualityPredicate(FieldEvidenceSourceId, "reactome"),
         ),
         primary_id=NewUuidExpression(),
         source=FieldEvidenceId,

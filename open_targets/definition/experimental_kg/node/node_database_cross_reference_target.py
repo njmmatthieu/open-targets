@@ -2,7 +2,7 @@
 
 from typing import Final
 
-from open_targets.adapter.acquisition_definition import AcquisitionDefinition
+from open_targets.adapter.acquisition_definition import AcquisitionDefinition, ExpressionNodeAcquisitionDefinition
 from open_targets.adapter.output import NodeInfo
 from open_targets.adapter.scan_operation import ExplodingScanOperation
 from open_targets.data.schema import (
@@ -10,15 +10,19 @@ from open_targets.data.schema import (
     FieldTargetsDbXrefs,
 )
 from open_targets.definition.experimental_kg.constant import Namespace
-from open_targets.definition.experimental_kg.expression import target_database_cross_reference_value_expression
-from open_targets.definition.helper import get_simple_value_node_definition
+from open_targets.definition.experimental_kg.expression import (
+    database_cross_reference_target_primary_id_expression,
+    database_cross_reference_target_value_expression,
+)
 
-node_disease_cross_reference: Final[AcquisitionDefinition[NodeInfo]] = get_simple_value_node_definition(
+node_database_cross_reference_target: Final[AcquisitionDefinition[NodeInfo]] = ExpressionNodeAcquisitionDefinition(
     scan_operation=ExplodingScanOperation(
         dataset=DatasetTargets,
         exploded_field=FieldTargetsDbXrefs,
     ),
-    namespace=Namespace.DATABASE_CROSS_REFERENCE,
-    value_expression=target_database_cross_reference_value_expression,
-    label="DATABASE_CROSS_REFERENCE",
+    primary_id=database_cross_reference_target_primary_id_expression,
+    label=Namespace.DATABASE_CROSS_REFERENCE,
+    properties=[
+        ("value", database_cross_reference_target_value_expression),
+    ],
 )

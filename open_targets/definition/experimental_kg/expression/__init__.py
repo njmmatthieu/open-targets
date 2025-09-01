@@ -7,14 +7,38 @@ ids or inconsistencies in the data.
 from open_targets.definition.experimental_kg.expression.adverse_reaction_primary_id_expression import (
     adverse_reaction_primary_id_expression,
 )
+from open_targets.definition.experimental_kg.expression.database_cross_reference_disease_primary_id_expression import (
+    database_cross_reference_disease_primary_id_expression,
+)
+from open_targets.definition.experimental_kg.expression.database_cross_reference_hpo_primary_id_expression import (
+    database_cross_reference_hpo_primary_id_expression,
+)
+from open_targets.definition.experimental_kg.expression.database_cross_reference_target_primary_id_expression import (
+    database_cross_reference_target_primary_id_expression,
+)
+from open_targets.definition.experimental_kg.expression.database_cross_reference_target_value_expression import (
+    database_cross_reference_target_value_expression,
+)
 from open_targets.definition.experimental_kg.expression.disease_phenotype_association_primary_id_expression import (
     disease_phenotype_association_primary_id_expression,
+)
+from open_targets.definition.experimental_kg.expression.disease_synonym_broad_primary_id_expression import (
+    disease_synonym_broad_primary_id_expression,
+)
+from open_targets.definition.experimental_kg.expression.disease_synonym_exact_primary_id_expression import (
+    disease_synonym_exact_primary_id_expression,
+)
+from open_targets.definition.experimental_kg.expression.disease_synonym_narrow_primary_id_expression import (
+    disease_synonym_narrow_primary_id_expression,
+)
+from open_targets.definition.experimental_kg.expression.disease_synonym_related_primary_id_expression import (
+    disease_synonym_related_primary_id_expression,
 )
 from open_targets.definition.experimental_kg.expression.drug_warning_primary_id_expression import (
     drug_warning_primary_id_expression,
 )
-from open_targets.definition.experimental_kg.expression.literature_index_primary_id_expression import (
-    literature_index_primary_id_expression,
+from open_targets.definition.experimental_kg.expression.literature_entry_primary_id_expression import (
+    literature_entry_primary_id_expression,
 )
 from open_targets.definition.experimental_kg.expression.mechanism_of_action_primary_id_expression import (
     mechanism_of_action_primary_id_expression,
@@ -28,9 +52,6 @@ from open_targets.definition.experimental_kg.expression.subcellular_location_pri
 from open_targets.definition.experimental_kg.expression.target_classification_primary_id_expression import (
     target_classification_primary_id_expression,
 )
-from open_targets.definition.experimental_kg.expression.target_database_cross_reference_value_expression import (
-    target_database_cross_reference_value_expression,
-)
 from open_targets.definition.experimental_kg.expression.target_disease_association_literature_expression import (
     target_disease_association_literature_expression,
 )
@@ -40,14 +61,21 @@ from open_targets.definition.experimental_kg.expression.target_target_interactio
 
 __all__ = [
     "adverse_reaction_primary_id_expression",
+    "database_cross_reference_disease_primary_id_expression",
+    "database_cross_reference_hpo_primary_id_expression",
+    "database_cross_reference_target_primary_id_expression",
+    "database_cross_reference_target_value_expression",
     "disease_phenotype_association_primary_id_expression",
+    "disease_synonym_broad_primary_id_expression",
+    "disease_synonym_exact_primary_id_expression",
+    "disease_synonym_narrow_primary_id_expression",
+    "disease_synonym_related_primary_id_expression",
     "drug_warning_primary_id_expression",
-    "literature_index_primary_id_expression",
+    "literature_entry_primary_id_expression",
     "mechanism_of_action_primary_id_expression",
     "species_primary_id_expression",
     "subcellular_location_primary_id_expression",
     "target_classification_primary_id_expression",
-    "target_database_cross_reference_value_expression",
     "target_disease_association_literature_expression",
     "target_target_interaction_primary_id_expression",
 ]

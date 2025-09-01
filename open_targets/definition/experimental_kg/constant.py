@@ -1,14 +1,11 @@
-from enum import Enum
-
-
-class Namespace(str, Enum):
+class Namespace:
     """Namespaces for experimental KG."""
 
     DATABASE_CROSS_REFERENCE = "dbxref"
-    SYNONYM = "synonym"
+    DISEASE_SYNONYM = "disease_synonym"
 
 
-class EdgeLabel(str, Enum):
+class EdgeLabel:
     """Labels for experimental KG edges."""
 
     IS_A = "IS_A"

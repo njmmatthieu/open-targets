@@ -8,19 +8,19 @@ from open_targets.adapter.scan_operation import RowScanOperation
 from open_targets.adapter.scan_operation_predicate import PushdownEqualityPredicate
 from open_targets.data.schema import (
     DatasetEvidence,
-    FieldEvidenceDatasourceId,
     FieldEvidenceDiseaseFromSource,
     FieldEvidenceDiseaseFromSourceMappedId,
     FieldEvidenceId,
     FieldEvidenceResourceScore,
     FieldEvidenceScore,
+    FieldEvidenceSourceId,
     FieldEvidenceTargetFromSourceId,
 )
 
 node_target_disease_association_progeny: Final[AcquisitionDefinition[NodeInfo]] = ExpressionNodeAcquisitionDefinition(
     scan_operation=RowScanOperation(
         dataset=DatasetEvidence,
-        predicate=PushdownEqualityPredicate(FieldEvidenceDatasourceId, "progeny"),
+        predicate=PushdownEqualityPredicate(FieldEvidenceSourceId, "progeny"),
     ),
     primary_id=FieldEvidenceId,
     label="TARGET_DISEASE_ASSOCIATION_PROGENY",

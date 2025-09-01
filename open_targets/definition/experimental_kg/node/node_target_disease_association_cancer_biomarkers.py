@@ -10,12 +10,12 @@ from open_targets.data.schema import (
     DatasetEvidence,
     FieldEvidenceBiomarkerName,
     FieldEvidenceConfidence,
-    FieldEvidenceDatasourceId,
     FieldEvidenceDiseaseFromSource,
     FieldEvidenceDiseaseFromSourceMappedId,
     FieldEvidenceDrugFromSource,
     FieldEvidenceId,
     FieldEvidenceScore,
+    FieldEvidenceSourceId,
     FieldEvidenceTargetFromSourceId,
 )
 
@@ -23,7 +23,7 @@ node_target_disease_association_cancer_biomarkers: Final[AcquisitionDefinition[N
     ExpressionNodeAcquisitionDefinition(
         scan_operation=RowScanOperation(
             dataset=DatasetEvidence,
-            predicate=PushdownEqualityPredicate(FieldEvidenceDatasourceId, "cancer_biomarkers"),
+            predicate=PushdownEqualityPredicate(FieldEvidenceSourceId, "cancer_biomarkers"),
         ),
         primary_id=FieldEvidenceId,
         label="TARGET_DISEASE_ASSOCIATION_CANCER_BIOMARKERS",

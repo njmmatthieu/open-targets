@@ -10,13 +10,13 @@ from open_targets.data.schema import (
     DatasetEvidence,
     FieldEvidenceAlleleOrigins,
     FieldEvidenceConfidence,
-    FieldEvidenceDatasourceId,
     FieldEvidenceDirectionOnTrait,
     FieldEvidenceDiseaseFromSource,
     FieldEvidenceDiseaseFromSourceId,
     FieldEvidenceDiseaseFromSourceMappedId,
     FieldEvidenceId,
     FieldEvidenceScore,
+    FieldEvidenceSourceId,
     FieldEvidenceTargetFromSource,
     FieldEvidenceTargetFromSourceId,
     FieldEvidenceVariantEffect,
@@ -26,7 +26,7 @@ from open_targets.data.schema import (
 node_target_disease_association_orphanet: Final[AcquisitionDefinition[NodeInfo]] = ExpressionNodeAcquisitionDefinition(
     scan_operation=RowScanOperation(
         dataset=DatasetEvidence,
-        predicate=PushdownEqualityPredicate(FieldEvidenceDatasourceId, "orphanet"),
+        predicate=PushdownEqualityPredicate(FieldEvidenceSourceId, "orphanet"),
     ),
     primary_id=FieldEvidenceId,
     label="TARGET_DISEASE_ASSOCIATION_ORPHANET",

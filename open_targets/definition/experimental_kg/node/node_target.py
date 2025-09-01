@@ -17,7 +17,7 @@ from open_targets.data.schema import (
     FieldTargetsId,
 )
 
-node_targets: Final[AcquisitionDefinition[NodeInfo]] = ExpressionNodeAcquisitionDefinition(
+node_target: Final[AcquisitionDefinition[NodeInfo]] = ExpressionNodeAcquisitionDefinition(
     scan_operation=RowScanOperation(dataset=DatasetTargets),
     primary_id=FieldTargetsId,
     label="TARGET",

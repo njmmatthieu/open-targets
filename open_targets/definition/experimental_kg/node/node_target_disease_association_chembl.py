@@ -11,12 +11,12 @@ from open_targets.data.schema import (
     FieldEvidenceClinicalPhase,
     FieldEvidenceClinicalStatus,
     FieldEvidenceCohortPhenotypes,
-    FieldEvidenceDatasourceId,
     FieldEvidenceDirectionOnTrait,
     FieldEvidenceDiseaseFromSource,
     FieldEvidenceDiseaseFromSourceMappedId,
     FieldEvidenceId,
     FieldEvidenceScore,
+    FieldEvidenceSourceId,
     FieldEvidenceStudyId,
     FieldEvidenceStudyStartDate,
     FieldEvidenceStudyStopReason,
@@ -27,7 +27,7 @@ from open_targets.data.schema import (
 node_target_disease_association_chembl: Final[AcquisitionDefinition[NodeInfo]] = ExpressionNodeAcquisitionDefinition(
     scan_operation=RowScanOperation(
         dataset=DatasetEvidence,
-        predicate=PushdownEqualityPredicate(FieldEvidenceDatasourceId, "chembl"),
+        predicate=PushdownEqualityPredicate(FieldEvidenceSourceId, "chembl"),
     ),
     primary_id=FieldEvidenceId,
     label="TARGET_DISEASE_ASSOCIATION_CHEMBL",

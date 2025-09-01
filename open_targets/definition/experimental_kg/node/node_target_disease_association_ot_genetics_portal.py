@@ -11,7 +11,6 @@ from open_targets.data.schema import (
     FieldEvidenceBeta,
     FieldEvidenceBetaConfidenceIntervalLower,
     FieldEvidenceBetaConfidenceIntervalUpper,
-    FieldEvidenceDatasourceId,
     FieldEvidenceDirectionOnTrait,
     FieldEvidenceDiseaseFromSource,
     FieldEvidenceDiseaseFromSourceMappedId,
@@ -26,6 +25,7 @@ from open_targets.data.schema import (
     FieldEvidencePValueMantissa,
     FieldEvidenceResourceScore,
     FieldEvidenceScore,
+    FieldEvidenceSourceId,
     FieldEvidenceStudyId,
     FieldEvidenceStudySampleSize,
     FieldEvidenceTargetFromSourceId,
@@ -40,7 +40,7 @@ node_target_disease_association_ot_genetics_portal: Final[AcquisitionDefinition[
     ExpressionNodeAcquisitionDefinition(
         scan_operation=RowScanOperation(
             dataset=DatasetEvidence,
-            predicate=PushdownEqualityPredicate(FieldEvidenceDatasourceId, "ot_genetics_portal"),
+            predicate=PushdownEqualityPredicate(FieldEvidenceSourceId, "ot_genetics_portal"),
         ),
         primary_id=FieldEvidenceId,
         label="TARGET_DISEASE_ASSOCIATION_OT_GENETICS_PORTAL",

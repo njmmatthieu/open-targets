@@ -9,10 +9,10 @@ from open_targets.adapter.scan_operation import ExplodingScanOperation
 from open_targets.adapter.scan_operation_predicate import PushdownEqualityPredicate
 from open_targets.data.schema import (
     DatasetEvidence,
-    FieldEvidenceDatasourceId,
     FieldEvidenceId,
     FieldEvidencePathways,
     FieldEvidencePathwaysElementId,
+    FieldEvidenceSourceId,
 )
 from open_targets.definition.experimental_kg.constant import EdgeLabel
 
@@ -21,7 +21,7 @@ edge_target_disease_association_inferred_from_pathway_slapenrich: Final[Acquisit
         scan_operation=ExplodingScanOperation(
             dataset=DatasetEvidence,
             exploded_field=FieldEvidencePathways,
-            predicate=PushdownEqualityPredicate(FieldEvidenceDatasourceId, "slapenrich"),
+            predicate=PushdownEqualityPredicate(FieldEvidenceSourceId, "slapenrich"),
         ),
         primary_id=NewUuidExpression(),
         source=FieldEvidenceId,

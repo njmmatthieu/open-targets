@@ -9,9 +9,9 @@ from open_targets.adapter.scan_operation import RowScanOperation
 from open_targets.adapter.scan_operation_predicate import PushdownEqualityPredicate
 from open_targets.data.schema import (
     DatasetEvidence,
-    FieldEvidenceDatasourceId,
     FieldEvidenceDrugId,
     FieldEvidenceId,
+    FieldEvidenceSourceId,
 )
 from open_targets.definition.experimental_kg.constant import EdgeLabel
 
@@ -19,7 +19,7 @@ edge_target_disease_association_chembl_has_molecule: Final[AcquisitionDefinition
     ExpressionEdgeAcquisitionDefinition(
         scan_operation=RowScanOperation(
             dataset=DatasetEvidence,
-            predicate=PushdownEqualityPredicate(FieldEvidenceDatasourceId, "chembl"),
+            predicate=PushdownEqualityPredicate(FieldEvidenceSourceId, "chembl"),
         ),
         primary_id=NewUuidExpression(),
         source=FieldEvidenceId,

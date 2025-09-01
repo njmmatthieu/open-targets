@@ -13,7 +13,6 @@ from open_targets.data.schema import (
     FieldEvidenceClinicalSignificances,
     FieldEvidenceCohortPhenotypes,
     FieldEvidenceConfidence,
-    FieldEvidenceDatasourceId,
     FieldEvidenceDirectionOnTrait,
     FieldEvidenceDiseaseFromSource,
     FieldEvidenceDiseaseFromSourceId,
@@ -21,6 +20,7 @@ from open_targets.data.schema import (
     FieldEvidenceId,
     FieldEvidenceReleaseDate,
     FieldEvidenceScore,
+    FieldEvidenceSourceId,
     FieldEvidenceStudyId,
     FieldEvidenceTargetFromSourceId,
     FieldEvidenceVariantEffect,
@@ -34,7 +34,7 @@ node_target_disease_association_eva_somatic: Final[AcquisitionDefinition[NodeInf
     ExpressionNodeAcquisitionDefinition(
         scan_operation=RowScanOperation(
             dataset=DatasetEvidence,
-            predicate=PushdownEqualityPredicate(FieldEvidenceDatasourceId, "eva_somatic"),
+            predicate=PushdownEqualityPredicate(FieldEvidenceSourceId, "eva_somatic"),
         ),
         primary_id=FieldEvidenceId,
         label="TARGET_DISEASE_ASSOCIATION_EVA_SOMATIC",

@@ -10,9 +10,9 @@ from open_targets.adapter.scan_operation_predicate import PushdownEqualityPredic
 from open_targets.data.schema import (
     DatasetEvidence,
     FieldEvidenceBiologicalModelId,
-    FieldEvidenceDatasourceId,
     FieldEvidenceDiseaseModelAssociatedHumanPhenotypes,
     FieldEvidenceDiseaseModelAssociatedHumanPhenotypesElementId,
+    FieldEvidenceSourceId,
 )
 from open_targets.definition.experimental_kg.constant import EdgeLabel
 
@@ -20,7 +20,7 @@ edge_mouse_model_has_phenotype_phenotype: Final[AcquisitionDefinition[EdgeInfo]]
     scan_operation=ExplodingScanOperation(
         dataset=DatasetEvidence,
         exploded_field=FieldEvidenceDiseaseModelAssociatedHumanPhenotypes,
-        predicate=PushdownEqualityPredicate(FieldEvidenceDatasourceId, "impc"),
+        predicate=PushdownEqualityPredicate(FieldEvidenceSourceId, "impc"),
     ),
     primary_id=NewUuidExpression(),
     source=FieldEvidenceBiologicalModelId,

@@ -9,10 +9,10 @@ from open_targets.adapter.scan_operation import ExplodingScanOperation
 from open_targets.adapter.scan_operation_predicate import PushdownEqualityPredicate
 from open_targets.data.schema import (
     DatasetEvidence,
-    FieldEvidenceDatasourceId,
     FieldEvidencePathways,
     FieldEvidencePathwaysElementId,
     FieldEvidenceReactionId,
+    FieldEvidenceSourceId,
 )
 from open_targets.definition.experimental_kg.constant import EdgeLabel
 
@@ -20,7 +20,7 @@ edge_reaction_is_part_of_pathway: Final[AcquisitionDefinition[EdgeInfo]] = Expre
     scan_operation=ExplodingScanOperation(
         dataset=DatasetEvidence,
         exploded_field=FieldEvidencePathways,
-        predicate=PushdownEqualityPredicate(FieldEvidenceDatasourceId, "reactome"),
+        predicate=PushdownEqualityPredicate(FieldEvidenceSourceId, "reactome"),
     ),
     primary_id=NewUuidExpression(),
     source=FieldEvidenceReactionId,

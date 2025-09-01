@@ -11,7 +11,6 @@ from open_targets.data.schema import (
     FieldEvidenceCellType,
     FieldEvidenceContrast,
     FieldEvidenceCrisprScreenLibrary,
-    FieldEvidenceDatasourceId,
     FieldEvidenceDiseaseFromSource,
     FieldEvidenceDiseaseFromSourceMappedId,
     FieldEvidenceGeneticBackground,
@@ -20,6 +19,7 @@ from open_targets.data.schema import (
     FieldEvidenceProjectId,
     FieldEvidenceResourceScore,
     FieldEvidenceScore,
+    FieldEvidenceSourceId,
     FieldEvidenceStatisticalTestTail,
     FieldEvidenceStudyId,
     FieldEvidenceStudyOverview,
@@ -30,7 +30,7 @@ node_target_disease_association_crispr_screen: Final[AcquisitionDefinition[NodeI
     ExpressionNodeAcquisitionDefinition(
         scan_operation=RowScanOperation(
             dataset=DatasetEvidence,
-            predicate=PushdownEqualityPredicate(FieldEvidenceDatasourceId, "crispr_screen"),
+            predicate=PushdownEqualityPredicate(FieldEvidenceSourceId, "crispr_screen"),
         ),
         primary_id=FieldEvidenceId,
         label="TARGET_DISEASE_ASSOCIATION_CRISPR_SCREEN",

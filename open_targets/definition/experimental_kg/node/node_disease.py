@@ -14,7 +14,7 @@ from open_targets.data.schema import (
     FieldDiseasesOntologyIsTherapeuticArea,
 )
 
-node_diseases: Final[AcquisitionDefinition[NodeInfo]] = ExpressionNodeAcquisitionDefinition(
+node_disease: Final[AcquisitionDefinition[NodeInfo]] = ExpressionNodeAcquisitionDefinition(
     scan_operation=RowScanOperation(dataset=DatasetDiseases),
     primary_id=FieldDiseasesId,
     label="DISEASE",

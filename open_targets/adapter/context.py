@@ -192,7 +192,8 @@ class AcquisitionContext:
         predicate: ScanOperationPredicate | None,
         fields: Iterable[type[Field]],
     ) -> Iterable[tuple[Any]]:
-        query = read_parquet(str(self.get_dataset_path(dataset)))
+        query = read_parquet(str(self.get_dataset_path(dataset)), hive_partitioning=True)
+
         match predicate:
             case PushdownEqualityPredicate():
                 query = query.filter(
@@ -205,8 +206,10 @@ class AcquisitionContext:
                 raise ValueError(msg)
 
         query = query.select(*[field.name for field in fields])
+
         if self.limit is not None:
             query = query.limit(self.limit)
+
         return self._get_query_result_stream(query)
 
     def _get_query_result_stream(self, query: DuckDBPyRelation) -> Iterable[tuple[Any]]:

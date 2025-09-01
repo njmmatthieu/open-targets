@@ -10,12 +10,12 @@ from open_targets.data.schema import (
     DatasetEvidence,
     FieldEvidenceAllelicRequirements,
     FieldEvidenceConfidence,
-    FieldEvidenceDatasourceId,
     FieldEvidenceDiseaseFromSource,
     FieldEvidenceDiseaseFromSourceId,
     FieldEvidenceDiseaseFromSourceMappedId,
     FieldEvidenceId,
     FieldEvidenceScore,
+    FieldEvidenceSourceId,
     FieldEvidenceStudyId,
     FieldEvidenceTargetFromSourceId,
 )
@@ -23,7 +23,7 @@ from open_targets.data.schema import (
 node_target_disease_association_clingen: Final[AcquisitionDefinition[NodeInfo]] = ExpressionNodeAcquisitionDefinition(
     scan_operation=RowScanOperation(
         dataset=DatasetEvidence,
-        predicate=PushdownEqualityPredicate(FieldEvidenceDatasourceId, "clingen"),
+        predicate=PushdownEqualityPredicate(FieldEvidenceSourceId, "clingen"),
     ),
     primary_id=FieldEvidenceId,
     label="TARGET_DISEASE_ASSOCIATION_CLINGEN",

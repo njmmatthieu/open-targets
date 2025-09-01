@@ -11,7 +11,6 @@ from open_targets.data.schema import (
     FieldEvidenceBiosamplesFromSource,
     FieldEvidenceConfidence,
     FieldEvidenceContrast,
-    FieldEvidenceDatasourceId,
     FieldEvidenceDiseaseFromSourceMappedId,
     FieldEvidenceId,
     FieldEvidenceLiterature,
@@ -19,6 +18,7 @@ from open_targets.data.schema import (
     FieldEvidenceLog2FoldChangeValue,
     FieldEvidenceResourceScore,
     FieldEvidenceScore,
+    FieldEvidenceSourceId,
     FieldEvidenceStudyId,
     FieldEvidenceStudyOverview,
     FieldEvidenceTargetFromSourceId,
@@ -28,7 +28,7 @@ node_target_disease_association_expression_atlas: Final[AcquisitionDefinition[No
     ExpressionNodeAcquisitionDefinition(
         scan_operation=RowScanOperation(
             dataset=DatasetEvidence,
-            predicate=PushdownEqualityPredicate(FieldEvidenceDatasourceId, "expression_atlas"),
+            predicate=PushdownEqualityPredicate(FieldEvidenceSourceId, "expression_atlas"),
         ),
         primary_id=FieldEvidenceId,
         label="TARGET_DISEASE_ASSOCIATION_EXPRESSION_ATLAS",

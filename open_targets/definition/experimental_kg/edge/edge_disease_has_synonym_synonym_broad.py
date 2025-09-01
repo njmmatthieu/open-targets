@@ -10,9 +10,9 @@ from open_targets.data.schema import (
     DatasetDiseases,
     FieldDiseasesId,
     FieldDiseasesSynonymsHasBroadSynonym,
-    FieldDiseasesSynonymsHasBroadSynonymElement,
 )
 from open_targets.definition.experimental_kg.constant import EdgeLabel
+from open_targets.definition.experimental_kg.expression import disease_synonym_broad_primary_id_expression
 
 edge_disease_has_synonym_synonym_broad: Final[AcquisitionDefinition[EdgeInfo]] = ExpressionEdgeAcquisitionDefinition(
     scan_operation=ExplodingScanOperation(
@@ -21,7 +21,7 @@ edge_disease_has_synonym_synonym_broad: Final[AcquisitionDefinition[EdgeInfo]] =
     ),
     primary_id=NewUuidExpression(),
     source=FieldDiseasesId,
-    target=FieldDiseasesSynonymsHasBroadSynonymElement,
+    target=disease_synonym_broad_primary_id_expression,
     label=EdgeLabel.HAS_SYNONYM,
     properties=[],
 )

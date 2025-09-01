@@ -8,15 +8,15 @@ from open_targets.adapter.scan_operation import RowScanOperation
 from open_targets.adapter.scan_operation_predicate import PushdownEqualityPredicate
 from open_targets.data.schema import (
     DatasetEvidence,
-    FieldEvidenceDatasourceId,
     FieldEvidenceReactionId,
     FieldEvidenceReactionName,
+    FieldEvidenceSourceId,
 )
 
 node_reaction: Final[AcquisitionDefinition[NodeInfo]] = ExpressionNodeAcquisitionDefinition(
     scan_operation=RowScanOperation(
         dataset=DatasetEvidence,
-        predicate=PushdownEqualityPredicate(FieldEvidenceDatasourceId, "reactome"),
+        predicate=PushdownEqualityPredicate(FieldEvidenceSourceId, "reactome"),
     ),
     primary_id=FieldEvidenceReactionId,
     label="REACTION",

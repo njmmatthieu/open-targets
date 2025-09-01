@@ -19,7 +19,7 @@ from open_targets.data.schema import (
     FieldTargetsDbXrefsElementSource,
 )
 
-target_database_cross_reference_value_expression: Final[Expression[str]] = StringConcatenationExpression(
+database_cross_reference_target_value_expression: Final[Expression[str]] = StringConcatenationExpression(
     [
         ToStringExpression(FieldExpression(FieldTargetsDbXrefsElementSource)),
         LiteralExpression(":"),
