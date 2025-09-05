@@ -6,7 +6,7 @@ from open_targets.adapter.acquisition_definition import AcquisitionDefinition, E
 from open_targets.adapter.expression import NewUuidExpression
 from open_targets.adapter.output import EdgeInfo
 from open_targets.adapter.scan_operation import ExplodingScanOperation
-from open_targets.adapter.scan_operation_predicate import PushdownEqualityPredicate
+from open_targets.adapter.scan_operation_predicate import EqualityExpression
 from open_targets.data.schema import (
     DatasetEvidence,
     FieldEvidenceBiomarkersGeneExpression,
@@ -21,7 +21,7 @@ edge_target_disease_association_supported_by_literature: Final[AcquisitionDefini
         scan_operation=ExplodingScanOperation(
             dataset=DatasetEvidence,
             exploded_field=FieldEvidenceBiomarkersGeneExpression,
-            predicate=PushdownEqualityPredicate(FieldEvidenceSourceId, "cancer_biomarkers"),
+            predicate=EqualityExpression(FieldEvidenceSourceId, "cancer_biomarkers"),
         ),
         primary_id=NewUuidExpression(),
         source=FieldEvidenceId,

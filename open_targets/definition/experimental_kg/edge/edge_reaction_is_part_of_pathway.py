@@ -6,7 +6,7 @@ from open_targets.adapter.acquisition_definition import AcquisitionDefinition, E
 from open_targets.adapter.expression import NewUuidExpression
 from open_targets.adapter.output import EdgeInfo
 from open_targets.adapter.scan_operation import ExplodingScanOperation
-from open_targets.adapter.scan_operation_predicate import PushdownEqualityPredicate
+from open_targets.adapter.scan_operation_predicate import EqualityExpression
 from open_targets.data.schema import (
     DatasetEvidence,
     FieldEvidencePathways,
@@ -20,7 +20,7 @@ edge_reaction_is_part_of_pathway: Final[AcquisitionDefinition[EdgeInfo]] = Expre
     scan_operation=ExplodingScanOperation(
         dataset=DatasetEvidence,
         exploded_field=FieldEvidencePathways,
-        predicate=PushdownEqualityPredicate(FieldEvidenceSourceId, "reactome"),
+        predicate=EqualityExpression(FieldEvidenceSourceId, "reactome"),
     ),
     primary_id=NewUuidExpression(),
     source=FieldEvidenceReactionId,

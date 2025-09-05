@@ -17,7 +17,7 @@ from .edge_disease_subject_of_disease_phenotype_association import (
 )
 from .edge_literature_mentions_entity import edge_literature_mentions_entity
 from .edge_mechanism_of_action_has_target_target import edge_mechanism_of_action_has_target_target
-from .edge_molecule_derived_from_molecule import edge_molecule_has_child
+from .edge_molecule_derived_from_molecule import edge_molecule_derived_from_molecule
 from .edge_molecule_has_adverse_reaction_adverse_reaction import (
     edge_molecule_has_adverse_reaction_adverse_reaction,
 )
@@ -106,8 +106,8 @@ __all__ = [
     "edge_disease_subject_of_disease_phenotype_association",
     "edge_literature_mentions_entity",
     "edge_mechanism_of_action_has_target_target",
+    "edge_molecule_derived_from_molecule",
     "edge_molecule_has_adverse_reaction_adverse_reaction",
-    "edge_molecule_has_child",
     "edge_molecule_has_drug_warning",
     "edge_molecule_has_mechanism_of_action",
     "edge_molecule_indicates_disease",

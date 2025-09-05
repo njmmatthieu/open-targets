@@ -6,6 +6,7 @@ from open_targets.adapter.acquisition_definition import AcquisitionDefinition, E
 from open_targets.adapter.expression import NewUuidExpression
 from open_targets.adapter.output import EdgeInfo
 from open_targets.adapter.scan_operation import RowScanOperation
+from open_targets.adapter.scan_operation_predicate import EqualityExpression, NotExpression
 from open_targets.data.schema import (
     DatasetInteractionEvidence,
     FieldInteractionEvidencePubmedId,
@@ -17,7 +18,10 @@ from open_targets.definition.experimental_kg.expression import (
 
 edge_target_target_interaction_supported_by_literature: Final[AcquisitionDefinition[EdgeInfo]] = (
     ExpressionEdgeAcquisitionDefinition(
-        scan_operation=RowScanOperation(dataset=DatasetInteractionEvidence),
+        scan_operation=RowScanOperation(
+            dataset=DatasetInteractionEvidence,
+            predicate=NotExpression(EqualityExpression(FieldInteractionEvidencePubmedId, None)),
+        ),
         primary_id=NewUuidExpression(),
         source=target_target_interaction_primary_id_expression,
         target=FieldInteractionEvidencePubmedId,

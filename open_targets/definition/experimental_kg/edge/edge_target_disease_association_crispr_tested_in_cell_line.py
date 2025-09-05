@@ -6,7 +6,7 @@ from open_targets.adapter.acquisition_definition import AcquisitionDefinition, E
 from open_targets.adapter.expression import NewUuidExpression
 from open_targets.adapter.output import EdgeInfo
 from open_targets.adapter.scan_operation import ExplodingScanOperation
-from open_targets.adapter.scan_operation_predicate import PushdownEqualityPredicate
+from open_targets.adapter.scan_operation_predicate import EqualityExpression
 from open_targets.data.schema import (
     DatasetEvidence,
     FieldEvidenceDiseaseCellLines,
@@ -21,7 +21,7 @@ edge_target_disease_association_crispr_tested_in_cell_line: Final[AcquisitionDef
         scan_operation=ExplodingScanOperation(
             dataset=DatasetEvidence,
             exploded_field=FieldEvidenceDiseaseCellLines,
-            predicate=PushdownEqualityPredicate(FieldEvidenceSourceId, "crispr"),
+            predicate=EqualityExpression(FieldEvidenceSourceId, "crispr"),
         ),
         primary_id=NewUuidExpression(),
         source=FieldEvidenceId,

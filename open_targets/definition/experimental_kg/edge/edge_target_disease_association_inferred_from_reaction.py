@@ -6,7 +6,7 @@ from open_targets.adapter.acquisition_definition import AcquisitionDefinition, E
 from open_targets.adapter.expression import NewUuidExpression
 from open_targets.adapter.output import EdgeInfo
 from open_targets.adapter.scan_operation import RowScanOperation
-from open_targets.adapter.scan_operation_predicate import PushdownEqualityPredicate
+from open_targets.adapter.scan_operation_predicate import EqualityExpression
 from open_targets.data.schema import (
     DatasetEvidence,
     FieldEvidenceId,
@@ -19,7 +19,7 @@ edge_target_disease_association_inferred_from_reaction: Final[AcquisitionDefinit
     ExpressionEdgeAcquisitionDefinition(
         scan_operation=RowScanOperation(
             dataset=DatasetEvidence,
-            predicate=PushdownEqualityPredicate(FieldEvidenceSourceId, "reactome"),
+            predicate=EqualityExpression(FieldEvidenceSourceId, "reactome"),
         ),
         primary_id=NewUuidExpression(),
         source=FieldEvidenceId,

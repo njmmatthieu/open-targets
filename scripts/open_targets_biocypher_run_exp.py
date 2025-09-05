@@ -2,6 +2,8 @@
 
 """A pipeline to build Open Targets platform data as a BioCypher KG."""
 
+import logging
+
 from biocypher import BioCypher
 
 from open_targets.adapter.context import AcquisitionContext
@@ -14,6 +16,8 @@ def main():
     bc = BioCypher(
         biocypher_config_path="config/biocypher_config.yaml",
     )
+    # Set logging level to ERROR only
+    logging.getLogger("biocypher").setLevel(logging.ERROR)
 
     # Check the schema
     bc.show_ontology_structure()

@@ -6,7 +6,7 @@ from open_targets.adapter.acquisition_definition import AcquisitionDefinition, E
 from open_targets.adapter.expression import NewUuidExpression
 from open_targets.adapter.output import EdgeInfo
 from open_targets.adapter.scan_operation import RowScanOperation
-from open_targets.adapter.scan_operation_predicate import PushdownEqualityPredicate
+from open_targets.adapter.scan_operation_predicate import EqualityExpression
 from open_targets.data.schema import (
     DatasetEvidence,
     FieldEvidenceDrugId,
@@ -19,7 +19,7 @@ edge_target_disease_association_chembl_has_molecule: Final[AcquisitionDefinition
     ExpressionEdgeAcquisitionDefinition(
         scan_operation=RowScanOperation(
             dataset=DatasetEvidence,
-            predicate=PushdownEqualityPredicate(FieldEvidenceSourceId, "chembl"),
+            predicate=EqualityExpression(FieldEvidenceSourceId, "chembl"),
         ),
         primary_id=NewUuidExpression(),
         source=FieldEvidenceId,
