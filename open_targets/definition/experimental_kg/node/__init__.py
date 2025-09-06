@@ -13,7 +13,6 @@ from .node_disease_synonym_narrow import node_disease_synonym_narrow
 from .node_disease_synonym_related import node_disease_synonym_related
 from .node_drug_warning import node_drug_warning
 from .node_go_term import node_go_term
-from .node_homologue import node_homologue
 from .node_literature_entry import node_literature_entry
 from .node_mechanism_of_action import node_mechanism_of_action
 from .node_molecule import node_molecule
@@ -93,7 +92,6 @@ __all__ = [
     "node_disease_synonym_related",
     "node_drug_warning",
     "node_go_term",
-    "node_homologue",
     "node_literature_entry",
     "node_mechanism_of_action",
     "node_molecule",
