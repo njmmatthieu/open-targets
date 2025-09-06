@@ -13,7 +13,7 @@ from open_targets.data.schema import (
 )
 from open_targets.definition.experimental_kg.constant import EdgeLabel
 
-edge_target_disease_association_object_of_disease: Final[AcquisitionDefinition[EdgeInfo]] = (
+edge_target_disease_association_has_object_disease: Final[AcquisitionDefinition[EdgeInfo]] = (
     ExpressionEdgeAcquisitionDefinition(
         scan_operation=RowScanOperation(
             dataset=DatasetEvidence,

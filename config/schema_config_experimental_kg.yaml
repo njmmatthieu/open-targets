@@ -113,113 +113,55 @@ target_classification:
   is_a: named thing
   represented_as: node
 
-target_disease_association_cancer_biomarkers:
-  input_label: TARGET_DISEASE_ASSOCIATION_CANCER_BIOMARKERS
-  is_a: named thing
-  represented_as: node
-
-target_disease_association_cancer_gene_census:
-  input_label: TARGET_DISEASE_ASSOCIATION_CANCER_GENE_CENSUS
-  is_a: named thing
-  represented_as: node
-
-target_disease_association_chembl:
-  input_label: TARGET_DISEASE_ASSOCIATION_CHEMBL
-  is_a: named thing
-  represented_as: node
-
-target_disease_association_clingen:
-  input_label: TARGET_DISEASE_ASSOCIATION_CLINGEN
-  is_a: named thing
-  represented_as: node
-
-target_disease_association_crispr:
-  input_label: TARGET_DISEASE_ASSOCIATION_CRISPR
-  is_a: named thing
-  represented_as: node
-
-target_disease_association_crispr_screen:
-  input_label: TARGET_DISEASE_ASSOCIATION_CRISPR_SCREEN
-  is_a: named thing
-  represented_as: node
-
-target_disease_association_europepmc:
-  input_label: TARGET_DISEASE_ASSOCIATION_EUROPEPMC
-  is_a: named thing
-  represented_as: node
-
-target_disease_association_eva:
-  input_label: TARGET_DISEASE_ASSOCIATION_EVA
-  is_a: named thing
-  represented_as: node
-
-target_disease_association_eva_somatic:
-  input_label: TARGET_DISEASE_ASSOCIATION_EVA_SOMATIC
-  is_a: named thing
-  represented_as: node
-
-target_disease_association_expression_atlas:
-  input_label: TARGET_DISEASE_ASSOCIATION_EXPRESSION_ATLAS
-  is_a: named thing
-  represented_as: node
-
-target_disease_association_gene2phenotype:
-  input_label: TARGET_DISEASE_ASSOCIATION_GENE2PHENOTYPE
-  is_a: named thing
-  represented_as: node
-
-target_disease_association_gene_burden:
-  input_label: TARGET_DISEASE_ASSOCIATION_GENE_BURDEN
-  is_a: named thing
-  represented_as: node
-
-target_disease_association_genomics_england:
-  input_label: TARGET_DISEASE_ASSOCIATION_GENOMICS_ENGLAND
-  is_a: named thing
-  represented_as: node
-
-target_disease_association_impc:
-  input_label: TARGET_DISEASE_ASSOCIATION_IMPC
-  is_a: named thing
-  represented_as: node
-
-target_disease_association_intogen:
-  input_label: TARGET_DISEASE_ASSOCIATION_INTOGEN
-  is_a: named thing
-  represented_as: node
-
-target_disease_association_orphanet:
-  input_label: TARGET_DISEASE_ASSOCIATION_ORPHANET
-  is_a: named thing
-  represented_as: node
-
-target_disease_association_ot_genetics_portal:
-  input_label: TARGET_DISEASE_ASSOCIATION_OT_GENETICS_PORTAL
-  is_a: named thing
-  represented_as: node
-
-target_disease_association_progeny:
-  input_label: TARGET_DISEASE_ASSOCIATION_PROGENY
-  is_a: named thing
-  represented_as: node
-
-target_disease_association_reactome:
-  input_label: TARGET_DISEASE_ASSOCIATION_REACTOME
-  is_a: named thing
-  represented_as: node
-
-target_disease_association_slapenrich:
-  input_label: TARGET_DISEASE_ASSOCIATION_SLAPENRICH
-  is_a: named thing
-  represented_as: node
-
-target_disease_association_uniprot_literature:
-  input_label: TARGET_DISEASE_ASSOCIATION_UNIPROT_LITERATURE
-  is_a: named thing
-  represented_as: node
-
-target_disease_association_uniprot_variants:
-  input_label: TARGET_DISEASE_ASSOCIATION_UNIPROT_VARIANTS
+target_disease_association:
+  input_label: [
+    TARGET_DISEASE_ASSOCIATION_CANCER_BIOMARKERS,
+    TARGET_DISEASE_ASSOCIATION_CANCER_GENE_CENSUS,
+    TARGET_DISEASE_ASSOCIATION_CHEMBL,
+    TARGET_DISEASE_ASSOCIATION_CLINGEN,
+    TARGET_DISEASE_ASSOCIATION_CRISPR,
+    TARGET_DISEASE_ASSOCIATION_CRISPR_SCREEN,
+    TARGET_DISEASE_ASSOCIATION_EUROPEPMC,
+    TARGET_DISEASE_ASSOCIATION_EVA,
+    TARGET_DISEASE_ASSOCIATION_EVA_SOMATIC,
+    TARGET_DISEASE_ASSOCIATION_EXPRESSION_ATLAS,
+    TARGET_DISEASE_ASSOCIATION_GENE2PHENOTYPE,
+    TARGET_DISEASE_ASSOCIATION_GENE_BURDEN,
+    TARGET_DISEASE_ASSOCIATION_GENOMICS_ENGLAND,
+    TARGET_DISEASE_ASSOCIATION_IMPC,
+    TARGET_DISEASE_ASSOCIATION_INTOGEN,
+    TARGET_DISEASE_ASSOCIATION_ORPHANET,
+    TARGET_DISEASE_ASSOCIATION_OT_GENETICS_PORTAL,
+    TARGET_DISEASE_ASSOCIATION_PROGENY,
+    TARGET_DISEASE_ASSOCIATION_REACTOME,
+    TARGET_DISEASE_ASSOCIATION_SLAPENRICH,
+    TARGET_DISEASE_ASSOCIATION_UNIPROT_LITERATURE,
+    TARGET_DISEASE_ASSOCIATION_UNIPROT_VARIANTS,
+  ]
+  preferred_id: [
+    cancer_biomarkers,
+    cancer_gene_census,
+    chembl,
+    clingen,
+    crispr,
+    crispr_screen,
+    europepmc,
+    eva,
+    eva_somatic,
+    expression_atlas,
+    gene2phenotype,
+    gene_burden,
+    genomics_england,
+    impc,
+    intogen,
+    orphanet,
+    ot_genetics_portal,
+    progeny,
+    reactome,
+    slapenrich,
+    uniprot_literature,
+    uniprot_variants,
+  ]
   is_a: named thing
   represented_as: node
 
@@ -385,5 +327,25 @@ supported_by:
 
 tested_in:
   input_label: TESTED_IN
+  is_a: association
+  represented_as: edge
+
+has_summary_association:
+  input_label: [
+    HAS_SUMMARY_ASSOCIATION_BY_DATASOURCE_DIRECT,
+    HAS_SUMMARY_ASSOCIATION_BY_DATASOURCE_INDIRECT,
+    HAS_SUMMARY_ASSOCIATION_BY_DATATYPE_DIRECT,
+    HAS_SUMMARY_ASSOCIATION_BY_DATATYPE_INDIRECT,
+    HAS_SUMMARY_ASSOCIATION_BY_OVERALL_DIRECT,
+    HAS_SUMMARY_ASSOCIATION_BY_OVERALL_INDIRECT,
+  ]
+  preferred_id: [
+    by_datasource_direct,
+    by_datasource_indirect,
+    by_datatype_direct,
+    by_datatype_indirect,
+    by_overall_direct,
+    by_overall_indirect,
+  ]
   is_a: association
   represented_as: edge

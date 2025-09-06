@@ -54,10 +54,10 @@ from .edge_target_disease_association_crispr_tested_in_cell_line import (
     edge_target_disease_association_crispr_tested_in_cell_line,
 )
 from .edge_target_disease_association_has_object_disease import (
-    edge_target_disease_association_object_of_disease,
+    edge_target_disease_association_has_object_disease,
 )
 from .edge_target_disease_association_inferred_from_mouse_model import (
-    edge_target_disease_association_derived_from_mouse_model,
+    edge_target_disease_association_inferred_from_mouse_model,
 )
 from .edge_target_disease_association_inferred_from_pathway_progeny import (
     edge_target_disease_association_inferred_from_pathway_progeny,
@@ -76,6 +76,24 @@ from .edge_target_has_database_cross_reference_database_cross_reference import (
 )
 from .edge_target_has_homologue_in_species_species import (
     edge_target_has_homologue_in_species_species,
+)
+from .edge_target_has_summary_association_by_datasource_direct_target import (
+    edge_target_has_summary_association_by_datasource_direct_target,
+)
+from .edge_target_has_summary_association_by_datasource_indirect_target import (
+    edge_target_has_summary_association_by_datasource_indirect_target,
+)
+from .edge_target_has_summary_association_by_datatype_direct_target import (
+    edge_target_has_summary_association_by_datatype_direct_target,
+)
+from .edge_target_has_summary_association_by_datatype_indirect_target import (
+    edge_target_has_summary_association_by_datatype_indirect_target,
+)
+from .edge_target_has_summary_association_by_overall_direct_target import (
+    edge_target_has_summary_association_by_overall_direct_target,
+)
+from .edge_target_has_summary_association_by_overall_indirect_target import (
+    edge_target_has_summary_association_by_overall_indirect_target,
 )
 from .edge_target_has_target_target_interaction_target_a import (
     edge_target_has_target_target_interaction_target_a,
@@ -126,14 +144,20 @@ __all__ = [
     "edge_target_disease_association_cancer_biomarkers_has_molecule",
     "edge_target_disease_association_chembl_has_molecule",
     "edge_target_disease_association_crispr_tested_in_cell_line",
-    "edge_target_disease_association_derived_from_mouse_model",
+    "edge_target_disease_association_has_object_disease",
+    "edge_target_disease_association_inferred_from_mouse_model",
     "edge_target_disease_association_inferred_from_pathway_progeny",
     "edge_target_disease_association_inferred_from_pathway_slapenrich",
     "edge_target_disease_association_inferred_from_reaction",
-    "edge_target_disease_association_object_of_disease",
     "edge_target_disease_association_supported_by_literature",
     "edge_target_has_database_cross_reference_database_cross_reference",
     "edge_target_has_homologue_in_species_species",
+    "edge_target_has_summary_association_by_datasource_direct_target",
+    "edge_target_has_summary_association_by_datasource_indirect_target",
+    "edge_target_has_summary_association_by_datatype_direct_target",
+    "edge_target_has_summary_association_by_datatype_indirect_target",
+    "edge_target_has_summary_association_by_overall_direct_target",
+    "edge_target_has_summary_association_by_overall_indirect_target",
     "edge_target_has_target_target_interaction_target_a",
     "edge_target_has_target_target_interaction_target_b",
     "edge_target_involves_in_pathway",
