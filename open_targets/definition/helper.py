@@ -1,3 +1,5 @@
+"""Helper functions for quickly building commonly used expressions."""
+
 from typing import Any, get_args
 
 from open_targets.adapter.expression import (
