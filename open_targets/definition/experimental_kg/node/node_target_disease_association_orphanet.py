@@ -1,8 +1,10 @@
 """Definition for TARGET_DISEASE_ASSOCIATION_ORPHANET nodes: filters Evidence
-parquet to orphanet source to emit rare disease associations with disease IDs,
-direction on trait, allelic requirements, variant functional consequence,
-confidence/score, allele origins, target IDs, capturing Orphanet curation in the
-KG."""
+parquet to orphanet rare-disease curation. Orphanet experts review clinical
+genetics for rare diseases and assert gene-disease links, noting allele origins,
+allelic requirements, direction on trait, and functional consequence. Records
+keep disease/target IDs, confidence, and scores. Inference: rare disease cases
+→ expert curation of causal gene → recorded as curated rare-disease evidence in
+the KG."""
 
 from typing import Final
 

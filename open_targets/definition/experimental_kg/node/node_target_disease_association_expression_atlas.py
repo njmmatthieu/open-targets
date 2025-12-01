@@ -1,8 +1,11 @@
 """Definition for TARGET_DISEASE_ASSOCIATION_EXPRESSION_ATLAS nodes: filters
-Evidence parquet to expression_atlas source to emit differential expression
-associations with biosamples, contrasts, log2FC/value/percentile, literature,
-study overview/ID, confidence/resource scores, disease/target IDs, capturing
-expression-based evidence in the KG."""
+Evidence parquet to expression_atlas differential expression evidence. Genes
+measured in case vs control biosamples yield contrasts (log2FC/value/percentile);
+significant differential expression in disease-relevant tissues links the gene to
+the disease. Records store biosamples, contrasts, log2FC/percentile, literature,
+study overview/ID, confidence/resource scores, and disease/target IDs. Inference:
+measure expression in disease vs baseline → observe differential expression →
+link gene to disease in the KG (note: expression evidence is not ontology-propagated)."""
 
 from typing import Final
 

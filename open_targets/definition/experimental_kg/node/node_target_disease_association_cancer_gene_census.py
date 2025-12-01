@@ -1,7 +1,11 @@
 """Definition for TARGET_DISEASE_ASSOCIATION_CANCER_GENE_CENSUS nodes: filters
-Evidence parquet to cancer_gene_census source to emit reified somatic mutation
-associations with direction on trait, mapped disease, variant effect, resource
-score, study and target IDs, capturing CGC cancer relevance in the KG."""
+Evidence parquet to cancer_gene_census (CGC) somatic driver calls. CGC experts
+review tumor sequencing and literature to declare genes as drivers in specific
+cancers. Each record is that curated call: disease mapping, target ID, variant
+effect, direction on trait, and resource/evidence scores. The inference chain is
+tumor sequencing → expert curation of driver status → driver gene linked to cancer
+in the KG.
+"""
 
 from typing import Final
 

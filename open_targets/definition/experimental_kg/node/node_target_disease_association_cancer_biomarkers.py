@@ -1,7 +1,13 @@
 """Definition for TARGET_DISEASE_ASSOCIATION_CANCER_BIOMARKERS nodes: filters
-Evidence parquet to cancer_biomarkers source to emit reified associations with
-biomarker name, confidence, disease/drug/target IDs, and score, capturing
-biomarker-driven drug response evidence in the KG."""
+Evidence parquet to cancer_biomarkers to emit biomarker-driven associations.
+Cancer Biomarkers is a manually curated set of alterations (mutations, CNVs,
+expression changes) observed to predict drug response or resistance in specific
+cancers/tumor types. Curators review clinical/preclinical studies and score the
+evidence. Inference: biomarker alteration in tumor → reported sensitivity/
+resistance to a drug → expert curation/score → target tied to the cancer with
+confidence, score, and implicated drug. The KG captures this curated biomarker →
+response chain, not generic co-occurrence.
+"""
 
 from typing import Final
 

@@ -1,8 +1,10 @@
 """Definition for TARGET_DISEASE_ASSOCIATION_GENE2PHENOTYPE nodes: filters
-Evidence parquet to gene2phenotype source to emit curated gene–disease links
-with allelic requirements, direction on trait, variant functional consequence,
-disease IDs, study ID, confidence, and score, capturing G2P assertions in the
-KG."""
+Evidence parquet to gene2phenotype curated gene-disease assertions. Gene2Phenotype
+curators review human genetic evidence and specify allelic requirements, variant
+functional consequence, and direction on trait. Each record carries disease IDs,
+study ID, confidence, score, and target IDs. Inference: human variant observations
+→ curator assessment of causal gene-disease link → recorded as a curated assertion
+in the KG."""
 
 from typing import Final
 

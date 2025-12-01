@@ -1,8 +1,9 @@
-"""Definition for TARGET_DISEASE_ASSOCIATION_CHEMBL nodes: filters the Evidence
-parquet to ChEMBL clinical evidence (`sourceId == chembl`) and emits reified
-target–disease association nodes with trial phase/status, cohort, direction on
-trait, variant effect, disease IDs, study IDs/dates, and score, representing
-known-drug evidence in the KG."""
+"""Definition for TARGET_DISEASE_ASSOCIATION_CHEMBL nodes: filters Evidence parquet
+to chembl known-drug clinical evidence. Each record is a clinical study/trial where
+a drug modulating this target was tested in a disease. It carries trial phase/status,
+cohort phenotypes, variant effect and direction on trait, disease IDs, study IDs/dates,
+and scores. Inference: drug hits target → trial in patients with the disease → observe
+outcome/phase and direction → encode as interventional evidence in the KG."""
 
 from typing import Final
 

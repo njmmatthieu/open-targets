@@ -1,8 +1,10 @@
 """Definition for TARGET_DISEASE_ASSOCIATION_INTOGEN nodes: filters Evidence
-parquet to intogen source to emit driver discovery associations with cohort IDs/
-descriptions, significant driver methods, direction on trait, variant effect,
-resource/score, and target/disease IDs, capturing somatic driver evidence in the
-KG."""
+parquet to intogen driver discovery results. IntOGen aggregates tumor sequencing
+studies and runs driver-calling methods to identify genes under positive selection
+in specific cancers. Records retain cohort IDs/descriptions, significant driver
+methods, direction on trait, variant effect, resource/score, and target/disease
+IDs. Inference: aggregate somatic mutations → apply driver detection → call gene
+as driver in a cancer → record as driver-based association in the KG."""
 
 from typing import Final
 

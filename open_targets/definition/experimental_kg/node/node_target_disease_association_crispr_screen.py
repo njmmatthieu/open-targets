@@ -1,8 +1,10 @@
 """Definition for TARGET_DISEASE_ASSOCIATION_CRISPR_SCREEN nodes: filters
-Evidence parquet to crispr_screen source to emit screen associations with
-cell type, contrast, library, disease IDs, genetic background, log2FC, project
-ID, stats tail, study metadata, resource/score, capturing functional screen
-evidence in the KG."""
+Evidence parquet to crispr_screen source to emit detailed CRISPR screen results.
+Screens perturb genes across cell types/libraries; significant contrasts (log2FC)
+link a gene to a disease model. Records keep cell type, library, contrast,
+genetic background, log2FC, project/study metadata, and scores. Inference: perturb
+gene in disease-model cells → observe strong viability/phenotype shift → link
+gene to disease in the KG."""
 
 from typing import Final
 

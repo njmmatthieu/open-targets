@@ -1,7 +1,9 @@
 """Definition for TARGET_DISEASE_ASSOCIATION_UNIPROT_VARIANTS nodes: filters
-Evidence parquet to uniprot_variants source to emit variant-based associations
-with disease IDs, target modulation, variant IDs/RS/functional consequence,
-confidence, and score, capturing UniProt variant evidence in the KG."""
+Evidence parquet to uniprot_variants curated variant assertions. UniProt curators
+review literature and databases for protein variants linked to disease, capturing
+variant IDs (RS/id), functional consequence, target modulation, confidence, and
+scores. Inference: manual variant curation → variant tied to protein and disease
+→ stored as curated variant evidence in the KG."""
 
 from typing import Final
 

@@ -1,9 +1,11 @@
 """Definition for TARGET_DISEASE_ASSOCIATION_EVA_SOMATIC nodes: filters Evidence
-parquet to eva_somatic source to emit somatic variant associations with variant
-IDs (HGVS, RS, functional consequence), disease IDs, direction/allelic
-requirements, clinical significance, allele origins, cohort phenotypes,
-confidence/score, release date, study ID, and target IDs, capturing somatic
-variant evidence in the KG."""
+parquet to eva_somatic tumor submissions. Somatic submissions describe tumor-
+acquired variants and their clinical interpretation. Each record carries variant
+IDs (HGVS/RS), functional consequence, allele origins, allelic requirements,
+direction on trait, clinical significance, cohort phenotypes, and disease/target
+IDs with confidence/score. Inference: tumor sequencing → clinical interpretation
+of variant relevance → map to gene and cancer → represent curated somatic evidence
+in the KG."""
 
 from typing import Final
 

@@ -1,8 +1,11 @@
 """Definition for TARGET_DISEASE_ASSOCIATION_OT_GENETICS_PORTAL nodes: filters
-Evidence parquet to ot_genetics_portal source to emit GWAS/L2G associations with
-p-values, beta/OR and confidence intervals, variant/consequence IDs (RS/id/qtl),
-direction on trait, project/publication info, disease/target IDs, resource/score,
-capturing OT Genetics causal gene evidence in the KG."""
+Evidence parquet to ot_genetics_portal GWAS/L2G results. OT Genetics finds
+GWAS-significant loci, fine-maps variants, and runs the Locus2Gene model to
+estimate the causal gene (L2G > 0.05). Records keep p-values, beta/OR and CIs,
+variant/consequence IDs (RS/id/QTL), direction on trait, project/publication
+info, disease/target IDs, and resource/score. Inference: GWAS locus → fine-mapping
+→ L2G causal gene probability → gene–disease link recorded as genetics-based
+causal inference in the KG."""
 
 from typing import Final
 

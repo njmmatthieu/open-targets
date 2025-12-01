@@ -1,8 +1,12 @@
 """Definition for TARGET_DISEASE_ASSOCIATION_GENE_BURDEN nodes: filters Evidence
-parquet to gene_burden source to emit rare-variant burden associations with
-beta/OR stats, p-values, ancestry/cohort info, allelic requirements, disease/
-target IDs, study metadata, and scores, capturing burden-test genetic evidence
-in the KG."""
+parquet to gene_burden source to emit rare-variant burden associations. Burden
+tests collapse many rare variants in a gene into a single burden score and test
+carriers vs non-carriers for disease/trait difference. Inference: sequence rare
+variants → collapse into burden score → regress burden against phenotype → significant
+beta/OR/p-value → link gene to disease. Records store regression effects, p-values,
+ancestry/cohort info, allelic requirements, and study metadata. The KG captures
+these gene-wide rare-variant signals rather than single-variant hits.
+"""
 
 from typing import Final
 

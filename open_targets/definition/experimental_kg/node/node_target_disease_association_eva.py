@@ -1,9 +1,11 @@
 """Definition for TARGET_DISEASE_ASSOCIATION_EVA nodes: filters Evidence parquet
-to eva source to emit germline ClinVar/EVA associations with variant IDs (HGVS,
-RS, functional consequence), disease IDs, direction/allelic requirements,
-clinical significance, allele origins, cohort phenotypes, confidence/score,
-release date, study ID, and target IDs, capturing curated germline variant
-evidence in the KG."""
+to eva germline submissions (ClinVar/EVA). ClinVar submitters assert whether a
+germline variant is pathogenic/benign for a disease. Each record keeps variant
+IDs (HGVS/RS), functional consequence, allele origin, allelic requirements,
+direction on trait, clinical significance, cohort phenotypes, and confidence/
+score with disease/target IDs. Inference: clinical genetics lab submission →
+asserted variant pathogenicity → map to gene and disease → represent curated
+germline evidence in the KG."""
 
 from typing import Final
 

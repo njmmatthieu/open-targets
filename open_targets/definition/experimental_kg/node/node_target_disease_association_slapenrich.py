@@ -1,7 +1,11 @@
 """Definition for TARGET_DISEASE_ASSOCIATION_SLAPENRICH nodes: filters Evidence
-parquet to slapenrich source to emit pathway enrichment associations with
-disease IDs, target IDs, resource/score, capturing SLAPenrich pathway evidence
-in the KG."""
+parquet to slapenrich pathway-enrichment inference. SLAPenrich tests whether
+mutations observed in a disease context are enriched in specific pathways. When
+a pathway is significantly enriched, the genes in that pathway (targets) are
+linked to the disease as inferred contributors. Records keep disease IDs, target
+IDs, and enrichment/resource scores. Inference: collect somatic mutations →
+test pathway enrichment → if enriched, link pathway genes to disease → store as
+pathway-level evidence in the KG."""
 
 from typing import Final
 
