@@ -10,9 +10,8 @@ Targets data version 24.09. The project is currently under active development.
 - [Overview](#overview)
 - [Prerequisites](#prerequisites)
 - [Installation](#installation)
-- [Data Preparation](#data-preparation)
 - [Usage](#usage)
-- [Node and Edge Definitions](#node-and-edge-definitions)
+- [Reference Knowledge Graph](#reference-knowledge-graph)
 - [Open Targets Data Schema](#open-targets-data-schema)
 - [Code Generation](#code-generation)
 - [Contributing](#contributing)
@@ -28,11 +27,12 @@ for [Open Targets data](https://platform.opentargets.org/downloads), meaning it
 adapts a pre-harmonised composite of atomic resources via the Open Targets
 pipeline.
 
-The adapter includes predefined sets of node types (entities) and edge types
-(relationships), or in the language of this adapter, presets of node and edge
-`definitions`. A script is provided to run BioCypher with the adapter, creating
-a knowledge graph with all predefined nodes and edges. On a consumer laptop,
-building the full graph typically takes 1-2 hours.
+The adapter includes a comprehensive reference knowledge graph with predefined
+sets of node types (entities) and edge types (relationships), or in the language
+of this adapter, presets of node and edge `definitions`. A script is provided
+to run BioCypher with the adapter, creating a knowledge graph with all predefined
+nodes and edges. On a consumer laptop, building the full graph typically takes
+1-2 hours.
 
 **Key Features:**
 - Declarative syntax for graph schema construction
@@ -68,78 +68,42 @@ building the full graph typically takes 1-2 hours.
    uv run python <script>
    ```
 
-## Data Preparation
-
-Download the required Open Targets datasets (version 24.09) from the [Open Targets FTP server](https://ftp.ebi.ac.uk/pub/databases/opentargets/platform/24.09/output/etl/parquet/).
-
-Place all downloaded datasets in the `data/ot_files` directory, maintaining the original directory structure from the FTP server:
-
-```
-data/ot_files/
-├── targets/
-│   └── **/
-│       └── *.parquet
-├── diseases/
-│   └── **/
-│       └── *.parquet
-├── molecule/
-│   └── **/
-│       └── *.parquet
-├── evidence/
-│   └── **/
-│       └── *.parquet
-...
-```
-
-The adapter requires multiple datasets including `targets/`, `diseases/`, `molecule/`, `evidence/`, `go/`, `mousePhenotypes/`, `interaction/`, and others as needed by specific node/edge definitions.
-
 ## Usage
+
+Runnable examples are provided in the `example/` directory. Each example includes:
+- A Python script demonstrating usage
+- Configuration files
+- Data preparation instructions in `datasets/README.md`
 
 ### Quick Start
 
-1. Follow the [Installation](#installation) and [Data Preparation](#data-preparation) steps
-2. Run the script:
+1. Follow the [Installation](#installation) steps
+2. Navigate to an example directory:
    ```bash
-   uv run python scripts/open_targets_biocypher_run.py
+   cd example/full_graph
+   ```
+3. Follow the data preparation instructions in `datasets/README.md`
+4. Run the example:
+   ```bash
+   uv run python full_graph.py
    ```
 
-This generates a knowledge graph using all predefined node/edge definitions.
+### Available Examples
 
-### Custom Subset
+- **Full Graph** (`example/full_graph/`): Builds the complete reference knowledge graph using all predefined definitions
+- **Custom Subset** (`example/custom_subset/`): Demonstrates selecting specific node/edge definitions
 
-To use a custom subset of definitions:
+See `example/README.md` for details on all available examples and how to create your own.
 
-```python
-from biocypher import BioCypher
-from open_targets.adapter.context import AcquisitionContext
-from open_targets.definition.experimental_kg.node import node_target, node_disease
-from open_targets.definition.experimental_kg.edge import edge_target_disease_association_has_object_disease
+## Reference Knowledge Graph
 
-bc = BioCypher(biocypher_config_path="config/biocypher_config.yaml")
-context = AcquisitionContext(
-    node_definitions=[node_target, node_disease],
-    edge_definitions=[edge_target_disease_association_has_object_disease],
-    datasets_location="data/ot_files",
-)
-
-for node_def in context.node_definitions:
-    bc.write_nodes(context.get_acquisition_generator(node_def))
-for edge_def in context.edge_definitions:
-    bc.write_edges(context.get_acquisition_generator(edge_def))
-
-bc.write_import_call()
-bc.summary()
-```
-
-## Node and Edge Definitions
-
-The adapter includes 40+ node types and 50+ edge types. **Each definition file contains detailed docstrings explaining what it does, what data it uses, and how it works.**
+The reference knowledge graph includes 40+ node types and 50+ edge types. **Each definition file contains detailed docstrings explaining what it does, what data it uses, and how it works.**
 
 ### Finding Definition Files
 
-- **Node definitions**: `open_targets/definition/experimental_kg/node/`
-- **Edge definitions**: `open_targets/definition/experimental_kg/edge/`
-- **Complete list**: `open_targets/definition/experimental_kg/kg.py`
+- **Node definitions**: `open_targets/definition/reference_kg/node/`
+- **Edge definitions**: `open_targets/definition/reference_kg/edge/`
+- **Complete list**: `open_targets/definition/reference_kg/kg.py`
 
 ### Reading Docstrings
 
@@ -151,7 +115,7 @@ Each definition file (e.g., `node_target.py`, `edge_molecule_has_adverse_reactio
 
 **Example:**
 ```python
-# In open_targets/definition/experimental_kg/node/node_target.py
+# In open_targets/definition/reference_kg/node/node_target.py
 """Summary: Ensembl target gene nodes (symbol/name/biotype/functions).
 
 Definition for TARGET nodes: scans the Targets parquet to emit Ensembl gene
@@ -161,7 +125,7 @@ target entities used across drug, association, and annotation edges in the KG.
 ```
 
 To explore available definitions:
-1. Browse the files in `open_targets/definition/experimental_kg/node/` and `edge/`
+1. Browse the files in `open_targets/definition/reference_kg/node/` and `edge/`
 2. Read the docstring at the top of each file
 3. Check `kg.py` to see how definitions are organized
 
