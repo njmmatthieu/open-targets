@@ -139,4 +139,4 @@ dmypy.json
 data
 
 # Agent space
-.agent
+agent_space
