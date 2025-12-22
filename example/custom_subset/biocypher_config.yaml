@@ -3,8 +3,9 @@ biocypher:
   schema_config_path: schema_config.yaml
 
 neo4j:
-  database_name: reference_kg
+  database_name: custom_subset
   delimiter: '\t'
   quote_character: '@'
   array_delimiter: '|'
   skip_bad_relationships: true
+

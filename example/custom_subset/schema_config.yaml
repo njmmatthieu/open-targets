@@ -1,0 +1,28 @@
+# Minimal schema config for custom subset example
+# Only includes the node and edge types used in custom_subset.py
+
+disease:
+  input_label: DISEASE
+  is_a: named thing
+  represented_as: node
+
+molecule:
+  input_label: MOLECULE
+  is_a: named thing
+  represented_as: node
+
+target:
+  input_label: TARGET
+  is_a: named thing
+  represented_as: node
+
+has_summary_association:
+  input_label: HAS_SUMMARY_ASSOCIATION_BY_OVERALL_DIRECT
+  is_a: association
+  represented_as: edge
+
+indicates:
+  input_label: INDICATES
+  is_a: association
+  represented_as: edge
+

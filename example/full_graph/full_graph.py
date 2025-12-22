@@ -1,7 +1,4 @@
 # type: ignore[reportUnknownMemberType]
-
-"""A pipeline to build Open Targets platform data as a BioCypher KG."""
-
 import logging
 
 from biocypher import BioCypher
@@ -11,37 +8,32 @@ from open_targets.definition.reference_kg.kg import reference_kg_definition
 
 
 def main():
-    """Run the import using BioCypher and the Open Targets adapter."""
-    # Start BioCypher
-    bc = BioCypher(
-        biocypher_config_path="config/biocypher_config.yaml",
+    # Initialize BioCypher
+    biocypher_instance = BioCypher(
+        biocypher_config_path="biocypher_config.yaml",
     )
-    # Set logging level to ERROR only
     logging.getLogger("biocypher").setLevel(logging.ERROR)
+    biocypher_instance.show_ontology_structure()
 
-    # Check the schema
-    bc.show_ontology_structure()
-
-    # Open Targets
     context = AcquisitionContext(
         node_definitions=reference_kg_definition.node_definitions,
         edge_definitions=reference_kg_definition.edge_definitions,
-        datasets_location="datasets",
+        datasets_location="datasets",  # directory containing the downloaded datasets
     )
 
     count = 1
+    # Stream nodes and edges to BioCypher
     for node_definition in reference_kg_definition.node_definitions:
-        print(f"{count}: {node_definition.label}")
+        print(f"{count}: {node_definition.label}")  # noqa: T201
         count += 1
-        bc.write_nodes(context.get_acquisition_generator(node_definition))
+        biocypher_instance.write_nodes(context.get_acquisition_generator(node_definition))
     for edge_definition in reference_kg_definition.edge_definitions:
-        print(f"{count}: {edge_definition.label}")
+        print(f"{count}: {edge_definition.label}")  # noqa: T201
         count += 1
-        bc.write_edges(context.get_acquisition_generator(edge_definition))
+        biocypher_instance.write_edges(context.get_acquisition_generator(edge_definition))
 
-    # Post import functions
-    bc.write_import_call()
-    bc.summary()
+    biocypher_instance.write_import_call()
+    biocypher_instance.summary()
 
 
 if __name__ == "__main__":
