@@ -1,13 +1,18 @@
 """Entry point for code generation."""
 
-from collections.abc import Callable
-from pathlib import Path, PurePosixPath
-from typing import Any
+import sys
+from pathlib import Path
+from subprocess import run
 
 from jinja2 import Environment, FileSystemLoader, StrictUndefined, select_autoescape
 
-from code_generation.config import create_config_render_context
-from code_generation.schema import create_schema_render_context
+from code_generation.base import GenerationDefinitionBase
+
+# The order of the modules is important due to the dependencies between them.
+GENERATION_DEFINITION_MODULES = [
+    "code_generation.config",
+    "code_generation.schema",
+]
 
 
 def configure_jinja() -> Environment:
@@ -16,26 +21,15 @@ def configure_jinja() -> Environment:
         loader=FileSystemLoader(Path.cwd()),
         lstrip_blocks=True,
         trim_blocks=True,
-        undefined=StrictUndefined,  # raise an error if a variable is not defined rather silently providing empty string
+        undefined=StrictUndefined,
         autoescape=select_autoescape(),
     )
 
 
-def render(env: Environment, template_local_path: PurePosixPath, context_creator: Callable[[], dict[str, Any]]) -> None:
-    """Render a template.
-
-    Args:
-        env: The pre-configured jinja environment.
-        template_local_path: The path to the template file relative to the
-            current working directory.
-        context_creator: A function that returns a dictionary of variables to be
-            used in the template.
-
-    Render a template with the same name and location, but without the .jinja
-    extension.
-
-    """
-    template_name = str(template_local_path)
+def render(generator: GenerationDefinitionBase) -> None:
+    """Render a template with the provided generator."""
+    env = configure_jinja()
+    template_name = str(generator.template_path)
     template = env.get_template(template_name)
     if template.filename is None:
         msg = f"Template {template_name} has no filename"
@@ -43,13 +37,22 @@ def render(env: Environment, template_local_path: PurePosixPath, context_creator
 
     template_full_path = Path(template.filename)
     render_full_path = template_full_path.with_name(template_full_path.stem)
-    context = context_creator()
-    render_full_path.write_text(template.render(context))
+    render_full_path.write_text(template.render(generator.create_context()), encoding="utf-8")
+
+    run(["ruff", "format", str(render_full_path)], check=True)
+    run(["ruff", "check", "--fix", "--exit-zero", str(render_full_path)], check=True)
 
 
-env = configure_jinja()
+def main() -> None:
+    """Run code generation for all definitions."""
+    for module_name in GENERATION_DEFINITION_MODULES:
+        expression = (
+            "from code_generation import generate;"
+            f"from {module_name} import GenerationDefinition;"
+            f"generate.render(GenerationDefinition())"
+        )
+        run([sys.executable, "-c", expression], check=True)
 
-# Order matters here due to dependencies, for example, schema.py depends on
-# generated config.py.
-render(env, PurePosixPath("open_targets/config.py.jinja"), create_config_render_context)
-render(env, PurePosixPath("open_targets/data/schema.py.jinja"), create_schema_render_context)
+
+if __name__ == "__main__":
+    main()

@@ -5,11 +5,13 @@ single source of truth. For these settings to be accessible in Python runtime,
 jinja is used to read the file and generate constants in `config.py`.
 """
 
-from pathlib import Path
+from pathlib import Path, PurePosixPath
 from typing import Any
 
 import tomli
 from pydantic.alias_generators import to_snake
+
+from code_generation.base import GenerationDefinitionBase
 
 
 def create_config_render_context() -> dict[str, Any]:
@@ -26,3 +28,12 @@ def create_config_render_context() -> dict[str, Any]:
     return {
         "config": name_converted,
     }
+
+
+class GenerationDefinition(GenerationDefinitionBase):
+    """Render the open_targets/config.py template."""
+
+    template_path = PurePosixPath("open_targets/config.py.jinja")
+
+    def create_context(self) -> dict[str, Any]:
+        return create_config_render_context()

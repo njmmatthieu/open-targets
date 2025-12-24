@@ -1,13 +1,14 @@
 """Functions for generating the schema.py file from Croissant JSON."""
 
 from dataclasses import dataclass
-from pathlib import Path
+from pathlib import Path, PurePosixPath
 from textwrap import wrap
 from typing import Any
 
 import tomli
 from pydantic.alias_generators import to_pascal, to_snake
 
+from code_generation.base import GenerationDefinitionBase
 from open_targets.data.metadata import fetch_open_targets_croissant_schema
 from open_targets.data.metadata.model import CroissantFieldModel, DataType, OpenTargetsDatasetFieldType
 from open_targets.data.schema_base import Dataset, Field, ScalarField, SequenceField, StructField
@@ -316,3 +317,12 @@ def create_schema_render_context() -> dict[str, Any]:
         )
 
     return {"class_infos": flatten_class_infos(class_infos)}
+
+
+class GenerationDefinition(GenerationDefinitionBase):
+    """Render the open_targets/data/schema.py template."""
+
+    template_path = PurePosixPath("open_targets/data/schema.py.jinja")
+
+    def create_context(self) -> dict[str, Any]:
+        return create_schema_render_context()

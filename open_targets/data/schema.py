@@ -11357,7 +11357,7 @@ class FieldInteractionEvidenceParticipantDetectionMethodAElement(StructField):
 class FieldInteractionEvidenceParticipantDetectionMethodAElementMiIdentifier(ScalarField):
     """Field `miIdentifier` in dataset `interaction_evidence`.
 
-    Molecular Interactions (MI) identifier for participant A�s detection method
+    Molecular Interactions (MI) identifier for participant A’s detection method
     [bioregistry:mi]
     """
 
@@ -11370,7 +11370,7 @@ class FieldInteractionEvidenceParticipantDetectionMethodAElementMiIdentifier(Sca
 class FieldInteractionEvidenceParticipantDetectionMethodAElementShortName(ScalarField):
     """Field `shortName` in dataset `interaction_evidence`.
 
-    Short name of participant A�s detection method
+    Short name of participant A’s detection method
     """
 
     name: Final[str]
@@ -11407,7 +11407,7 @@ class FieldInteractionEvidenceParticipantDetectionMethodBElement(StructField):
 class FieldInteractionEvidenceParticipantDetectionMethodBElementMiIdentifier(ScalarField):
     """Field `miIdentifier` in dataset `interaction_evidence`.
 
-    Molecular Interactions (MI) identifier for participant B�s detection method
+    Molecular Interactions (MI) identifier for participant B’s detection method
     [bioregistry:mi]
     """
 
@@ -11420,7 +11420,7 @@ class FieldInteractionEvidenceParticipantDetectionMethodBElementMiIdentifier(Sca
 class FieldInteractionEvidenceParticipantDetectionMethodBElementShortName(ScalarField):
     """Field `shortName` in dataset `interaction_evidence`.
 
-    Short name of participant B�s detection method
+    Short name of participant B’s detection method
     """
 
     name: Final[str]
@@ -16137,7 +16137,7 @@ class FieldTargetEssentialityGeneEssentialityElementDepMapEssentialityElementScr
 
 
 class FieldTargetEssentialityGeneEssentialityElementDepMapEssentialityElementScreensElementDiseaseCellLineId(
-    ScalarField
+    ScalarField,
 ):
     """Field `diseaseCellLineId` in dataset `target_essentiality`.
 
@@ -16151,7 +16151,7 @@ class FieldTargetEssentialityGeneEssentialityElementDepMapEssentialityElementScr
 
 
 class FieldTargetEssentialityGeneEssentialityElementDepMapEssentialityElementScreensElementDiseaseFromSource(
-    ScalarField
+    ScalarField,
 ):
     """Field `diseaseFromSource` in dataset `target_essentiality`.
 
