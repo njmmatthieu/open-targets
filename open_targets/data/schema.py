@@ -15,11 +15,11 @@ class DatasetAssociationByDatasourceDirect(Dataset):
     """Dataset `association_by_datasource_direct`.
 
     Data source-specific metrics for direct target-disease associations. Dataset
-    contains association scores calculated for each data source indepedently for the
-    aggregation of all evidence supporting any given target-disease. This dataset
-    only contains direct associations, therefore no evidence is propagated across
-    the disease or phenotype space using the Experimental Factor Ontology [Target-
-    Disease]
+    contains association scores calculated for each data source indepedently for
+    the aggregation of all evidence supporting any given target-disease. This
+    dataset only contains direct associations, therefore no evidence is
+    propagated across the disease or phenotype space using the Experimental
+    Factor Ontology [Target-Disease]
     """
 
     id: Final[str]
@@ -35,8 +35,8 @@ class DatasetAssociationByDatasourceDirect(Dataset):
 class FieldAssociationByDatasourceDirectDatasourceId(ScalarField):
     """Field `datasourceId` in dataset `association_by_datasource_direct`.
 
-    Identifier for the data source used to calculate the association score. (e.g.
-    chembl)
+    Identifier for the data source used to calculate the association score.
+    (e.g. chembl)
     """
 
     name: Final[str]
@@ -85,8 +85,8 @@ class FieldAssociationByDatasourceDirectEvidenceCount(ScalarField):
 class FieldAssociationByDatasourceDirectScore(ScalarField):
     """Field `score` in dataset `association_by_datasource_direct`.
 
-    Association score calculated independently for each data source without ontology
-    propagation of evidence
+    Association score calculated independently for each data source without
+    ontology propagation of evidence
     """
 
     name: Final[str]
@@ -111,11 +111,11 @@ class DatasetAssociationByDatasourceIndirect(Dataset):
     """Dataset `association_by_datasource_indirect`.
 
     Data source-specific metrics for direct target-disease associations. Dataset
-    contains association scores calculated for each data source indepedently for the
-    aggregation of all evidence supporting any given target-disease. This dataset
-    contains indirect associations, therefore evidence is propagated across the
-    disease or phenotype space using the Experimental Factor Ontology [Target-
-    Disease]
+    contains association scores calculated for each data source indepedently for
+    the aggregation of all evidence supporting any given target-disease. This
+    dataset contains indirect associations, therefore evidence is propagated
+    across the disease or phenotype space using the Experimental Factor Ontology
+    [Target-Disease]
     """
 
     id: Final[str]
@@ -131,8 +131,8 @@ class DatasetAssociationByDatasourceIndirect(Dataset):
 class FieldAssociationByDatasourceIndirectDatasourceId(ScalarField):
     """Field `datasourceId` in dataset `association_by_datasource_indirect`.
 
-    Identifier for the data source used to calculate the association score. (e.g.
-    chembl)
+    Identifier for the data source used to calculate the association score.
+    (e.g. chembl)
     """
 
     name: Final[str]
@@ -181,8 +181,8 @@ class FieldAssociationByDatasourceIndirectEvidenceCount(ScalarField):
 class FieldAssociationByDatasourceIndirectScore(ScalarField):
     """Field `score` in dataset `association_by_datasource_indirect`.
 
-    Association score calculated independently for each data source with ontology
-    propagation of evidence
+    Association score calculated independently for each data source with
+    ontology propagation of evidence
     """
 
     name: Final[str]
@@ -207,11 +207,11 @@ class DatasetAssociationByDatatypeDirect(Dataset):
     """Dataset `association_by_datatype_direct`.
 
     Data type-specific metrics for direct target-disease associations. Dataset
-    contains association scores calculated for each data type indepedently for the
-    aggregation of all evidence supporting any given target-disease. This dataset
-    only contains direct associations, therefore no evidence is propagated across
-    the disease or phenotype space using the Experimental Factor Ontology [Target-
-    Disease]
+    contains association scores calculated for each data type indepedently for
+    the aggregation of all evidence supporting any given target-disease. This
+    dataset only contains direct associations, therefore no evidence is
+    propagated across the disease or phenotype space using the Experimental
+    Factor Ontology [Target-Disease]
     """
 
     id: Final[str]
@@ -262,8 +262,8 @@ class FieldAssociationByDatatypeDirectEvidenceCount(ScalarField):
 class FieldAssociationByDatatypeDirectScore(ScalarField):
     """Field `score` in dataset `association_by_datatype_direct`.
 
-    Association score calculated independently for each data type without ontology
-    propagation of evidence
+    Association score calculated independently for each data type without
+    ontology propagation of evidence
     """
 
     name: Final[str]
@@ -288,11 +288,11 @@ class DatasetAssociationByDatatypeIndirect(Dataset):
     """Dataset `association_by_datatype_indirect`.
 
     Data type-specific metrics for direct target-disease associations. Dataset
-    contains association scores calculated for each data type indepedently for the
-    aggregation of all evidence supporting any given target-disease. This dataset
-    contains indirect associations, therefore evidence is propagated across the
-    disease or phenotype space using the Experimental Factor Ontology [Target-
-    Disease]
+    contains association scores calculated for each data type indepedently for
+    the aggregation of all evidence supporting any given target-disease. This
+    dataset contains indirect associations, therefore evidence is propagated
+    across the disease or phenotype space using the Experimental Factor Ontology
+    [Target-Disease]
     """
 
     id: Final[str]
@@ -370,9 +370,9 @@ class DatasetAssociationOverallDirect(Dataset):
 
     Overall metrics for direct target-disease associations. Dataset contains the
     overall association score for the aggregation of all evidence supporting any
-    given target-disease. This dataset only contains direct associations, therefore
-    no evidence is propagated across the disease or phenotype space using the
-    Experimental Factor Ontology [Target-Disease]
+    given target-disease. This dataset only contains direct associations,
+    therefore no evidence is propagated across the disease or phenotype space
+    using the Experimental Factor Ontology [Target-Disease]
     """
 
     id: Final[str]
@@ -477,8 +477,8 @@ class FieldAssociationOverallIndirectEvidenceCount(ScalarField):
 class FieldAssociationOverallIndirectScore(ScalarField):
     """Field `score` in dataset `association_overall_indirect`.
 
-    Association score calculated across all data sources with ontology propagation
-    of evidence
+    Association score calculated across all data sources with ontology
+    propagation of evidence
     """
 
     name: Final[str]
@@ -690,9 +690,9 @@ class FieldBiosampleXrefsElement(ScalarField):
 class DatasetColocalisation(Dataset):
     """Dataset `colocalisation`.
 
-    GWAS-GWAS and GWAS-molQTL credible set colocalisation results using colocPIP and
-    eCAVIAR methods. Dataset includes colocalising pairs and the statistics used to
-    estimate the colocalisation [Genetics]
+    GWAS-GWAS and GWAS-molQTL credible set colocalisation results using colocPIP
+    and eCAVIAR methods. Dataset includes colocalising pairs and the statistics
+    used to estimate the colocalisation [Genetics]
     """
 
     id: Final[str]
@@ -736,8 +736,8 @@ class FieldColocalisationChromosome(ScalarField):
 class FieldColocalisationClpp(ScalarField):
     """Field `clpp` in dataset `colocalisation`.
 
-    Colocalisation posterior probability (CLPP) score estimating the probability of
-    shared causal variants
+    Colocalisation posterior probability (CLPP) score estimating the probability
+    of shared causal variants
     """
 
     name: Final[str]
@@ -761,8 +761,8 @@ class FieldColocalisationColocalisationMethod(ScalarField):
 class FieldColocalisationH3(ScalarField):
     """Field `h3` in dataset `colocalisation`.
 
-    Posterior probability that both traits are associated, but with different causal
-    variants (H3)
+    Posterior probability that both traits are associated, but with different
+    causal variants (H3)
     """
 
     name: Final[str]
@@ -774,8 +774,8 @@ class FieldColocalisationH3(ScalarField):
 class FieldColocalisationH4(ScalarField):
     """Field `h4` in dataset `colocalisation`.
 
-    Posterior probability that both traits are associated and share a causal variant
-    (H4)
+    Posterior probability that both traits are associated and share a causal
+    variant (H4)
     """
 
     name: Final[str]
@@ -836,8 +836,8 @@ class DatasetCredibleSet(Dataset):
     """Dataset `credible_set`.
 
     95% credible sets for GWAS and molQTL studies. Credible sets include all
-    variants in the credible set as well as the fine-mapping method and statistics
-    used to estimate the credible set [Genetics]
+    variants in the credible set as well as the fine-mapping method and
+    statistics used to estimate the credible set [Genetics]
     """
 
     id: Final[str]
@@ -1340,7 +1340,8 @@ class FieldCredibleSetStudyLocusId(ScalarField):
 class FieldCredibleSetStudyType(ScalarField):
     """Field `studyType` in dataset `credible_set`.
 
-    Descriptor for whether the credible set is derived from GWAS or molecular QTL
+    Descriptor for whether the credible set is derived from GWAS or molecular
+    QTL
     """
 
     name: Final[str]
@@ -1391,8 +1392,8 @@ class DatasetDisease(Dataset):
     Core annotation for diseases or phenotypes. A disease or phenotype in the
     Platform is understood as any disease, phenotype, biological process or
     measurement that might have any type of causality relationship with a human
-    target. The EMBL-EBI Experimental Factor Ontology (EFO) (slim version) is used
-    as scaffold for the disease or phenotype entity [Disease]
+    target. The EMBL-EBI Experimental Factor Ontology (EFO) (slim version) is
+    used as scaffold for the disease or phenotype entity [Disease]
     """
 
     id: Final[str]
@@ -1971,8 +1972,8 @@ class FieldDiseasePhenotypeDisease(ScalarField):
 class FieldDiseasePhenotypeEvidence(SequenceField):
     """Field `evidence` in dataset `disease_phenotype`.
 
-    A container for all evidence-related attributes supporting the disease-phenotype
-    association.
+    A container for all evidence-related attributes supporting the disease-
+    phenotype association.
     """
 
     name: Final[str]
@@ -2009,8 +2010,8 @@ class FieldDiseasePhenotypeEvidenceElement(StructField):
 class FieldDiseasePhenotypeEvidenceElementAspect(ScalarField):
     """Field `aspect` in dataset `disease_phenotype`.
 
-    The category of biological information being provided (e.g., clinical, genetic,
-    etc.)
+    The category of biological information being provided (e.g., clinical,
+    genetic, etc.)
     """
 
     name: Final[str]
@@ -2282,7 +2283,8 @@ class FieldDrugIndicationIndicationCount(ScalarField):
 class FieldDrugIndicationIndications(SequenceField):
     """Field `indications` in dataset `drug_indication`.
 
-    List of approved and investigational indications for which a drug can be used
+    List of approved and investigational indications for which a drug can be
+    used
     """
 
     name: Final[str]
@@ -2404,9 +2406,10 @@ class FieldDrugIndicationIndicationsElementReferencesElementSource(ScalarField):
 class DatasetDrugMechanismOfAction(Dataset):
     """Dataset `drug_mechanism_of_action`.
 
-    Mechanisms of action for drug or clinical candidate molecules included in ChEMBL
-    database. The mechanism of action includes information about the pharmacological
-    target of the drug, the mode of action and the drug modality [Drug]
+    Mechanisms of action for drug or clinical candidate molecules included in
+    ChEMBL database. The mechanism of action includes information about the
+    pharmacological target of the drug, the mode of action and the drug modality
+    [Drug]
     """
 
     id: Final[str]
@@ -2597,12 +2600,13 @@ class FieldDrugMechanismOfActionTargetsElement(ScalarField):
 class DatasetDrugMolecule(Dataset):
     """Dataset `drug_molecule`.
 
-    Core annotation for drug or clinical candidate molecules. A drug in the Platform
-    is understood as any bioactive molecule with drug-like properties included in
-    the EMBL-EBI ChEMBL database. All ChEMBL molecules fullfilling any of the next
-    criteria are included in the database: a) molecules with a known indication, b)
-    molecules with a known mechanism of action, c) ChEMBL molecules included in the
-    DrugBank database, d) Molecules that are acknowledged as chemical probes [Drug]
+    Core annotation for drug or clinical candidate molecules. A drug in the
+    Platform is understood as any bioactive molecule with drug-like properties
+    included in the EMBL-EBI ChEMBL database. All ChEMBL molecules fullfilling
+    any of the next criteria are included in the database: a) molecules with a
+    known indication, b) molecules with a known mechanism of action, c) ChEMBL
+    molecules included in the DrugBank database, d) Molecules that are
+    acknowledged as chemical probes [Drug]
     """
 
     id: Final[str]
@@ -2747,8 +2751,8 @@ class FieldDrugMoleculeDescription(ScalarField):
 class FieldDrugMoleculeDrugType(ScalarField):
     """Field `drugType` in dataset `drug_molecule`.
 
-    Classification of the molecule's therapeutic category or chemical class (e.g.
-    Antibody)
+    Classification of the molecule's therapeutic category or chemical class
+    (e.g. Antibody)
     """
 
     name: Final[str]
@@ -2808,7 +2812,8 @@ class FieldDrugMoleculeIsApproved(ScalarField):
 class FieldDrugMoleculeLinkedDiseases(StructField):
     """Field `linkedDiseases` in dataset `drug_molecule`.
 
-    List of Open Targets disease identifiers of conditions associated with the drug
+    List of Open Targets disease identifiers of conditions associated with the
+    drug
     """
 
     name: Final[str]
@@ -2835,7 +2840,8 @@ class FieldDrugMoleculeLinkedDiseasesCount(ScalarField):
 class FieldDrugMoleculeLinkedDiseasesRows(SequenceField):
     """Field `rows` in dataset `drug_molecule`.
 
-    List of Open Targets disease identifiers of conditions associated with the drug
+    List of Open Targets disease identifiers of conditions associated with the
+    drug
     """
 
     name: Final[str]
@@ -2930,7 +2936,8 @@ class FieldDrugMoleculeName(ScalarField):
 class FieldDrugMoleculeParentId(ScalarField):
     """Field `parentId` in dataset `drug_molecule`.
 
-    Open Targets molecule identifier of the parent molecule for derivative compounds
+    Open Targets molecule identifier of the parent molecule for derivative
+    compounds
     """
 
     name: Final[str]
@@ -3188,7 +3195,8 @@ class FieldDrugWarningToxicityClass(ScalarField):
 class FieldDrugWarningWarningType(ScalarField):
     """Field `warningType` in dataset `drug_warning`.
 
-    Classification of action taken (drug is withdrawn or has a black box warning)
+    Classification of action taken (drug is withdrawn or has a black box
+    warning)
     """
 
     name: Final[str]
@@ -3528,8 +3536,8 @@ class FieldEvidenceCancerBiomarkersBiomarkersGeneExpressionElement(StructField):
 class FieldEvidenceCancerBiomarkersBiomarkersGeneExpressionElementId(ScalarField):
     """Field `id` in dataset `evidence_cancer_biomarkers`.
 
-    Gene Ontology (GO) identifiers of regulation or background expression processes
-    [bioregistry:go]
+    Gene Ontology (GO) identifiers of regulation or background expression
+    processes [bioregistry:go]
     """
 
     name: Final[str]
@@ -3805,7 +3813,8 @@ class FieldEvidenceCancerBiomarkersQualityControlsElement(ScalarField):
 class FieldEvidenceCancerBiomarkersScore(ScalarField):
     """Field `score` in dataset `evidence_cancer_biomarkers`.
 
-    Score of the evidence reflecting the strength of the disease/target relationship
+    Score of the evidence reflecting the strength of the disease/target
+    relationship
     """
 
     name: Final[str]
@@ -3842,8 +3851,8 @@ class FieldEvidenceCancerBiomarkersTargetId(ScalarField):
 class FieldEvidenceCancerBiomarkersUrls(SequenceField):
     """Field `urls` in dataset `evidence_cancer_biomarkers`.
 
-    Reference to linked external resource (e.g. clinical trials, studies, package
-    inserts, reports, etc.)
+    Reference to linked external resource (e.g. clinical trials, studies,
+    package inserts, reports, etc.)
     """
 
     name: Final[str]
@@ -3892,8 +3901,8 @@ class FieldEvidenceCancerBiomarkersUrlsElementUrl(ScalarField):
 class DatasetEvidenceCancerGeneCensus(Dataset):
     """Dataset `evidence_cancer_gene_census`.
 
-    Disease-target evidence based on Cancer Gene Census provided by COSMIC [Target-
-    Disease]
+    Disease-target evidence based on Cancer Gene Census provided by COSMIC
+    [Target-Disease]
     """
 
     id: Final[str]
@@ -4095,7 +4104,8 @@ class FieldEvidenceCancerGeneCensusMutatedSamplesElementFunctionalConsequenceId(
 class FieldEvidenceCancerGeneCensusMutatedSamplesElementNumberMutatedSamples(ScalarField):
     """Field `numberMutatedSamples` in dataset `evidence_cancer_gene_census`.
 
-    Number of cohort samples in which target is mutated with a mutation of any type
+    Number of cohort samples in which target is mutated with a mutation of any
+    type
     """
 
     name: Final[str]
@@ -4166,7 +4176,8 @@ class FieldEvidenceCancerGeneCensusQualityControlsElement(ScalarField):
 class FieldEvidenceCancerGeneCensusResourceScore(ScalarField):
     """Field `resourceScore` in dataset `evidence_cancer_gene_census`.
 
-    Score provided by datasource indicating strength of target-disease association
+    Score provided by datasource indicating strength of target-disease
+    association
     """
 
     name: Final[str]
@@ -4178,7 +4189,8 @@ class FieldEvidenceCancerGeneCensusResourceScore(ScalarField):
 class FieldEvidenceCancerGeneCensusScore(ScalarField):
     """Field `score` in dataset `evidence_cancer_gene_census`.
 
-    Score of the evidence reflecting the strength of the disease/target relationship
+    Score of the evidence reflecting the strength of the disease/target
+    relationship
     """
 
     name: Final[str]
@@ -4227,8 +4239,8 @@ class FieldEvidenceCancerGeneCensusTargetId(ScalarField):
 class DatasetEvidenceChembl(Dataset):
     """Dataset `evidence_chembl`.
 
-    Disease-target evidence based on drug indications, clinical trials and mechanism
-    of action provided by ChEMBL [Target-Disease]
+    Disease-target evidence based on drug indications, clinical trials and
+    mechanism of action provided by ChEMBL [Target-Disease]
     """
 
     id: Final[str]
@@ -4450,7 +4462,8 @@ class FieldEvidenceChemblQualityControlsElement(ScalarField):
 class FieldEvidenceChemblScore(ScalarField):
     """Field `score` in dataset `evidence_chembl`.
 
-    Score of the evidence reflecting the strength of the disease/target relationship
+    Score of the evidence reflecting the strength of the disease/target
+    relationship
     """
 
     name: Final[str]
@@ -4557,8 +4570,8 @@ class FieldEvidenceChemblTargetId(ScalarField):
 class FieldEvidenceChemblUrls(SequenceField):
     """Field `urls` in dataset `evidence_chembl`.
 
-    Reference to linked external resource (e.g. clinical trials, studies, package
-    inserts, reports, etc.)
+    Reference to linked external resource (e.g. clinical trials, studies,
+    package inserts, reports, etc.)
     """
 
     name: Final[str]
@@ -4607,8 +4620,8 @@ class FieldEvidenceChemblUrlsElementUrl(ScalarField):
 class DatasetEvidenceClingen(Dataset):
     """Dataset `evidence_clingen`.
 
-    Disease-target evidence from Gene Disease Validity Curation of ClinGen [Target-
-    Disease]
+    Disease-target evidence from Gene Disease Validity Curation of ClinGen
+    [Target-Disease]
     """
 
     id: Final[str]
@@ -4799,7 +4812,8 @@ class FieldEvidenceClingenReleaseDate(ScalarField):
 class FieldEvidenceClingenScore(ScalarField):
     """Field `score` in dataset `evidence_clingen`.
 
-    Score of the evidence reflecting the strength of the disease/target relationship
+    Score of the evidence reflecting the strength of the disease/target
+    relationship
     """
 
     name: Final[str]
@@ -4848,8 +4862,8 @@ class FieldEvidenceClingenTargetId(ScalarField):
 class FieldEvidenceClingenUrls(SequenceField):
     """Field `urls` in dataset `evidence_clingen`.
 
-    Reference to linked external resource (e.g. clinical trials, studies, package
-    inserts, reports, etc.)
+    Reference to linked external resource (e.g. clinical trials, studies,
+    package inserts, reports, etc.)
     """
 
     name: Final[str]
@@ -4898,8 +4912,8 @@ class FieldEvidenceClingenUrlsElementUrl(ScalarField):
 class DatasetEvidenceCrispr(Dataset):
     """Dataset `evidence_crispr`.
 
-    Diease-target evidence from unified analysis of whole-genome CRISPR/Cas9 screens
-    from ProjectScore project [Target-Disease]
+    Diease-target evidence from unified analysis of whole-genome CRISPR/Cas9
+    screens from ProjectScore project [Target-Disease]
     """
 
     id: Final[str]
@@ -5140,7 +5154,8 @@ class FieldEvidenceCrisprQualityControlsElement(ScalarField):
 class FieldEvidenceCrisprResourceScore(ScalarField):
     """Field `resourceScore` in dataset `evidence_crispr`.
 
-    Score provided by datasource indicating strength of target-disease association
+    Score provided by datasource indicating strength of target-disease
+    association
     """
 
     name: Final[str]
@@ -5152,7 +5167,8 @@ class FieldEvidenceCrisprResourceScore(ScalarField):
 class FieldEvidenceCrisprScore(ScalarField):
     """Field `score` in dataset `evidence_crispr`.
 
-    Score of the evidence reflecting the strength of the disease/target relationship
+    Score of the evidence reflecting the strength of the disease/target
+    relationship
     """
 
     name: Final[str]
@@ -5447,7 +5463,8 @@ class FieldEvidenceCrisprScreenQualityControlsElement(ScalarField):
 class FieldEvidenceCrisprScreenResourceScore(ScalarField):
     """Field `resourceScore` in dataset `evidence_crispr_screen`.
 
-    Score provided by datasource indicating strength of target-disease association
+    Score provided by datasource indicating strength of target-disease
+    association
     """
 
     name: Final[str]
@@ -5459,7 +5476,8 @@ class FieldEvidenceCrisprScreenResourceScore(ScalarField):
 class FieldEvidenceCrisprScreenScore(ScalarField):
     """Field `score` in dataset `evidence_crispr_screen`.
 
-    Score of the evidence reflecting the strength of the disease/target relationship
+    Score of the evidence reflecting the strength of the disease/target
+    relationship
     """
 
     name: Final[str]
@@ -5532,8 +5550,8 @@ class FieldEvidenceCrisprScreenTargetId(ScalarField):
 class DatasetEvidenceEuropepmc(Dataset):
     """Dataset `evidence_europepmc`.
 
-    Disease-target evidence derived from literature mining provided by Europe PMC
-    [Target-Disease]
+    Disease-target evidence derived from literature mining provided by Europe
+    PMC [Target-Disease]
     """
 
     id: Final[str]
@@ -5721,7 +5739,8 @@ class FieldEvidenceEuropepmcQualityControlsElement(ScalarField):
 class FieldEvidenceEuropepmcResourceScore(ScalarField):
     """Field `resourceScore` in dataset `evidence_europepmc`.
 
-    Score provided by datasource indicating strength of target-disease association
+    Score provided by datasource indicating strength of target-disease
+    association
     """
 
     name: Final[str]
@@ -5733,7 +5752,8 @@ class FieldEvidenceEuropepmcResourceScore(ScalarField):
 class FieldEvidenceEuropepmcScore(ScalarField):
     """Field `score` in dataset `evidence_europepmc`.
 
-    Score of the evidence reflecting the strength of the disease/target relationship
+    Score of the evidence reflecting the strength of the disease/target
+    relationship
     """
 
     name: Final[str]
@@ -5871,8 +5891,8 @@ class FieldEvidenceEuropepmcTextMiningSentencesElementText(ScalarField):
 class DatasetEvidenceEva(Dataset):
     """Dataset `evidence_eva`.
 
-    Disease-target evidence based on germline variation from ClinVar, provided by
-    the European Variation Archive [Target-Disease]
+    Disease-target evidence based on germline variation from ClinVar, provided
+    by the European Variation Archive [Target-Disease]
     """
 
     id: Final[str]
@@ -6199,7 +6219,8 @@ class FieldEvidenceEvaReleaseDate(ScalarField):
 class FieldEvidenceEvaScore(ScalarField):
     """Field `score` in dataset `evidence_eva`.
 
-    Score of the evidence reflecting the strength of the disease/target relationship
+    Score of the evidence reflecting the strength of the disease/target
+    relationship
     """
 
     name: Final[str]
@@ -6260,8 +6281,8 @@ class FieldEvidenceEvaVariantFromSourceId(ScalarField):
 class FieldEvidenceEvaVariantFunctionalConsequenceId(ScalarField):
     """Field `variantFunctionalConsequenceId` in dataset `evidence_eva`.
 
-    Sequence ontology (SO) identifier of the functional consequence of the variant
-    [bioregistry:so]
+    Sequence ontology (SO) identifier of the functional consequence of the
+    variant [bioregistry:so]
     """
 
     name: Final[str]
@@ -6309,8 +6330,8 @@ class FieldEvidenceEvaVariantRsId(ScalarField):
 class DatasetEvidenceEvaSomatic(Dataset):
     """Dataset `evidence_eva_somatic`.
 
-    Disease-target evidence based on somatic variation from ClinVar, provided by the
-    European Variation Archive [Target-Disease]
+    Disease-target evidence based on somatic variation from ClinVar, provided by
+    the European Variation Archive [Target-Disease]
     """
 
     id: Final[str]
@@ -6636,7 +6657,8 @@ class FieldEvidenceEvaSomaticReleaseDate(ScalarField):
 class FieldEvidenceEvaSomaticScore(ScalarField):
     """Field `score` in dataset `evidence_eva_somatic`.
 
-    Score of the evidence reflecting the strength of the disease/target relationship
+    Score of the evidence reflecting the strength of the disease/target
+    relationship
     """
 
     name: Final[str]
@@ -6697,8 +6719,8 @@ class FieldEvidenceEvaSomaticVariantFromSourceId(ScalarField):
 class FieldEvidenceEvaSomaticVariantFunctionalConsequenceId(ScalarField):
     """Field `variantFunctionalConsequenceId` in dataset `evidence_eva_somatic`.
 
-    Sequence ontology (SO) identifier of the functional consequence of the variant
-    [bioregistry:so]
+    Sequence ontology (SO) identifier of the functional consequence of the
+    variant [bioregistry:so]
     """
 
     name: Final[str]
@@ -6917,7 +6939,8 @@ class FieldEvidenceExpressionAtlasLiteratureElement(ScalarField):
 class FieldEvidenceExpressionAtlasLog2FoldChangePercentileRank(ScalarField):
     """Field `log2FoldChangePercentileRank` in dataset `evidence_expression_atlas`.
 
-    Percentile of top differentially regulated genes (transcripts) within experiment
+    Percentile of top differentially regulated genes (transcripts) within
+    experiment
     """
 
     name: Final[str]
@@ -6975,7 +6998,8 @@ class FieldEvidenceExpressionAtlasQualityControlsElement(ScalarField):
 class FieldEvidenceExpressionAtlasResourceScore(ScalarField):
     """Field `resourceScore` in dataset `evidence_expression_atlas`.
 
-    Score provided by datasource indicating strength of target-disease association
+    Score provided by datasource indicating strength of target-disease
+    association
     """
 
     name: Final[str]
@@ -6987,7 +7011,8 @@ class FieldEvidenceExpressionAtlasResourceScore(ScalarField):
 class FieldEvidenceExpressionAtlasScore(ScalarField):
     """Field `score` in dataset `evidence_expression_atlas`.
 
-    Score of the evidence reflecting the strength of the disease/target relationship
+    Score of the evidence reflecting the strength of the disease/target
+    relationship
     """
 
     name: Final[str]
@@ -7289,7 +7314,8 @@ class FieldEvidenceGene2PhenotypeQualityControlsElement(ScalarField):
 class FieldEvidenceGene2PhenotypeScore(ScalarField):
     """Field `score` in dataset `evidence_gene2phenotype`.
 
-    Score of the evidence reflecting the strength of the disease/target relationship
+    Score of the evidence reflecting the strength of the disease/target
+    relationship
     """
 
     name: Final[str]
@@ -7338,8 +7364,8 @@ class FieldEvidenceGene2PhenotypeTargetId(ScalarField):
 class FieldEvidenceGene2PhenotypeVariantFunctionalConsequenceId(ScalarField):
     """Field `variantFunctionalConsequenceId` in dataset `evidence_gene2phenotype`.
 
-    Sequence ontology (SO) identifier of the functional consequence of the variant
-    [bioregistry:so]
+    Sequence ontology (SO) identifier of the functional consequence of the
+    variant [bioregistry:so]
     """
 
     name: Final[str]
@@ -7351,8 +7377,8 @@ class FieldEvidenceGene2PhenotypeVariantFunctionalConsequenceId(ScalarField):
 class DatasetEvidenceGeneBurden(Dataset):
     """Dataset `evidence_gene_burden`.
 
-    Disease-target evidence based on testing aggregated effect of variants, curated
-    from the literature by the Open Targets team [Target-Disease]
+    Disease-target evidence based on testing aggregated effect of variants,
+    curated from the literature by the Open Targets team [Target-Disease]
     """
 
     id: Final[str]
@@ -7755,7 +7781,8 @@ class FieldEvidenceGeneBurdenReleaseVersion(ScalarField):
 class FieldEvidenceGeneBurdenResourceScore(ScalarField):
     """Field `resourceScore` in dataset `evidence_gene_burden`.
 
-    Score provided by datasource indicating strength of target-disease association
+    Score provided by datasource indicating strength of target-disease
+    association
     """
 
     name: Final[str]
@@ -7767,7 +7794,8 @@ class FieldEvidenceGeneBurdenResourceScore(ScalarField):
 class FieldEvidenceGeneBurdenScore(ScalarField):
     """Field `score` in dataset `evidence_gene_burden`.
 
-    Score of the evidence reflecting the strength of the disease/target relationship
+    Score of the evidence reflecting the strength of the disease/target
+    relationship
     """
 
     name: Final[str]
@@ -7887,8 +7915,8 @@ class FieldEvidenceGeneBurdenTargetId(ScalarField):
 class FieldEvidenceGeneBurdenUrls(SequenceField):
     """Field `urls` in dataset `evidence_gene_burden`.
 
-    Reference to linked external resource (e.g. clinical trials, studies, package
-    inserts, reports, etc.)
+    Reference to linked external resource (e.g. clinical trials, studies,
+    package inserts, reports, etc.)
     """
 
     name: Final[str]
@@ -7937,8 +7965,8 @@ class FieldEvidenceGeneBurdenUrlsElementUrl(ScalarField):
 class DatasetEvidenceGenomicsEngland(Dataset):
     """Dataset `evidence_genomics_england`.
 
-    Curated disease-target evidence provided by Genomics England PanelApp [Target-
-    Disease]
+    Curated disease-target evidence provided by Genomics England PanelApp
+    [Target-Disease]
     """
 
     id: Final[str]
@@ -8175,7 +8203,8 @@ class FieldEvidenceGenomicsEnglandQualityControlsElement(ScalarField):
 class FieldEvidenceGenomicsEnglandScore(ScalarField):
     """Field `score` in dataset `evidence_genomics_england`.
 
-    Score of the evidence reflecting the strength of the disease/target relationship
+    Score of the evidence reflecting the strength of the disease/target
+    relationship
     """
 
     name: Final[str]
@@ -8236,8 +8265,8 @@ class FieldEvidenceGenomicsEnglandTargetId(ScalarField):
 class DatasetEvidenceGwasCredibleSets(Dataset):
     """Dataset `evidence_gwas_credible_sets`.
 
-    Disease-target evidence based on Locus-to-Gene prediction on GWAS credible sets
-    [Target-Disease]
+    Disease-target evidence based on Locus-to-Gene prediction on GWAS credible
+    sets [Target-Disease]
     """
 
     id: Final[str]
@@ -8402,7 +8431,8 @@ class FieldEvidenceGwasCredibleSetsQualityControlsElement(ScalarField):
 class FieldEvidenceGwasCredibleSetsResourceScore(ScalarField):
     """Field `resourceScore` in dataset `evidence_gwas_credible_sets`.
 
-    Score provided by datasource indicating strength of target-disease association
+    Score provided by datasource indicating strength of target-disease
+    association
     """
 
     name: Final[str]
@@ -8414,7 +8444,8 @@ class FieldEvidenceGwasCredibleSetsResourceScore(ScalarField):
 class FieldEvidenceGwasCredibleSetsScore(ScalarField):
     """Field `score` in dataset `evidence_gwas_credible_sets`.
 
-    Score of the evidence reflecting the strength of the disease/target relationship
+    Score of the evidence reflecting the strength of the disease/target
+    relationship
     """
 
     name: Final[str]
@@ -8463,9 +8494,9 @@ class FieldEvidenceGwasCredibleSetsTargetId(ScalarField):
 class DatasetEvidenceImpc(Dataset):
     """Dataset `evidence_impc`.
 
-    Disease-target evidence based on mouse knock-out models, where mouse phenotypes
-    are mapped to human diseases by PhenoDigm algorithm. Data provided by IMPC
-    [Target-Disease]
+    Disease-target evidence based on mouse knock-out models, where mouse
+    phenotypes are mapped to human diseases by PhenoDigm algorithm. Data
+    provided by IMPC [Target-Disease]
     """
 
     id: Final[str]
@@ -8811,7 +8842,8 @@ class FieldEvidenceImpcQualityControlsElement(ScalarField):
 class FieldEvidenceImpcResourceScore(ScalarField):
     """Field `resourceScore` in dataset `evidence_impc`.
 
-    Score provided by datasource indicating strength of target-disease association
+    Score provided by datasource indicating strength of target-disease
+    association
     """
 
     name: Final[str]
@@ -8823,7 +8855,8 @@ class FieldEvidenceImpcResourceScore(ScalarField):
 class FieldEvidenceImpcScore(ScalarField):
     """Field `score` in dataset `evidence_impc`.
 
-    Score of the evidence reflecting the strength of the disease/target relationship
+    Score of the evidence reflecting the strength of the disease/target
+    relationship
     """
 
     name: Final[str]
@@ -8896,8 +8929,8 @@ class FieldEvidenceImpcTargetInModelMgiId(ScalarField):
 class DatasetEvidenceIntogen(Dataset):
     """Dataset `evidence_intogen`.
 
-    Cancer-driver gene evidence based on the analysis of large-scale mutational data
-    from IntOGen [Target-Disease]
+    Cancer-driver gene evidence based on the analysis of large-scale mutational
+    data from IntOGen [Target-Disease]
     """
 
     id: Final[str]
@@ -9136,7 +9169,8 @@ class FieldEvidenceIntogenMutatedSamplesElementFunctionalConsequenceId(ScalarFie
 class FieldEvidenceIntogenMutatedSamplesElementNumberMutatedSamples(ScalarField):
     """Field `numberMutatedSamples` in dataset `evidence_intogen`.
 
-    Number of cohort samples in which target is mutated with a mutation of any type
+    Number of cohort samples in which target is mutated with a mutation of any
+    type
     """
 
     name: Final[str]
@@ -9207,7 +9241,8 @@ class FieldEvidenceIntogenQualityControlsElement(ScalarField):
 class FieldEvidenceIntogenResourceScore(ScalarField):
     """Field `resourceScore` in dataset `evidence_intogen`.
 
-    Score provided by datasource indicating strength of target-disease association
+    Score provided by datasource indicating strength of target-disease
+    association
     """
 
     name: Final[str]
@@ -9219,7 +9254,8 @@ class FieldEvidenceIntogenResourceScore(ScalarField):
 class FieldEvidenceIntogenScore(ScalarField):
     """Field `score` in dataset `evidence_intogen`.
 
-    Score of the evidence reflecting the strength of the disease/target relationship
+    Score of the evidence reflecting the strength of the disease/target
+    relationship
     """
 
     name: Final[str]
@@ -9278,7 +9314,8 @@ class FieldEvidenceIntogenTargetId(ScalarField):
 class DatasetEvidenceOrphanet(Dataset):
     """Dataset `evidence_orphanet`.
 
-    Curated collection of rare disase-target evidence from Orphanet [Target-Disease]
+    Curated collection of rare disase-target evidence from Orphanet [Target-
+    Disease]
     """
 
     id: Final[str]
@@ -9519,7 +9556,8 @@ class FieldEvidenceOrphanetQualityControlsElement(ScalarField):
 class FieldEvidenceOrphanetScore(ScalarField):
     """Field `score` in dataset `evidence_orphanet`.
 
-    Score of the evidence reflecting the strength of the disease/target relationship
+    Score of the evidence reflecting the strength of the disease/target
+    relationship
     """
 
     name: Final[str]
@@ -9568,8 +9606,8 @@ class FieldEvidenceOrphanetTargetId(ScalarField):
 class FieldEvidenceOrphanetVariantFunctionalConsequenceId(ScalarField):
     """Field `variantFunctionalConsequenceId` in dataset `evidence_orphanet`.
 
-    Sequence ontology (SO) identifier of the functional consequence of the variant
-    [bioregistry:so]
+    Sequence ontology (SO) identifier of the functional consequence of the
+    variant [bioregistry:so]
     """
 
     name: Final[str]
@@ -9581,8 +9619,8 @@ class FieldEvidenceOrphanetVariantFunctionalConsequenceId(ScalarField):
 class DatasetEvidenceReactome(Dataset):
     """Dataset `evidence_reactome`.
 
-    Manually curated disease-target evidence based on reaction pathways sourced from
-    Reactome [Target-Disease]
+    Manually curated disease-target evidence based on reaction pathways sourced
+    from Reactome [Target-Disease]
     """
 
     id: Final[str]
@@ -9836,7 +9874,8 @@ class FieldEvidenceReactomeReactionName(ScalarField):
 class FieldEvidenceReactomeScore(ScalarField):
     """Field `score` in dataset `evidence_reactome`.
 
-    Score of the evidence reflecting the strength of the disease/target relationship
+    Score of the evidence reflecting the strength of the disease/target
+    relationship
     """
 
     name: Final[str]
@@ -10098,7 +10137,8 @@ class FieldEvidenceUniprotLiteratureQualityControlsElement(ScalarField):
 class FieldEvidenceUniprotLiteratureScore(ScalarField):
     """Field `score` in dataset `evidence_uniprot_literature`.
 
-    Score of the evidence reflecting the strength of the disease/target relationship
+    Score of the evidence reflecting the strength of the disease/target
+    relationship
     """
 
     name: Final[str]
@@ -10340,7 +10380,8 @@ class FieldEvidenceUniprotVariantsQualityControlsElement(ScalarField):
 class FieldEvidenceUniprotVariantsScore(ScalarField):
     """Field `score` in dataset `evidence_uniprot_variants`.
 
-    Score of the evidence reflecting the strength of the disease/target relationship
+    Score of the evidence reflecting the strength of the disease/target
+    relationship
     """
 
     name: Final[str]
@@ -10415,8 +10456,9 @@ class DatasetExpression(Dataset):
 
     Baseline RNA and protein expression data across tissues. This data does not
     contain raw expression values, instead shows how targets are selectively
-    expressed across different tissues. This dataset combines expression values from
-    multiple sources including Expression Atlas and Human Protein Atlas [Target]
+    expressed across different tissues. This dataset combines expression values
+    from multiple sources including Expression Atlas and Human Protein Atlas
+    [Target]
     """
 
     id: Final[str]
@@ -10491,7 +10533,8 @@ class FieldExpressionTissuesElementAnatomicalSystemsElement(ScalarField):
 class FieldExpressionTissuesElementEfoCode(ScalarField):
     """Field `efo_code` in dataset `expression`.
 
-    Ontology ID of the biosample the expression data is from [bioregistry:uberon]
+    Ontology ID of the biosample the expression data is from
+    [bioregistry:uberon]
     """
 
     name: Final[str]
@@ -10537,8 +10580,8 @@ class FieldExpressionTissuesElementOrgansElement(ScalarField):
 class FieldExpressionTissuesElementProtein(StructField):
     """Field `protein` in dataset `expression`.
 
-    Struct containing relevant protein expression values for a particular biosample
-    and gene combination
+    Struct containing relevant protein expression values for a particular
+    biosample and gene combination
     """
 
     name: Final[str]
@@ -10640,8 +10683,8 @@ class FieldExpressionTissuesElementProteinReliability(ScalarField):
 class FieldExpressionTissuesElementRna(StructField):
     """Field `rna` in dataset `expression`.
 
-    Struct containing relevant RNA expression values for a particular biosample and
-    gene combination
+    Struct containing relevant RNA expression values for a particular biosample
+    and gene combination
     """
 
     name: Final[str]
@@ -10706,8 +10749,8 @@ class FieldExpressionTissuesElementRnaZscore(ScalarField):
 class DatasetGo(Dataset):
     """Dataset `go`.
 
-    This dataset contains the mapping between gene ontology identifiers and terms
-    [Ontology]
+    This dataset contains the mapping between gene ontology identifiers and
+    terms [Ontology]
     """
 
     id: Final[str]
@@ -10747,8 +10790,8 @@ class DatasetInteraction(Dataset):
     interactions between molecules represented as Platform targets. This dataset
     contains pairwise interactions deposited in several databases capturing:
     physical interactions (e.g. IntAct), directional interactions (e.g. Signor),
-    pathway relationships (e.g. Reactome) or functional interactions (e.g. STRINGdb)
-    [Target]
+    pathway relationships (e.g. Reactome) or functional interactions (e.g.
+    STRINGdb) [Target]
     """
 
     id: Final[str]
@@ -10983,8 +11026,8 @@ class FieldInteractionTargetB(ScalarField):
 class DatasetInteractionEvidence(Dataset):
     """Dataset `interaction_evidence`.
 
-    Experimental evidence supporting molecular interactions ('interaction') dataset
-    [Target]
+    Experimental evidence supporting molecular interactions ('interaction')
+    dataset [Target]
     """
 
     id: Final[str]
@@ -11575,8 +11618,8 @@ class DatasetKnownDrug(Dataset):
     """Dataset `known_drug`.
 
     Information on the target gene product and indication for any approved or
-    clinical candidate drug. It is derived from the ChEMBL target/disease evidence
-    [Target, Drug]
+    clinical candidate drug. It is derived from the ChEMBL target/disease
+    evidence [Target, Drug]
     """
 
     id: Final[str]
@@ -11886,8 +11929,8 @@ class DatasetL2GPrediction(Dataset):
     """Dataset `l2g_prediction`.
 
     Predictions from our Locus-to-Gene (L2G) gene assignment model. The dataset
-    contains all predictions for every combination of credible set and genes in the
-    region as well as statistics to explain the model interpretation of the
+    contains all predictions for every combination of credible set and genes in
+    the region as well as statistics to explain the model interpretation of the
     predictions [Genetics]
     """
 
@@ -12155,7 +12198,8 @@ class DatasetLiteratureVector(Dataset):
 class FieldLiteratureVectorCategory(ScalarField):
     """Field `category` in dataset `literature_vector`.
 
-    Category of the entity match in the literature. Either target, drug or disease
+    Category of the entity match in the literature. Either target, drug or
+    disease
     """
 
     name: Final[str]
@@ -12413,7 +12457,8 @@ class FieldMousePhenotypeTargetInModel(ScalarField):
 class FieldMousePhenotypeTargetInModelEnsemblId(ScalarField):
     """Field `targetInModelEnsemblId` in dataset `mouse_phenotype`.
 
-    Ensembl identifier for the target gene in the mouse model [bioregistry:ensembl]
+    Ensembl identifier for the target gene in the mouse model
+    [bioregistry:ensembl]
     """
 
     name: Final[str]
@@ -12438,12 +12483,12 @@ class FieldMousePhenotypeTargetInModelMgiId(ScalarField):
 class DatasetOpenfdaSignificantAdverseDrugReactions(Dataset):
     """Dataset `openfda_significant_adverse_drug_reactions`.
 
-    Significant adverse drug reactions (ADRs) associated with drugs. This dataset is
-    based on the FDA's Adverse Event Reporting System (FAERS) reporting post-
-    marketing surveillance data and it's filtered to include only reports submitted
-    by health professionals. The significance of a given drug-ADR is estimated using
-    a Likelihood Ratio Test (LRT) using all reports associated with the given drug
-    [Drug]
+    Significant adverse drug reactions (ADRs) associated with drugs. This
+    dataset is based on the FDA's Adverse Event Reporting System (FAERS)
+    reporting post-marketing surveillance data and it's filtered to include only
+    reports submitted by health professionals. The significance of a given drug-
+    ADR is estimated using a Likelihood Ratio Test (LRT) using all reports
+    associated with the given drug [Drug]
     """
 
     id: Final[str]
@@ -12507,8 +12552,8 @@ class FieldOpenfdaSignificantAdverseDrugReactionsEvent(ScalarField):
 class FieldOpenfdaSignificantAdverseDrugReactionsLlr(ScalarField):
     """Field `llr` in dataset `openfda_significant_adverse_drug_reactions`.
 
-    Log-likelihood ratio (LLR) measuring the strength of the association between the
-    drug and the adverse event
+    Log-likelihood ratio (LLR) measuring the strength of the association between
+    the drug and the adverse event
     """
 
     name: Final[str]
@@ -12520,8 +12565,8 @@ class FieldOpenfdaSignificantAdverseDrugReactionsLlr(ScalarField):
 class FieldOpenfdaSignificantAdverseDrugReactionsMeddraCode(ScalarField):
     """Field `meddraCode` in dataset `openfda_significant_adverse_drug_reactions`.
 
-    Medical Dictionary for Regulatory Activities (MedDRA) code for the adverse drug
-    reaction
+    Medical Dictionary for Regulatory Activities (MedDRA) code for the adverse
+    drug reaction
     """
 
     name: Final[str]
@@ -12533,12 +12578,13 @@ class FieldOpenfdaSignificantAdverseDrugReactionsMeddraCode(ScalarField):
 class DatasetOpenfdaSignificantAdverseTargetReactions(Dataset):
     """Dataset `openfda_significant_adverse_target_reactions`.
 
-    Significant adverse events (adverse drug reactions, ADR) associated with drugs
-    sharing the same pharmacological target. This dataset is based on the FDA's
-    Adverse Event Reporting System (FAERS) of post-marketing surveillance data and
-    is filtered to include only reports submitted by health professionals. The
-    significance of a given target-ADR is estimated using a Likelihood Ratio Test
-    (LRT) using all reports associated with the drugs with the same target [Target]
+    Significant adverse events (adverse drug reactions, ADR) associated with
+    drugs sharing the same pharmacological target. This dataset is based on the
+    FDA's Adverse Event Reporting System (FAERS) of post-marketing surveillance
+    data and is filtered to include only reports submitted by health
+    professionals. The significance of a given target-ADR is estimated using a
+    Likelihood Ratio Test (LRT) using all reports associated with the drugs with
+    the same target [Target]
     """
 
     id: Final[str]
@@ -12554,8 +12600,8 @@ class DatasetOpenfdaSignificantAdverseTargetReactions(Dataset):
 class FieldOpenfdaSignificantAdverseTargetReactionsCount(ScalarField):
     """Field `count` in dataset `openfda_significant_adverse_target_reactions`.
 
-    Number of occurrences of adverse events in the dataset when looking at all drugs
-    targeting the same molecule
+    Number of occurrences of adverse events in the dataset when looking at all
+    drugs targeting the same molecule
     """
 
     name: Final[str]
@@ -12591,8 +12637,8 @@ class FieldOpenfdaSignificantAdverseTargetReactionsEvent(ScalarField):
 class FieldOpenfdaSignificantAdverseTargetReactionsLlr(ScalarField):
     """Field `llr` in dataset `openfda_significant_adverse_target_reactions`.
 
-    Log-likelihood ratio (LLR) measuring the strength of the association between all
-    drugs targeting the same molecule and the adverse event
+    Log-likelihood ratio (LLR) measuring the strength of the association between
+    all drugs targeting the same molecule and the adverse event
     """
 
     name: Final[str]
@@ -12604,8 +12650,8 @@ class FieldOpenfdaSignificantAdverseTargetReactionsLlr(ScalarField):
 class FieldOpenfdaSignificantAdverseTargetReactionsMeddraCode(ScalarField):
     """Field `meddraCode` in dataset `openfda_significant_adverse_target_reactions`.
 
-    Medical Dictionary for Regulatory Activities (MedDRA) code for the adverse drug
-    reaction
+    Medical Dictionary for Regulatory Activities (MedDRA) code for the adverse
+    drug reaction
     """
 
     name: Final[str]
@@ -12629,8 +12675,8 @@ class FieldOpenfdaSignificantAdverseTargetReactionsTargetId(ScalarField):
 class DatasetPharmacogenomics(Dataset):
     """Dataset `pharmacogenomics`.
 
-    Genetic variants influencing individual drug responses. Pharmacogenetics data is
-    integrated from sources including ClinPGx [Target, Genetics]
+    Genetic variants influencing individual drug responses. Pharmacogenetics
+    data is integrated from sources including ClinPGx [Target, Genetics]
     """
 
     id: Final[str]
@@ -12686,7 +12732,8 @@ class FieldPharmacogenomicsDatasourceVersion(ScalarField):
 class FieldPharmacogenomicsDatatypeId(ScalarField):
     """Field `datatypeId` in dataset `pharmacogenomics`.
 
-    Classification of the type of pharmacogenomic data (e.g. clinical_annotation)
+    Classification of the type of pharmacogenomic data (e.g.
+    clinical_annotation)
     """
 
     name: Final[str]
@@ -12819,8 +12866,8 @@ class FieldPharmacogenomicsHaplotypeFromSourceId(ScalarField):
 class FieldPharmacogenomicsHaplotypeId(ScalarField):
     """Field `haplotypeId` in dataset `pharmacogenomics`.
 
-    Combination of genetic variants that constitute a particular allele of a gene
-    (e.g. CYP2C9*3)
+    Combination of genetic variants that constitute a particular allele of a
+    gene (e.g. CYP2C9*3)
     """
 
     name: Final[str]
@@ -13294,11 +13341,11 @@ class FieldSoLabel(ScalarField):
 class DatasetStudy(Dataset):
     """Dataset `study`.
 
-    Metadata for all complex trait and molecular QTL GWAS studies in the Platform.
-    The dataset includes study metadata, phenotype information, sample sizes,
-    publication information and more. Molecular QTL studies are split by the
-    affected gene, tissue or cell type and condition, potentially leading to many
-    studies in the same publication [Genetics]
+    Metadata for all complex trait and molecular QTL GWAS studies in the
+    Platform. The dataset includes study metadata, phenotype information, sample
+    sizes, publication information and more. Molecular QTL studies are split by
+    the affected gene, tissue or cell type and condition, potentially leading to
+    many studies in the same publication [Genetics]
     """
 
     id: Final[str]
@@ -13535,8 +13582,8 @@ class FieldStudyDiseaseIdsElement(ScalarField):
 class FieldStudyGeneId(ScalarField):
     """Field `geneId` in dataset `study`.
 
-    Ensembl identifier of the gene representing a specific gene whose molecular is
-    being analysed in molQTL study [bioregistry:ensembl]
+    Ensembl identifier of the gene representing a specific gene whose molecular
+    is being analysed in molQTL study [bioregistry:ensembl]
     """
 
     name: Final[str]
@@ -13695,7 +13742,8 @@ class FieldStudyPublicationFirstAuthor(ScalarField):
 class FieldStudyPublicationJournal(ScalarField):
     """Field `publicationJournal` in dataset `study`.
 
-    Abbreviated journal name where the publication referencing study was published
+    Abbreviated journal name where the publication referencing study was
+    published
     """
 
     name: Final[str]
@@ -13923,11 +13971,12 @@ class FieldStudyTraitFromSourceMappedIdsElement(ScalarField):
 class DatasetTarget(Dataset):
     """Dataset `target`.
 
-    Core annotation for drug targets (gene/proteins). Targets are defined based on
-    EMBL-EBI Ensembl database and uses the Ensembl gene ID as the  primary
-    identifier. An Ensembl gene ID is considered potential drug target if included
-    in the canonical assembly or if present alternative assemblies but encoding for
-    a reviewed protein product according to the UniProt database [Target]
+    Core annotation for drug targets (gene/proteins). Targets are defined based
+    on EMBL-EBI Ensembl database and uses the Ensembl gene ID as the  primary
+    identifier. An Ensembl gene ID is considered potential drug target if
+    included in the canonical assembly or if present alternative assemblies but
+    encoding for a reviewed protein product according to the UniProt database
+    [Target]
     """
 
     id: Final[str]
@@ -13966,7 +14015,8 @@ class DatasetTarget(Dataset):
 class FieldTargetAlternativeGenes(SequenceField):
     """Field `alternativeGenes` in dataset `target`.
 
-    List of alternative Ensembl gene identifiers mapped to non-canonical chromosomes
+    List of alternative Ensembl gene identifiers mapped to non-canonical
+    chromosomes
     """
 
     name: Final[str]
@@ -14679,8 +14729,8 @@ class FieldTargetGoElement(StructField):
 class FieldTargetGoElementAspect(ScalarField):
     """Field `aspect` in dataset `target`.
 
-    Type of the GO annotation: molecular function (F), biological process (P) and
-    cellular localisation (C)
+    Type of the GO annotation: molecular function (F), biological process (P)
+    and cellular localisation (C)
     """
 
     name: Final[str]
@@ -16003,10 +16053,10 @@ class FieldTargetTss(ScalarField):
 class DatasetTargetEssentiality(Dataset):
     """Dataset `target_essentiality`.
 
-    Target essentiality assessments based on dependencies exhibited when knocking-
-    out genes in cancer cellular models using CRISPR screenings as reported in by
-    the Cancer DepMap Project. Gene effects below -1 can be considered dependencies
-    [Target]
+    Target essentiality assessments based on dependencies exhibited when
+    knocking-out genes in cancer cellular models using CRISPR screenings as
+    reported in by the Cancer DepMap Project. Gene effects below -1 can be
+    considered dependencies [Target]
     """
 
     id: Final[str]
@@ -16228,8 +16278,8 @@ class FieldTargetEssentialityGeneEssentialityElementDepMapEssentialityElementTis
 class FieldTargetEssentialityGeneEssentialityElementIsEssential(ScalarField):
     """Field `isEssential` in dataset `target_essentiality`.
 
-    Boolean flag indicating whether the tested gene is considered essential in the
-    given context
+    Boolean flag indicating whether the tested gene is considered essential in
+    the given context
     """
 
     name: Final[str]
@@ -16280,8 +16330,8 @@ class DatasetTargetPrioritisation(Dataset):
 class FieldTargetPrioritisationGeneticConstraint(ScalarField):
     """Field `geneticConstraint` in dataset `target_prioritisation`.
 
-    Represents the genetic constraint of the target, indicating how intolerant it is
-    to genetic variation
+    Represents the genetic constraint of the target, indicating how intolerant
+    it is to genetic variation
     """
 
     name: Final[str]
@@ -16462,7 +16512,8 @@ class FieldTargetPrioritisationTargetId(ScalarField):
 class FieldTargetPrioritisationTissueDistribution(ScalarField):
     """Field `tissueDistribution` in dataset `target_prioritisation`.
 
-    Describes the distribution pattern of the target's expression in various tissues
+    Describes the distribution pattern of the target's expression in various
+    tissues
     """
 
     name: Final[str]
@@ -16474,7 +16525,8 @@ class FieldTargetPrioritisationTissueDistribution(ScalarField):
 class FieldTargetPrioritisationTissueSpecificity(ScalarField):
     """Field `tissueSpecificity` in dataset `target_prioritisation`.
 
-    Describes the specificity of the target's expression across different tissues
+    Describes the specificity of the target's expression across different
+    tissues
     """
 
     name: Final[str]
@@ -16486,10 +16538,11 @@ class FieldTargetPrioritisationTissueSpecificity(ScalarField):
 class DatasetVariant(Dataset):
     """Dataset `variant`.
 
-    Core variant information for all variants in the Platform. Variants are included
-    if any phenotypic information is available for the variant, including GWAS or
-    molQTL credible sets, ClinVar, Uniprot or ClinPGx. The dataset includes variant
-    metadata as well as variant effects derived from Ensembl VEP [Genetics]
+    Core variant information for all variants in the Platform. Variants are
+    included if any phenotypic information is available for the variant,
+    including GWAS or molQTL credible sets, ClinVar, Uniprot or ClinPGx. The
+    dataset includes variant metadata as well as variant effects derived from
+    Ensembl VEP [Genetics]
     """
 
     id: Final[str]
@@ -16646,8 +16699,8 @@ class FieldVariantHgvsId(ScalarField):
 class FieldVariantMostSevereConsequenceId(ScalarField):
     """Field `mostSevereConsequenceId` in dataset `variant`.
 
-    Sequence ontology identifier of the most severe consequence of the variant based
-    on Ensembl VEP [bioregistry:so]
+    Sequence ontology identifier of the most severe consequence of the variant
+    based on Ensembl VEP [bioregistry:so]
     """
 
     name: Final[str]

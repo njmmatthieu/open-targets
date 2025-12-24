@@ -15,6 +15,7 @@ from open_targets.data.schema_base import Dataset, Field, ScalarField, SequenceF
 
 ELEMENT_FIELD_NAME = "element"
 DEFAULT_DESCRIPTION_WIDTH = 80
+DOCSTRING_INDENT = 4
 
 SCALAR_TYPE_MAP: dict[str, OpenTargetsDatasetFieldType] = {
     DataType.TEXT: OpenTargetsDatasetFieldType.STRING,
@@ -139,7 +140,7 @@ def wrap_description(description: str | None) -> list[str]:
     """Wrap description to max line length."""
     if not description:
         return []
-    return wrap(description, width=get_max_doc_length())
+    return wrap(description, width=get_max_doc_length() - DOCSTRING_INDENT)
 
 
 def build_docstring_lines(summary: str, description: str | None) -> list[str]:
