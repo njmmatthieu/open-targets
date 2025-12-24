@@ -1,18 +1,19 @@
 """Functions for generating the schema.py file from Croissant JSON."""
 
 from dataclasses import dataclass
+from pathlib import Path
+from textwrap import wrap
 from typing import Any
 
+import tomli
 from pydantic.alias_generators import to_pascal, to_snake
 
 from open_targets.data.metadata import fetch_open_targets_croissant_schema
 from open_targets.data.metadata.model import CroissantFieldModel, DataType, OpenTargetsDatasetFieldType
 from open_targets.data.schema_base import Dataset, Field, ScalarField, SequenceField, StructField
 
-CLASS_PREFIX_DATASET = "Dataset"
-CLASS_PREFIX_FIELD = "Field"
-FIELD_ATTRIBUTE_PREFIX = "f_"
 ELEMENT_FIELD_NAME = "element"
+DEFAULT_DESCRIPTION_WIDTH = 80
 
 SCALAR_TYPE_MAP: dict[str, OpenTargetsDatasetFieldType] = {
     DataType.TEXT: OpenTargetsDatasetFieldType.STRING,
@@ -28,9 +29,11 @@ class FieldInfo:
     """Intermediate representation of a field in Croissant JSON."""
 
     name: str
+    description: str | None
     data_type: OpenTargetsDatasetFieldType
     sub_fields: list["FieldInfo"]
     element: "FieldInfo | None" = None
+    parent_name: str | None = None
 
 
 @dataclass(frozen=True)
@@ -58,6 +61,7 @@ class ClassInfo:
     """Information about a class to be generated."""
 
     name: PrefixedClassName
+    docstring_lines: list[str]
     late_attributes: list[LateAttribute]
     dependants: list["ClassInfo"]
     inherit_from: str
@@ -95,32 +99,88 @@ def build_field_info(field: CroissantFieldModel) -> FieldInfo:
         if sub_fields:
             element = FieldInfo(
                 name=ELEMENT_FIELD_NAME,
+                description=None,
                 data_type=OpenTargetsDatasetFieldType.STRUCT,
                 sub_fields=sub_fields,
+                parent_name=field.name,
             )
         else:
             element = FieldInfo(
                 name=ELEMENT_FIELD_NAME,
+                description=None,
                 data_type=map_croissant_data_type(field.data_type),
                 sub_fields=[],
+                parent_name=field.name,
             )
-        return FieldInfo(name=field.name, data_type=OpenTargetsDatasetFieldType.ARRAY, sub_fields=[], element=element)
+        return FieldInfo(
+            name=field.name,
+            description=field.description,
+            data_type=OpenTargetsDatasetFieldType.ARRAY,
+            sub_fields=[],
+            element=element,
+        )
     if sub_fields:
-        return FieldInfo(name=field.name, data_type=OpenTargetsDatasetFieldType.STRUCT, sub_fields=sub_fields)
-    return FieldInfo(name=field.name, data_type=map_croissant_data_type(field.data_type), sub_fields=[])
+        return FieldInfo(
+            name=field.name,
+            description=field.description,
+            data_type=OpenTargetsDatasetFieldType.STRUCT,
+            sub_fields=sub_fields,
+        )
+    return FieldInfo(
+        name=field.name,
+        description=field.description,
+        data_type=map_croissant_data_type(field.data_type),
+        sub_fields=[],
+    )
 
 
-def recursive_handle_fields(fields: list[FieldInfo], owner_path: list[PrefixedClassName]) -> FieldsHandlerResult:
+def wrap_description(description: str | None) -> list[str]:
+    """Wrap description to max line length."""
+    if not description:
+        return []
+    return wrap(description, width=get_max_doc_length())
+
+
+def build_docstring_lines(summary: str, description: str | None) -> list[str]:
+    """Build docstring lines with summary and optional description."""
+    description_lines = wrap_description(description)
+    if not description_lines:
+        return [summary]
+    return [summary, "", *description_lines]
+
+
+def get_max_doc_length() -> int:
+    """Return max doc length from pyproject.toml or a default."""
+    pyproject_path = Path.cwd() / "pyproject.toml"
+    try:
+        with pyproject_path.open("rb") as f:
+            pyproject = tomli.load(f)
+        return int(
+            pyproject.get("tool", {})
+            .get("ruff", {})
+            .get("lint", {})
+            .get("pycodestyle", {})
+            .get("max-doc-length", DEFAULT_DESCRIPTION_WIDTH),
+        )
+    except (OSError, ValueError, TypeError):
+        return DEFAULT_DESCRIPTION_WIDTH
+
+
+def recursive_handle_fields(
+    fields: list[FieldInfo],
+    owner_path: list[PrefixedClassName],
+    dataset_id: str,
+) -> FieldsHandlerResult:
     """Generate and sort attributes and class information for fields."""
     field_class_infos: list[ClassInfo] = []
     field_attributes: list[LateAttribute] = []
 
     for field in fields:
-        field_class_info = recursive_get_field_class_info(field, owner_path)
+        field_class_info = recursive_get_field_class_info(field, owner_path, dataset_id)
         field_class_infos.append(field_class_info)
         field_attributes.append(
             LateAttribute(
-                name=f"{FIELD_ATTRIBUTE_PREFIX}{to_snake(field.name)}",
+                name=f"f_{to_snake(field.name)}",
                 type=f"Final[type[{quote(str(field_class_info.name))}]]",
                 value=str(field_class_info.name),
             ),
@@ -141,13 +201,24 @@ def recursive_handle_fields(fields: list[FieldInfo], owner_path: list[PrefixedCl
     )
 
 
-def recursive_get_field_class_info(field: FieldInfo, owner_path: list[PrefixedClassName]) -> ClassInfo:
+def recursive_get_field_class_info(
+    field: FieldInfo,
+    owner_path: list[PrefixedClassName],
+    dataset_id: str,
+) -> ClassInfo:
     """Convert a FieldInfo to a ClassInfo."""
     dataset_class_name = owner_path[0]
     owner_class_name = owner_path[-1]
     normalised_name = to_pascal(to_snake(field.name))
-    field_class_name = PrefixedClassName(CLASS_PREFIX_FIELD, owner_class_name.name + normalised_name)
+    field_class_name = PrefixedClassName("Field", owner_class_name.name + normalised_name)
     field_path = [*owner_path, field_class_name]
+    is_array_element = field.name == ELEMENT_FIELD_NAME
+    array_owner_name = field.parent_name if is_array_element else None
+    summary = (
+        f"Array element of `{array_owner_name}` in dataset `{dataset_id}`."
+        if is_array_element and array_owner_name is not None
+        else f"Field `{field.name}` in dataset `{dataset_id}`."
+    )
 
     attributes = [
         LateAttribute("name", "Final[str]", quote(field.name)),
@@ -166,7 +237,7 @@ def recursive_get_field_class_info(field: FieldInfo, owner_path: list[PrefixedCl
 
     dependants: list[ClassInfo] = []
     if field.data_type == OpenTargetsDatasetFieldType.STRUCT:
-        result = recursive_handle_fields(field.sub_fields, field_path)
+        result = recursive_handle_fields(field.sub_fields, field_path, dataset_id)
         dependants.extend(result.class_infos)
         attributes.append(result.fields_attribute)
         attributes.extend(result.field_attributes)
@@ -175,7 +246,7 @@ def recursive_get_field_class_info(field: FieldInfo, owner_path: list[PrefixedCl
         if field.element is None:
             msg = f"Array field {field.name} is missing element info"
             raise ValueError(msg)
-        element_class_info = recursive_get_field_class_info(field.element, field_path)
+        element_class_info = recursive_get_field_class_info(field.element, field_path, dataset_id)
         dependants.append(element_class_info)
         attributes.append(
             LateAttribute(
@@ -190,6 +261,10 @@ def recursive_get_field_class_info(field: FieldInfo, owner_path: list[PrefixedCl
 
     return ClassInfo(
         name=field_class_name,
+        docstring_lines=build_docstring_lines(
+            summary=summary,
+            description=field.description,
+        ),
         late_attributes=attributes,
         dependants=dependants,
         inherit_from=inherit_from,
@@ -217,12 +292,12 @@ def create_schema_render_context() -> dict[str, Any]:
     class_infos: list[ClassInfo] = []
 
     for record_set in schema.record_set:
-        dataset_class_name = PrefixedClassName(CLASS_PREFIX_DATASET, to_pascal(to_snake(record_set.name)))
+        dataset_class_name = PrefixedClassName("Dataset", to_pascal(to_snake(record_set.name)))
         attributes = [LateAttribute(name="id", type="Final[str]", value=quote(record_set.name))]
         dependants: list[ClassInfo] = []
 
         fields = [build_field_info(field) for field in record_set.field]
-        result = recursive_handle_fields(fields, [dataset_class_name])
+        result = recursive_handle_fields(fields, [dataset_class_name], record_set.name)
         dependants.extend(result.class_infos)
         attributes.append(result.fields_attribute)
         attributes.extend(result.field_attributes)
@@ -230,6 +305,10 @@ def create_schema_render_context() -> dict[str, Any]:
         class_infos.append(
             ClassInfo(
                 name=dataset_class_name,
+                docstring_lines=build_docstring_lines(
+                    summary=f"Dataset `{record_set.name}`.",
+                    description=record_set.description,
+                ),
                 late_attributes=attributes,
                 dependants=dependants,
                 inherit_from=Dataset.__name__,

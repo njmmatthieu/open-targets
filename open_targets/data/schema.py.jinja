@@ -11,6 +11,10 @@ from open_targets.data.schema_base import Dataset, Field, ScalarField, SequenceF
 
 {% for class_info in class_infos %}
 class {{ class_info.name }}({{ class_info.inherit_from }}):
+{% if class_info.docstring_lines %}
+    """{{ class_info.docstring_lines | join('\n    ') }}
+    """
+{% endif %}
 {% for attr in class_info.late_attributes %}
     {{ attr.name }}: {{ attr.type }}
 {% endfor %}
