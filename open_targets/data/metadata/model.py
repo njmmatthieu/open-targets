@@ -16,6 +16,16 @@ class Key(str, Enum):
     RECORD_SET = "recordSet"
 
 
+class DataType(str, Enum):
+    """Data type of a Croissant metadata entry."""
+
+    TEXT = "sc:Text"
+    BOOLEAN = "sc:Boolean"
+    INTEGER = "sc:Integer"
+    FLOAT = "sc:Float"
+    DATE = "sc:Date"
+
+
 class ConfiguredBaseModel(BaseModel):
     """Base model with shared configuration."""
 

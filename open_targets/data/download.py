@@ -5,7 +5,7 @@ from pathlib import PurePosixPath
 from urllib.parse import urlparse
 
 from open_targets.data._ftp_client import FTPClient
-from open_targets.data.metadata.model import CroissantDatasetModel, CroissantFileObjectModel, CroissantFileSetModel
+from open_targets.data.metadata.model import CroissantDatasetModel, CroissantFileObjectModel, CroissantFileSetModel, Key
 
 FTP_LOCATION_ID = "ftp-location"
 
@@ -18,7 +18,7 @@ def extract_croissant_filesets(schema: CroissantDatasetModel) -> list[CroissantF
 def find_dataset_fileset(schema: CroissantDatasetModel, dataset_name: str) -> CroissantFileSetModel:
     """Return the FileSet that matches a dataset name."""
     for file_set in extract_croissant_filesets(schema):
-        if file_set.includes.startswith(f"{dataset_name}/"):
+        if file_set.id.startswith(f"{dataset_name}"):
             return file_set
     msg = f"No FileSet found for dataset: {dataset_name}"
     raise ValueError(msg)
@@ -29,7 +29,7 @@ def get_ftp_base_url(schema: CroissantDatasetModel) -> str:
     for item in schema.distribution:
         if isinstance(item, CroissantFileObjectModel) and item.id == FTP_LOCATION_ID and item.content_url:
             return item.content_url.rstrip("/")
-    msg = "Croissant metadata is missing ftp-location contentUrl"
+    msg = f"Croissant metadata is missing {FTP_LOCATION_ID} {Key.CONTENT_URL.value}"
     raise ValueError(msg)
 
 

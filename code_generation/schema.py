@@ -6,7 +6,7 @@ from typing import Any
 from pydantic.alias_generators import to_pascal, to_snake
 
 from open_targets.data.metadata import fetch_open_targets_croissant_schema
-from open_targets.data.metadata.model import CroissantFieldModel, OpenTargetsDatasetFieldType
+from open_targets.data.metadata.model import CroissantFieldModel, DataType, OpenTargetsDatasetFieldType
 from open_targets.data.schema_base import Dataset, Field, ScalarField, SequenceField, StructField
 
 CLASS_PREFIX_DATASET = "Dataset"
@@ -15,12 +15,11 @@ FIELD_ATTRIBUTE_PREFIX = "f_"
 ELEMENT_FIELD_NAME = "element"
 
 SCALAR_TYPE_MAP: dict[str, OpenTargetsDatasetFieldType] = {
-    "sc:Text": OpenTargetsDatasetFieldType.STRING,
-    "sc:Boolean": OpenTargetsDatasetFieldType.BOOLEAN,
-    "sc:Integer": OpenTargetsDatasetFieldType.INTEGER,
-    "sc:Float": OpenTargetsDatasetFieldType.FLOAT,
-    "sc:Number": OpenTargetsDatasetFieldType.FLOAT,
-    "sc:Date": OpenTargetsDatasetFieldType.DATE,
+    DataType.TEXT: OpenTargetsDatasetFieldType.STRING,
+    DataType.BOOLEAN: OpenTargetsDatasetFieldType.BOOLEAN,
+    DataType.INTEGER: OpenTargetsDatasetFieldType.INTEGER,
+    DataType.FLOAT: OpenTargetsDatasetFieldType.FLOAT,
+    DataType.DATE: OpenTargetsDatasetFieldType.DATE,
 }
 
 
