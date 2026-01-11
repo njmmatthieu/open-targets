@@ -4,7 +4,7 @@ import logging
 from biocypher import BioCypher
 
 from open_targets.adapter.context import AcquisitionContext
-from open_targets.definition.reference_kg.kg import reference_kg_definition
+from open_targets.definition.reference_kg import reference_kg_definition
 
 
 def main():
