@@ -1,0 +1,11 @@
+"""Summary: edge definitions for the reference knowledge graph."""
+
+{% for edge in edges %}
+from {{ edge.module_path }} import {{ edge.name }}
+{% endfor %}
+
+__all__ = [
+{% for edge in edges %}
+    "{{ edge.name }}",
+{% endfor %}
+]

@@ -10,8 +10,12 @@ from code_generation.base import GenerationDefinitionBase
 
 # The order of the modules is important due to the dependencies between them.
 GENERATION_DEFINITION_MODULES = [
-    "code_generation.config",
-    "code_generation.schema",
+    # "code_generation.config",
+    # "code_generation.schema",
+    "code_generation.reference_kg_expression",
+    "code_generation.reference_kg_node",
+    "code_generation.reference_kg_edge",
+    "code_generation.reference_kg_kg",
 ]
 
 

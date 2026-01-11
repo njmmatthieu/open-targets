@@ -90,20 +90,9 @@ from open_targets.definition.reference_kg.node.node_target_disease_association_i
 from open_targets.definition.reference_kg.node.node_target_disease_association_orphanet import (
     node_target_disease_association_orphanet,
 )
-
-# from open_targets.definition.reference_kg.node.node_target_disease_association_ot_genetics_portal import (
-#     node_target_disease_association_ot_genetics_portal,
-# )
-# from open_targets.definition.reference_kg.node.node_target_disease_association_progeny import (
-#     node_target_disease_association_progeny,
-# )
 from open_targets.definition.reference_kg.node.node_target_disease_association_reactome import (
     node_target_disease_association_reactome,
 )
-
-# from open_targets.definition.reference_kg.node.node_target_disease_association_slapenrich import (
-#     node_target_disease_association_slapenrich,
-# )
 from open_targets.definition.reference_kg.node.node_target_disease_association_uniprot_literature import (
     node_target_disease_association_uniprot_literature,
 )
@@ -163,10 +152,7 @@ __all__ = [
     "node_target_disease_association_impc",
     "node_target_disease_association_intogen",
     "node_target_disease_association_orphanet",
-    # "node_target_disease_association_ot_genetics_portal",
-    # "node_target_disease_association_progeny",
     "node_target_disease_association_reactome",
-    # "node_target_disease_association_slapenrich",
     "node_target_disease_association_uniprot_literature",
     "node_target_disease_association_uniprot_variants",
     "node_target_target_interaction",

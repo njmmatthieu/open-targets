@@ -1,0 +1,16 @@
+"""Summary: shared expressions for stable IDs/values across definitions.
+
+These helpers build stable primary IDs (namespaced strings or hashes) and
+normalized values used across node/edge definitions, especially where source
+datasets lack explicit primary keys or have inconsistent identifier formats.
+"""
+
+{% for expr in expressions %}
+from {{ expr.module_path }} import {{ expr.name }}
+{% endfor %}
+
+__all__ = [
+{% for expr in expressions %}
+    "{{ expr.name }}",
+{% endfor %}
+]

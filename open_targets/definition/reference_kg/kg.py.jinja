@@ -1,0 +1,36 @@
+"""Reference knowledge graph definition for Open Targets."""
+
+from typing import Final
+
+from open_targets.definition.knowledge_graph import KnowledgeGraphDefinition
+from open_targets.definition.reference_kg.edge import (
+{% for edge in edges %}
+{% if edge.import %}    {{ edge.name }},
+{% endif %}
+{% endfor %}
+)
+from open_targets.definition.reference_kg.node import (
+{% for node in nodes %}
+{% if node.import %}    {{ node.name }},
+{% endif %}
+{% endfor %}
+)
+
+reference_kg_definition: Final[KnowledgeGraphDefinition] = KnowledgeGraphDefinition(
+    node_definitions=[
+{% for node in nodes %}
+{% if node.hidden %}        # {{ node.comment }}
+        # {{ node.name }},
+{% elif node.import %}        {{ node.name }},
+{% endif %}
+{% endfor %}
+    ],
+    edge_definitions=[
+{% for edge in edges %}
+{% if edge.hidden %}        # {{ edge.comment }}
+        # {{ edge.name }},
+{% elif edge.import %}        {{ edge.name }},
+{% endif %}
+{% endfor %}
+    ],
+)
