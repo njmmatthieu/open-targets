@@ -18,12 +18,11 @@ from open_targets.data.schema import (
     FieldVariantReferenceAllele,
     FieldVariantVariantId,
 )
-from open_targets.definition.reference_kg.constant import NodeLabel
 
 node_variant: Final[AcquisitionDefinition[NodeInfo]] = ExpressionNodeAcquisitionDefinition(
     scan_operation=RowScanOperation(dataset=DatasetVariant),
     primary_id=FieldVariantVariantId,
-    label=NodeLabel.VARIANT,
+    label="VARIANT",
     properties=[
         FieldVariantChromosome,
         FieldVariantPosition,

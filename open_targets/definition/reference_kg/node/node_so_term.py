@@ -15,12 +15,11 @@ from open_targets.data.schema import (
     FieldSoId,
     FieldSoLabel,
 )
-from open_targets.definition.reference_kg.constant import NodeLabel
 
 node_so_term: Final[AcquisitionDefinition[NodeInfo]] = ExpressionNodeAcquisitionDefinition(
     scan_operation=RowScanOperation(dataset=DatasetSo),
     primary_id=FieldSoId,
-    label=NodeLabel.SO_TERM,
+    label="SO_TERM",
     properties=[
         FieldSoLabel,
     ],

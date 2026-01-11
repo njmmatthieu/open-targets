@@ -14,11 +14,10 @@ from open_targets.data.schema import (
     DatasetL2GPrediction,
     FieldL2GPredictionStudyLocusId,
 )
-from open_targets.definition.reference_kg.constant import NodeLabel
 
 node_study_locus: Final[AcquisitionDefinition[NodeInfo]] = ExpressionNodeAcquisitionDefinition(
     scan_operation=RowScanOperation(dataset=DatasetL2GPrediction),
     primary_id=FieldL2GPredictionStudyLocusId,
-    label=NodeLabel.STUDY_LOCUS,
+    label="STUDY_LOCUS",
     properties=[],
 )

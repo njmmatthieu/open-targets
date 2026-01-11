@@ -17,12 +17,11 @@ from open_targets.data.schema import (
     FieldStudyStudyType,
     FieldStudyTraitFromSource,
 )
-from open_targets.definition.reference_kg.constant import NodeLabel
 
 node_study: Final[AcquisitionDefinition[NodeInfo]] = ExpressionNodeAcquisitionDefinition(
     scan_operation=RowScanOperation(dataset=DatasetStudy),
     primary_id=FieldStudyStudyId,
-    label=NodeLabel.STUDY,
+    label="STUDY",
     properties=[
         FieldStudyProjectId,
         FieldStudyStudyType,
