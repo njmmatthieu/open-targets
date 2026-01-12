@@ -6,6 +6,8 @@
 This repository contains a [BioCypher](https://biocypher.org) adapter for Open
 Targets data version 25.12. The project is currently under active development.
 
+> **AI Usage Disclaimer**: This project makes extensive use of AI. The author guarantees that every effort has been made to oversee the architecture and coding style and review the generated content for quality and consistency.
+
 ## Table of Contents
 - [Overview](#overview)
 - [Prerequisites](#prerequisites)
@@ -35,6 +37,7 @@ nodes and edges. On a consumer laptop, building the full graph typically takes
 1-2 hours.
 
 **Key Features:**
+- **Includes a comprehensive knowledge graph definition designed to cover all data provided by the Open Targets Platform.** See [Reference Knowledge Graph](#reference-knowledge-graph) for details.
 - Declarative syntax for graph schema construction
 - Powered by [duckdb](https://duckdb.org/) for fast and memory-efficient processing
 - True streaming from datasets to BioCypher with minimal intermediate memory usage
@@ -74,6 +77,10 @@ Runnable examples are provided in the `example/` directory. Each example include
 - A Python script demonstrating usage
 - Configuration files
 - Data preparation instructions in `datasets/README.md`
+
+> [!IMPORTANT]
+> When running the example scripts, ensure your current working directory is the project root.
+
 
 ### Quick Start
 
