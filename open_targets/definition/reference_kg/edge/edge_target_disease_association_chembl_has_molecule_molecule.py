@@ -17,6 +17,7 @@ from open_targets.data.schema import (
     FieldEvidenceChemblDrugId,
     FieldEvidenceChemblId,
 )
+from open_targets.definition.reference_kg.constant import EdgeLabel
 
 edge_target_disease_association_chembl_has_molecule_molecule: Final[AcquisitionDefinition[EdgeInfo]] = (
     ExpressionEdgeAcquisitionDefinition(
@@ -24,7 +25,7 @@ edge_target_disease_association_chembl_has_molecule_molecule: Final[AcquisitionD
         primary_id=NewUuidExpression(),
         source=FieldEvidenceChemblId,
         target=FieldEvidenceChemblDrugId,
-        label="has_molecule",
+        label=EdgeLabel.HAS_MOLECULE,
         properties=[],
     )
 )

@@ -16,6 +16,7 @@ from open_targets.data.schema import (
     FieldEvidenceCrisprDiseaseCellLines,
     FieldEvidenceCrisprId,
 )
+from open_targets.definition.reference_kg.constant import EdgeLabel
 
 edge_target_disease_association_crispr_tested_in_cell_line: Final[AcquisitionDefinition[EdgeInfo]] = (
     ExpressionEdgeAcquisitionDefinition(
@@ -23,7 +24,7 @@ edge_target_disease_association_crispr_tested_in_cell_line: Final[AcquisitionDef
         primary_id=NewUuidExpression(),
         source=FieldEvidenceCrisprId,
         target=FieldEvidenceCrisprDiseaseCellLines,
-        label="tested_in_cell_line",
+        label=EdgeLabel.TESTED_IN,
         properties=[],
     )
 )
