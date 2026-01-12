@@ -1,0 +1,11 @@
+"""Summary: node definitions for the reference knowledge graph."""
+
+{% for node in nodes %}
+from {{ node.module_path }} import {{ node.name }}
+{% endfor %}
+
+__all__ = [
+{% for node in nodes %}
+    "{{ node.name }}",
+{% endfor %}
+]

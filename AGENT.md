@@ -70,7 +70,7 @@ This is equivalent to: `normalise_curie(str(data[FieldEvidenceDiseaseId]))`
 - **Node definitions**: `open_targets/definition/reference_kg/node/`
 - **Edge definitions**: `open_targets/definition/reference_kg/edge/`
 - **Custom expressions**: `open_targets/definition/reference_kg/expression/`
-- **Configuration**: `config/` directory
+- **Configuration**: `example/` directories (e.g. `example/full_graph/biocypher_config.yaml`)
 - **Data files**: Data directories containing Open Targets parquet files (not included in repository)
 
 ## Data Versioning
@@ -152,14 +152,15 @@ When working with data:
 
 ## Running the Adapter
 
-Main entry point: `scripts/open_targets_biocypher_run.py`
+Main entry point: `example/full_graph/full_graph.py` (and other examples)
 
 ```bash
-uv run python scripts/open_targets_biocypher_run.py
+cd example/full_graph
+uv run python full_graph.py
 ```
 
 This script:
-1. Initializes BioCypher with config from `config/biocypher_config.yaml`
+1. Initializes BioCypher with config from `biocypher_config.yaml`
 2. Creates an `AcquisitionContext` with node/edge definitions
 3. Streams nodes and edges to BioCypher
 4. Generates the knowledge graph
@@ -195,7 +196,7 @@ The `datasets_location` parameter in `AcquisitionContext` should point to a dire
 1. `open_targets/adapter/context.py` - Main acquisition context
 2. `open_targets/adapter/expression.py` - Expression system
 3. `open_targets/definition/reference_kg/kg.py` - Main KG definition
-4. `scripts/open_targets_biocypher_run.py` - Execution script
+4. `example/full_graph/full_graph.py` - Execution script example
 5. `code_generation/generate.py` - Code generation logic
 
 ## When Making Changes

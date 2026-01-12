@@ -1,10 +1,12 @@
-# BioCypher Open Targets Data (24.09) Adapter
+# BioCypher Open Targets Data (25.12) Adapter
 
 [![Python Version](https://img.shields.io/badge/python-3.10-blue.svg)](https://www.python.org/downloads/)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 
 This repository contains a [BioCypher](https://biocypher.org) adapter for Open
-Targets data version 24.09. The project is currently under active development.
+Targets data version 25.12. The project is currently under active development.
+
+> **AI Usage Disclaimer**: This project makes extensive use of AI. The author guarantees that every effort has been made to oversee the architecture and coding style and review the generated content for quality and consistency.
 
 ## Table of Contents
 - [Overview](#overview)
@@ -35,6 +37,7 @@ nodes and edges. On a consumer laptop, building the full graph typically takes
 1-2 hours.
 
 **Key Features:**
+- **Includes a comprehensive knowledge graph definition designed to cover all data provided by the Open Targets Platform.** See [Reference Knowledge Graph](#reference-knowledge-graph) for details.
 - Declarative syntax for graph schema construction
 - Powered by [duckdb](https://duckdb.org/) for fast and memory-efficient processing
 - True streaming from datasets to BioCypher with minimal intermediate memory usage
@@ -75,6 +78,10 @@ Runnable examples are provided in the `example/` directory. Each example include
 - Configuration files
 - Data preparation instructions in `datasets/README.md`
 
+> [!IMPORTANT]
+> When running the example scripts, ensure your current working directory is the project root.
+
+
 ### Quick Start
 
 1. Follow the [Installation](#installation) steps
@@ -83,9 +90,10 @@ Runnable examples are provided in the `example/` directory. Each example include
    cd example/full_graph
    ```
 3. Follow the data preparation instructions in `datasets/README.md`
-4. Run the example:
+4. **Important:** Ensure your current working directory is the project root when running example scripts:
    ```bash
-   uv run python full_graph.py
+   cd /path/to/open-targets  # Navigate to project root
+   uv run python example/full_graph/full_graph.py
    ```
 
 ### Available Examples
