@@ -103,8 +103,8 @@ subcellular_location:
   is_a: named thing
   represented_as: node
 
-target:
-  input_label: TARGET
+protein:
+  input_label: PROTEIN
   is_a: named thing
   represented_as: node
 

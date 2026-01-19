@@ -25,7 +25,7 @@ from open_targets.data.schema import (
 node_target: Final[AcquisitionDefinition[NodeInfo]] = ExpressionNodeAcquisitionDefinition(
     scan_operation=RowScanOperation(dataset=DatasetTargets),
     primary_id=FieldTargetsId,
-    label="TARGET",
+    label="PROTEIN",
     properties=[
         FieldTargetsApprovedSymbol,
         FieldTargetsBiotype,
