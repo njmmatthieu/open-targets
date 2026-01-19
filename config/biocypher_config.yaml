@@ -8,3 +8,4 @@ neo4j:
   quote_character: '@'
   array_delimiter: '|'
   skip_bad_relationships: true
+  import_call_bin_prefix: ''  # path to "neo4j-admin"
